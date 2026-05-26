@@ -19,6 +19,9 @@
       <nav aria-label="Primary navigation">
         <a href="#leads">Source Leads</a>
         <a href="#workbench">Desk</a>
+        <a href="#document-intake">Intake</a>
+        <a href="#selection-rules">Rules</a>
+        <a href="#coverage">Coverage</a>
         <a href="#gap-tracker">Gaps</a>
         <a href="#source-pools">Source Pools</a>
         <a href="#ledger">Source Ledger</a>
@@ -38,7 +41,8 @@
           <p class="lede">
             A compiler-facing assist page for the unpublished World War II public
             diplomacy volume: OWI, OGR, USIS, VOA, OCIAA, FDR public-line checks,
-            NARA source pools, FDR Library anchors, and boundary controls.
+            NARA source pools, FDR Library anchors, document-intake rows,
+            selection rules, coverage checks, and boundary controls.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#leads">Open Source Leads</a>
@@ -114,6 +118,10 @@
           <p>candidate leads</p>
         </div>
         <div>
+          <span id="intake-count">0</span>
+          <p>intake rows</p>
+        </div>
+        <div>
           <span id="nara-count">0</span>
           <p>NARA rows</p>
         </div>
@@ -138,6 +146,65 @@
         </div>
         <div id="workbench-root" class="workbench-root" aria-live="polite">
           <p class="loading">Loading compiler desk...</p>
+        </div>
+      </section>
+
+      <section class="section records-section" id="document-intake" aria-labelledby="document-title">
+        <div class="section-heading">
+          <p class="kicker">Document Intake</p>
+          <h2 id="document-title">Candidate Rows To Start Closing Gaps</h2>
+        </div>
+        <div class="tools document-tools" aria-label="Search and filter document-intake rows">
+          <label class="search-field">
+            <span>Search intake</span>
+            <input id="document-search" type="search" placeholder="Search repositories, offices, selection tests, gaps" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="document-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="document-repository-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="document-status-filter"></select>
+          </label>
+          <button id="clear-document-filters" type="button">Reset</button>
+          <button id="export-documents" type="button">CSV</button>
+          <p id="document-summary" class="summary">Loading document-intake rows...</p>
+        </div>
+        <div id="document-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading document-intake rows...</p>
+        </div>
+      </section>
+
+      <section class="section rule-section" id="selection-rules" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <p class="kicker">Selection Rules</p>
+          <h2 id="rules-title">Promotion, Boundary, and Exclusion Tests</h2>
+        </div>
+        <div class="section-actions">
+          <button id="export-rules" type="button">CSV</button>
+          <p id="rules-summary" class="summary">Loading selection rules...</p>
+        </div>
+        <div id="rules-root" class="file-grid" aria-live="polite">
+          <p class="loading">Loading selection rules...</p>
+        </div>
+      </section>
+
+      <section class="section coverage-section" id="coverage" aria-labelledby="coverage-title">
+        <div class="section-heading">
+          <p class="kicker">Coverage Matrix</p>
+          <h2 id="coverage-title">Theater and Audience Balance</h2>
+        </div>
+        <div class="section-actions">
+          <button id="export-coverage" type="button">CSV</button>
+          <p id="coverage-summary" class="summary">Loading coverage matrix...</p>
+        </div>
+        <div id="coverage-root" class="file-grid" aria-live="polite">
+          <p class="loading">Loading coverage matrix...</p>
         </div>
       </section>
 
@@ -295,9 +362,14 @@
             <h3>NARA Core</h3>
             <p>
               <a href="https://www.archives.gov/research/guide-fed-records/groups/208.html">RG 208 OWI</a>,
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/059.html">RG 59 State</a>,
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/084.html">RG 84 posts</a>,
               <a href="https://www.archives.gov/research/guide-fed-records/groups/044.html">RG 44 OGR</a>,
               <a href="https://www.archives.gov/research/guide-fed-records/groups/229.html">RG 229 OIAA</a>,
-              and <a href="https://www.archives.gov/research/guide-fed-records/groups/216.html">RG 216 Censorship</a>.
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/216.html">RG 216 Censorship</a>,
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/107.html">RG 107 War</a>,
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/165.html">RG 165 MID</a>,
+              and <a href="https://www.archives.gov/research/guide-fed-records/groups/287.html">RG 287 publications</a>.
             </p>
           </article>
           <article>

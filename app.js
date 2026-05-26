@@ -7,6 +7,9 @@ const gaps = data.gaps || [];
 const sourcePools = data.sourcePools || [];
 const ledger = data.ledger || [];
 const boundaryRecords = data.boundaryRecords || [];
+const documentIntake = data.documentIntake || [];
+const selectionRules = data.selectionRules || [];
+const coverageMatrix = data.coverageMatrix || [];
 
 const state = {
   leads: {
@@ -28,6 +31,12 @@ const state = {
     repository: "",
     priority: ""
   },
+  documentIntake: {
+    query: "",
+    lane: "",
+    repository: "",
+    status: ""
+  },
   public: {
     query: "",
     lane: "",
@@ -42,6 +51,7 @@ const state = {
 
 const nodes = {
   totalLeads: document.querySelector("#total-leads"),
+  intakeCount: document.querySelector("#intake-count"),
   naraCount: document.querySelector("#nara-count"),
   fdrCount: document.querySelector("#fdr-count"),
   poolCount: document.querySelector("#pool-count"),
@@ -73,6 +83,20 @@ const nodes = {
   sourcePoolPriorityFilter: document.querySelector("#source-pool-priority-filter"),
   clearSourcePoolFilters: document.querySelector("#clear-source-pool-filters"),
   exportSourcePools: document.querySelector("#export-source-pools"),
+  documentRoot: document.querySelector("#document-root"),
+  documentSummary: document.querySelector("#document-summary"),
+  documentSearch: document.querySelector("#document-search"),
+  documentLaneFilter: document.querySelector("#document-lane-filter"),
+  documentRepositoryFilter: document.querySelector("#document-repository-filter"),
+  documentStatusFilter: document.querySelector("#document-status-filter"),
+  clearDocumentFilters: document.querySelector("#clear-document-filters"),
+  exportDocuments: document.querySelector("#export-documents"),
+  rulesRoot: document.querySelector("#rules-root"),
+  rulesSummary: document.querySelector("#rules-summary"),
+  exportRules: document.querySelector("#export-rules"),
+  coverageRoot: document.querySelector("#coverage-root"),
+  coverageSummary: document.querySelector("#coverage-summary"),
+  exportCoverage: document.querySelector("#export-coverage"),
   ledgerRoot: document.querySelector("#ledger-root"),
   ledgerSummary: document.querySelector("#ledger-summary"),
   publicRoot: document.querySelector("#public-root"),
@@ -145,10 +169,23 @@ function searchText(item) {
     item.evidence,
     item.problem,
     item.needed,
+    item.remediation,
     item.coverage,
     item.nextUse,
     item.nextAction,
     item.action,
+    item.dateRange,
+    item.recordGroup,
+    item.candidateType,
+    item.likelyOffices,
+    item.selectionTest,
+    item.sourceCopyTask,
+    item.disposition,
+    item.promoteWhen,
+    item.excludeWhen,
+    item.repositories,
+    item.missingEvidence,
+    item.seedSearches,
     item.boundaryReason,
     item.source,
     item.sourceNote,
@@ -157,7 +194,8 @@ function searchText(item) {
     item.targetTerms?.join(" "),
     item.matchedTerms?.join(" "),
     item.nextActions?.join(" "),
-    item.sourcePools?.join(" ")
+    item.sourcePools?.join(" "),
+    item.gapIds?.join(" ")
   ]
     .filter(Boolean)
     .join(" ")
@@ -177,6 +215,7 @@ function matchesQuery(item, query) {
 
 function setStats() {
   nodes.totalLeads.textContent = leads.length.toString();
+  nodes.intakeCount.textContent = documentIntake.length.toString();
   nodes.naraCount.textContent = leads.filter((lead) => lead.repository === "NARA").length.toString();
   nodes.fdrCount.textContent = leads.filter((lead) => lead.repository === "FDR Library").length.toString();
   nodes.poolCount.textContent = sourcePools.length.toString();
@@ -184,19 +223,18 @@ function setStats() {
 }
 
 function renderWorkbench() {
-  const coreLeads = leads.filter((lead) => /Core|Critical/i.test(`${lead.status} ${lead.priority}`));
   const naraPools = sourcePools.filter((pool) => pool.repository === "NARA");
   const fdrPools = sourcePools.filter((pool) => pool.repository === "FDR Library");
-  const openGaps = gaps.filter((gap) => gap.status === "Open");
+  const activeGaps = gaps.filter((gap) => gap.status !== "Closed");
   const boundaryCount = boundaryRecords.length;
   const officialStatus = meta.status || "Unknown";
 
   nodes.workbenchRoot.replaceChildren(
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
-    metricCard("Core leads", coreLeads.length, "Priority rows that should drive the first archival harvest."),
+    metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
     metricCard("NARA pools", naraPools.length, "Record group and catalog searches on the National Archives website."),
     metricCard("FDR pools", fdrPools.length, "FRANKLIN, speeches, schedules, and presidential-paper anchors."),
-    metricCard("Boundary rows", boundaryCount, `${plural(openGaps.length, "open gap")} keep the harvest honest.`)
+    metricCard("Active gaps", activeGaps.length, `${plural(boundaryCount, "boundary row")} keep the harvest honest.`)
   );
 }
 
@@ -381,6 +419,9 @@ function gapCard(gap) {
   const needed = document.createElement("p");
   needed.className = "source-note";
   needed.textContent = gap.needed;
+  const remediation = document.createElement("p");
+  remediation.className = "source-note";
+  remediation.textContent = gap.remediation ? `Remediation: ${gap.remediation}` : "";
 
   const actions = document.createElement("ol");
   actions.className = "action-list";
@@ -390,7 +431,9 @@ function gapCard(gap) {
     actions.append(item);
   }
 
-  card.append(header, evidence, problem, needed, actions);
+  card.append(header, evidence, problem, needed);
+  if (gap.remediation) card.append(remediation);
+  card.append(actions);
   if (gap.targetTerms?.length) card.append(termChips(gap.targetTerms));
   if (gap.sourcePools?.length) {
     const pools = document.createElement("p");
@@ -453,6 +496,133 @@ function sourcePoolCard(pool) {
   if (pool.url) actions.append(linkButton("Open source", pool.url));
 
   card.append(header, priorityChip(pool.priority), coverage, nextUse, actions);
+  return card;
+}
+
+function filteredDocumentIntake() {
+  return documentIntake.filter((item) => {
+    if (!matchesQuery(item, state.documentIntake.query)) return false;
+    if (state.documentIntake.lane && item.lane !== state.documentIntake.lane) return false;
+    if (state.documentIntake.repository && item.repository !== state.documentIntake.repository) return false;
+    if (state.documentIntake.status && item.status !== state.documentIntake.status) return false;
+    return true;
+  });
+}
+
+function renderDocumentIntake() {
+  const visible = filteredDocumentIntake().sort(
+    (a, b) =>
+      chapterNumber(a.lane) - chapterNumber(b.lane) ||
+      (a.dateRange || "").localeCompare(b.dateRange || "") ||
+      a.title.localeCompare(b.title)
+  );
+  nodes.documentSummary.textContent = `${plural(visible.length, "row")} visible from ${documentIntake.length} document-intake rows.`;
+  nodes.documentRoot.replaceChildren(...visible.map(documentCard));
+  if (!visible.length) nodes.documentRoot.innerHTML = '<p class="empty">No document-intake rows match the current filters.</p>';
+}
+
+function documentCard(item) {
+  const card = document.createElement("article");
+  card.className = "record-card intake-card";
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(item.id), textSpan(item.dateRange), textSpan(item.repository), textSpan(item.status));
+  const title = document.createElement("h4");
+  title.textContent = item.title;
+  titleBlock.append(metaRow, title);
+
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(item.lane), chip(item.candidateType), priorityChip(item.status));
+  header.append(titleBlock, chips);
+
+  const offices = document.createElement("p");
+  offices.textContent = item.likelyOffices;
+  const selection = document.createElement("p");
+  selection.className = "source-note";
+  selection.textContent = `Selection test: ${item.selectionTest}`;
+  const task = document.createElement("p");
+  task.className = "source-note";
+  task.textContent = `Source-copy task: ${item.sourceCopyTask}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  if (item.url) actions.append(linkButton("Open source", item.url));
+  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+
+  card.append(header, offices, selection, task, actions, sourceNoteDetails(item));
+  if (item.gapIds?.length) card.append(termChips(item.gapIds));
+  return card;
+}
+
+function renderSelectionRules() {
+  nodes.rulesSummary.textContent = `${plural(selectionRules.length, "rule")} define promotion, boundary, and exclusion tests for candidate documents.`;
+  nodes.rulesRoot.replaceChildren(...selectionRules.map(ruleCard));
+  if (!selectionRules.length) nodes.rulesRoot.innerHTML = '<p class="empty">No selection rules were generated.</p>';
+}
+
+function ruleCard(rule) {
+  const card = document.createElement("article");
+  card.className = "file-card rule-card";
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "file-meta";
+  metaRow.append(textSpan(rule.id), textSpan(rule.disposition), textSpan(rule.scope));
+  const title = document.createElement("h3");
+  title.textContent = rule.title;
+  titleBlock.append(metaRow, title);
+  header.append(titleBlock, priorityChip(rule.disposition));
+
+  const ruleText = document.createElement("p");
+  ruleText.textContent = rule.rule;
+  const promote = document.createElement("p");
+  promote.className = "source-note";
+  promote.textContent = `Promote when: ${rule.promoteWhen}`;
+  const exclude = document.createElement("p");
+  exclude.className = "source-note";
+  exclude.textContent = `Hold or exclude when: ${rule.excludeWhen}`;
+
+  card.append(header, ruleText, promote, exclude);
+  if (rule.gapIds?.length) card.append(termChips(rule.gapIds));
+  return card;
+}
+
+function renderCoverageMatrix() {
+  nodes.coverageSummary.textContent = `${plural(coverageMatrix.length, "coverage row")} track theater, audience, and repository balance.`;
+  nodes.coverageRoot.replaceChildren(...coverageMatrix.map(coverageCard));
+  if (!coverageMatrix.length) nodes.coverageRoot.innerHTML = '<p class="empty">No coverage rows were generated.</p>';
+}
+
+function coverageCard(item) {
+  const card = document.createElement("article");
+  card.className = `file-card priority-${item.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "file-meta";
+  metaRow.append(textSpan(item.priority), textSpan(item.theater), textSpan(item.audience));
+  const title = document.createElement("h3");
+  title.textContent = item.title;
+  titleBlock.append(metaRow, title);
+  header.append(titleBlock, priorityChip(item.priority));
+
+  const repositories = document.createElement("p");
+  repositories.textContent = `Repositories: ${item.repositories}`;
+  const missing = document.createElement("p");
+  missing.className = "source-note";
+  missing.textContent = `Missing evidence: ${item.missingEvidence}`;
+  const seeds = document.createElement("p");
+  seeds.className = "source-note";
+  seeds.textContent = `Seed searches: ${item.seedSearches}`;
+
+  card.append(header, repositories, missing, seeds);
+  if (item.gapIds?.length) card.append(termChips(item.gapIds));
   return card;
 }
 
@@ -690,6 +860,9 @@ function populateFilters() {
   addOptions(nodes.sourcePoolLaneFilter, uniqueSorted(sourcePools.map((pool) => pool.lane)), "All lanes");
   addOptions(nodes.sourcePoolRepositoryFilter, uniqueSorted(sourcePools.map((pool) => pool.repository)), "All repositories");
   addOptions(nodes.sourcePoolPriorityFilter, uniqueSorted(sourcePools.map((pool) => pool.priority)), "All priorities");
+  addOptions(nodes.documentLaneFilter, uniqueSorted(documentIntake.map((item) => item.lane)), "All lanes");
+  addOptions(nodes.documentRepositoryFilter, uniqueSorted(documentIntake.map((item) => item.repository)), "All repositories");
+  addOptions(nodes.documentStatusFilter, uniqueSorted(documentIntake.map((item) => item.status)), "All statuses");
   addOptions(nodes.publicLaneFilter, uniqueSorted(publicReferences.map((item) => item.lane)), "All lanes");
   addOptions(nodes.publicRepositoryFilter, uniqueSorted(publicReferences.map((item) => item.repository)), "All repositories");
   addOptions(nodes.boundaryLaneFilter, uniqueSorted(boundaryRecords.map((record) => record.lane)), "All lanes");
@@ -830,6 +1003,85 @@ function setupEvents() {
     );
   });
 
+  nodes.documentSearch.addEventListener("input", (event) => {
+    state.documentIntake.query = event.target.value;
+    renderDocumentIntake();
+  });
+  nodes.documentLaneFilter.addEventListener("change", (event) => {
+    state.documentIntake.lane = event.target.value;
+    renderDocumentIntake();
+  });
+  nodes.documentRepositoryFilter.addEventListener("change", (event) => {
+    state.documentIntake.repository = event.target.value;
+    renderDocumentIntake();
+  });
+  nodes.documentStatusFilter.addEventListener("change", (event) => {
+    state.documentIntake.status = event.target.value;
+    renderDocumentIntake();
+  });
+  nodes.clearDocumentFilters.addEventListener("click", () => {
+    state.documentIntake = { query: "", lane: "", repository: "", status: "" };
+    nodes.documentSearch.value = "";
+    nodes.documentLaneFilter.value = "";
+    nodes.documentRepositoryFilter.value = "";
+    nodes.documentStatusFilter.value = "";
+    renderDocumentIntake();
+  });
+  nodes.exportDocuments.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-document-intake.csv",
+      toCsv(filteredDocumentIntake(), [
+        { label: "ID", value: (item) => item.id },
+        { label: "Date Range", value: (item) => item.dateRange },
+        { label: "Lane", value: (item) => item.lane },
+        { label: "Repository", value: (item) => item.repository },
+        { label: "Record Group", value: (item) => item.recordGroup },
+        { label: "Candidate Type", value: (item) => item.candidateType },
+        { label: "Status", value: (item) => item.status },
+        { label: "Source Pool", value: (item) => item.sourcePoolId },
+        { label: "Title", value: (item) => item.title },
+        { label: "Likely Offices", value: (item) => item.likelyOffices },
+        { label: "Selection Test", value: (item) => item.selectionTest },
+        { label: "Source Copy Task", value: (item) => item.sourceCopyTask },
+        { label: "Gap IDs", value: (item) => (item.gapIds || []).join("; ") },
+        { label: "URL", value: (item) => item.url },
+        { label: "Source Note", value: (item) => item.sourceNote }
+      ])
+    );
+  });
+
+  nodes.exportRules.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-selection-rules.csv",
+      toCsv(selectionRules, [
+        { label: "ID", value: (rule) => rule.id },
+        { label: "Scope", value: (rule) => rule.scope },
+        { label: "Disposition", value: (rule) => rule.disposition },
+        { label: "Title", value: (rule) => rule.title },
+        { label: "Rule", value: (rule) => rule.rule },
+        { label: "Promote When", value: (rule) => rule.promoteWhen },
+        { label: "Hold Or Exclude When", value: (rule) => rule.excludeWhen },
+        { label: "Gap IDs", value: (rule) => (rule.gapIds || []).join("; ") }
+      ])
+    );
+  });
+
+  nodes.exportCoverage.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-coverage-matrix.csv",
+      toCsv(coverageMatrix, [
+        { label: "Priority", value: (item) => item.priority },
+        { label: "Theater", value: (item) => item.theater },
+        { label: "Audience", value: (item) => item.audience },
+        { label: "Title", value: (item) => item.title },
+        { label: "Repositories", value: (item) => item.repositories },
+        { label: "Missing Evidence", value: (item) => item.missingEvidence },
+        { label: "Seed Searches", value: (item) => item.seedSearches },
+        { label: "Gap IDs", value: (item) => (item.gapIds || []).join("; ") }
+      ])
+    );
+  });
+
   nodes.publicSearch.addEventListener("input", (event) => {
     state.public.query = event.target.value;
     renderPublicReferences();
@@ -894,6 +1146,9 @@ function init() {
   renderLeads();
   renderGapTracker();
   renderSourcePools();
+  renderDocumentIntake();
+  renderSelectionRules();
+  renderCoverageMatrix();
   renderLedger();
   renderPublicReferences();
   renderBoundaryRecords();

@@ -262,7 +262,7 @@ dd {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
   margin-bottom: 70px;
 }
@@ -289,6 +289,10 @@ dd {
 
 .stats div:nth-child(5) {
   background: var(--plum);
+}
+
+.stats div:nth-child(6) {
+  background: #314d4f;
 }
 
 .stats span {
@@ -457,7 +461,8 @@ dd {
 }
 
 .gap-tools,
-.source-pool-tools {
+.source-pool-tools,
+.document-tools {
   grid-template-columns: minmax(260px, 2fr) repeat(3, minmax(140px, 1fr)) auto auto;
 }
 
@@ -569,6 +574,10 @@ button:focus-visible {
 
 .record-card.priority-high {
   border-top-color: var(--gold);
+}
+
+.intake-card {
+  border-top-color: var(--green);
 }
 
 .record-card header,
@@ -775,6 +784,10 @@ summary {
   border-top-color: var(--rust);
 }
 
+.file-card.priority-boundary {
+  border-top-color: var(--plum);
+}
+
 .file-card .file-actions {
   margin-top: auto;
 }
@@ -785,6 +798,27 @@ summary {
 
 .ledger-summary {
   margin-bottom: 16px;
+}
+
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.section-actions .summary {
+  flex: 1 1 260px;
+  margin: 0;
+}
+
+.section-actions button {
+  min-width: 76px;
+}
+
+.rule-card {
+  border-top-color: var(--plum);
 }
 
 .boundary-card {
@@ -891,6 +925,7 @@ footer {
   .tools,
   .gap-tools,
   .source-pool-tools,
+  .document-tools,
   .public-tools,
   .boundary-tools,
   .persons-tools {
@@ -938,6 +973,7 @@ footer {
   .tools,
   .gap-tools,
   .source-pool-tools,
+  .document-tools,
   .public-tools,
   .boundary-tools,
   .persons-tools {
