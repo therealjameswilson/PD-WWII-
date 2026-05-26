@@ -24,10 +24,10 @@ rather than a published FRUS document chronology.
 The committed data currently contains:
 
 - `16` candidate source leads
-- `12` NARA/FDR source pools
+- `18` NARA/FDR source pools
 - `7` source-copy ledger anchors
 - `6` public-line references
-- `6` compiler gap-tracker items
+- `15` compiler gap-tracker items
 - `4` boundary-control rows
 - `18` persons-list candidates
 

@@ -489,120 +489,304 @@ window.VOLUME_DATA = {
       priority: "Critical",
       status: "Open",
       lane: "Creating War Information",
-      title: "No published FRUS table of contents yet",
+      title: "No document-level FRUS selection register yet",
       evidence:
-        "The official History.state.gov volume page lists the volume as Being Researched and has no document table of contents.",
+        "The official History.state.gov volume page lists the volume as Being Researched and has no published table of contents, while the current assist page is still organized around source pools.",
       problem:
-        "The assist page must distinguish candidate leads from selected FRUS documents until a compiler chronology exists.",
+        "A retro FRUS volume needs a candidate-document register with dates, authors, recipients, source notes, scope rationale, and selection status, not only record-group descriptions.",
       needed:
-        "Maintain source-lead status labels and avoid numbering any row as a final document selection.",
+        "Create a document-level intake ledger and reserve final document numbers until the chronology is selected.",
       nextActions: [
-        "Recheck the History.state.gov volume page before publication updates.",
-        "Keep candidate IDs separate from eventual FRUS document numbers.",
-        "Record source pool provenance for every lead."
+        "Convert each promising source pool into file-unit and item-level candidates.",
+        "Add fields for author, recipient, date, document type, repository, box/file or catalog ID, source-copy status, and FRUS-worthiness rationale.",
+        "Keep source-pool IDs separate from eventual FRUS document numbers."
       ],
-      targetTerms: ["Being Researched", "FRUS", "table of contents"],
-      sourcePools: ["History.state volume page", "Status of the Series"]
+      targetTerms: ["document register", "source-copy status", "FRUS selection", "table of contents"],
+      sourcePools: ["History.state volume page", "Status of the Series", "All active NARA/FDR pools"]
     },
     {
       id: "GAP-002",
       priority: "Critical",
       status: "Open",
-      lane: "OWI Overseas and VOA",
-      title: "OWI overseas outpost map is not yet harvested",
+      lane: "Creating War Information",
+      title: "State Department policy records are underrepresented",
       evidence:
-        "RG 208 describes extensive New York, San Francisco, outpost, communications, publications, and radio records.",
+        "RG 59 includes State Central Files, principal-officer records, records of Archibald MacLeish, and offices responsible for public information and cultural affairs.",
       problem:
-        "Without outpost/cable leads, the volume risks becoming a Washington organization history rather than a foreign public-diplomacy volume.",
+        "The current page is OWI-heavy. Without State Department records, the volume will not meet FRUS standards for major foreign policy decisions and significant diplomatic activity.",
       needed:
-        "A country/outpost table connecting policy guidance, overseas distribution, radio, and reporting files.",
+        "RG 59 Central Files and organizational-unit searches for State approval, objections, coordination, embassy reporting, IIS handoff, and public/cultural affairs policy.",
       nextActions: [
-        "Mine RG 208 Overseas Operations Branch series descriptions.",
-        "Search NARA Catalog for outpost names and radio network terms.",
-        "Cross-check State Department and embassy channels once RG 59 leads are identified."
+        "Search RG 59 Central Decimal File terms for OWI, Office of War Information, USIS, cultural relations, propaganda, radio, news, and public affairs.",
+        "Add document candidates from Secretary, Under Secretary, MacLeish, Pasvolsky, and Stettinius files.",
+        "Cross-check every major OWI initiative against State routing or diplomatic correspondence."
       ],
-      targetTerms: ["outpost", "overseas publications", "communications control", "San Francisco Office"],
-      sourcePools: ["RG 208 Guide", "NARA Catalog OWI overseas searches"]
+      targetTerms: ["RG 59", "Archibald MacLeish", "State Department", "public information", "cultural affairs"],
+      sourcePools: ["RG 59 - General Records of the Department of State", "NARA Catalog IIIS search"]
     },
     {
       id: "GAP-003",
+      priority: "Critical",
+      status: "Open",
+      lane: "OWI Overseas and VOA",
+      title: "Foreign Service post reporting is missing",
+      evidence:
+        "RG 84 contains records of diplomatic and consular posts, including wartime records for major posts in Latin America, Europe, the Middle East, Asia, and the Pacific.",
+      problem:
+        "The current map has Washington and agency records but almost no embassy evidence on how public diplomacy operated abroad or how foreign audiences and host governments reacted.",
+      needed:
+        "A post-by-post matrix of embassy/consular reporting, OWI outpost coordination, host-government reactions, and public-affairs implementation.",
+      nextActions: [
+        "Select priority posts by theater and audience: London, Mexico City, Rio de Janeiro, Buenos Aires, Cairo, Ankara, Stockholm, Moscow, Chungking/China, Lisbon, Madrid, and liberated/occupied posts.",
+        "Search RG 84 post files for OWI, USIS, information, radio, press, films, exhibits, propaganda, and cultural relations.",
+        "Use post records to confirm which Washington decisions produced diplomatic activity abroad."
+      ],
+      targetTerms: ["RG 84", "Foreign Service posts", "embassy reporting", "OWI outposts", "host-government reaction"],
+      sourcePools: ["RG 84 - Foreign Service Posts", "RG 59 - General Records of the Department of State"]
+    },
+    {
+      id: "GAP-004",
+      priority: "Critical",
+      status: "Open",
+      lane: "OWI Overseas and VOA",
+      title: "OWI overseas outpost map is not yet harvested",
+      evidence:
+        "RG 208 describes extensive New York, San Francisco, outpost, communications, publications, radio, and overseas records.",
+      problem:
+        "Without outpost/cable leads, the volume risks becoming a Washington organization history rather than a foreign public-diplomacy volume.",
+      needed:
+        "A country/outpost table connecting policy guidance, overseas distribution, radio, publications, field reporting, and diplomatic clearance.",
+      nextActions: [
+        "Mine RG 208 Overseas Operations Branch series descriptions.",
+        "Search NARA Catalog for outpost names, New York/San Francisco office series, communications control, and overseas publications.",
+        "Cross-check OWI records against RG 59 and RG 84 once State/post leads are added."
+      ],
+      targetTerms: ["outpost", "overseas publications", "communications control", "San Francisco Office", "New York Office"],
+      sourcePools: ["RG 208 - Records of the Office of War Information", "NARA Catalog OWI overseas searches"]
+    },
+    {
+      id: "GAP-005",
+      priority: "High",
+      status: "Open",
+      lane: "OWI Overseas and VOA",
+      title: "VOA and radio policy chain is incomplete",
+      evidence:
+        "The current page has a VOA search lead, but not a chronology tying radio scripts, shortwave facilities, language services, State clearance, monitoring, and overseas reaction together.",
+      problem:
+        "VOA can become a media-output story unless the compiler identifies decisions about audience, content, policy control, and diplomatic consequences.",
+      needed:
+        "A radio sub-ledger for guidance, scripts, broadcasts, language desks, monitoring, foreign reaction, and source copies.",
+      nextActions: [
+        "Harvest OWI radio program and overseas communications records.",
+        "Add Office of Censorship short-wave watch logs as reception/monitoring evidence.",
+        "Compare OIAA Latin American radio scripts and reaction reports against VOA and State records."
+      ],
+      targetTerms: ["Voice of America", "shortwave", "radio scripts", "language service", "broadcast monitoring"],
+      sourcePools: [
+        "NARA Catalog search - Voice of America and OWI",
+        "RG 216 - Office of Censorship broadcast monitoring",
+        "RG 229 - Records of the Office of Inter-American Affairs"
+      ]
+    },
+    {
+      id: "GAP-006",
       priority: "High",
       status: "Open",
       lane: "Hemisphere and Cultural Exchange",
       title: "Latin America boundary between OWI and OCIAA requires firm controls",
       evidence:
-        "RG 229 records include radio, motion pictures, education, publications, regional committees, and press work for the hemisphere.",
+        "RG 229 includes Department of Information records, motion picture, radio, education, regional, press, publications, and graphics files, but also substantial economic, transportation, health, and agricultural programs.",
       problem:
-        "OCIAA material can easily dominate the volume unless the page flags which records bear on broader wartime public diplomacy.",
+        "OCIAA material can easily dominate the volume unless rows are limited to foreign-policy-relevant information and cultural diplomacy.",
       needed:
-        "Boundary rules for information/cultural work versus economic development, transportation, health, and agricultural programs.",
+        "Boundary rules for information/cultural work versus economic development, transportation, health, agriculture, and operational assistance.",
       nextActions: [
         "Harvest Department of Information and Department of Press and Publications first.",
-        "Mark economic development and transportation rows as boundary unless information strategy is explicit.",
-        "Track Nelson Rockefeller and State Department coordination separately."
+        "Mark economic development, transportation, health, agriculture, and basic economy rows as boundary unless information strategy is explicit.",
+        "Track Nelson Rockefeller, State Department, embassy, and coordination committee records separately."
       ],
-      targetTerms: ["OCIAA", "OIAA", "Nelson Rockefeller", "Radio Division", "Motion Picture Division"],
-      sourcePools: ["RG 229 Guide", "NARA Catalog OIAA search"]
+      targetTerms: ["OCIAA", "OIAA", "Nelson Rockefeller", "Radio Division", "Motion Picture Division", "En Guardia"],
+      sourcePools: ["RG 229 - Records of the Office of Inter-American Affairs", "RG 84 - Foreign Service Posts"]
     },
     {
-      id: "GAP-004",
+      id: "GAP-007",
       priority: "High",
       status: "Open",
       lane: "Peace Aims and Handoff",
-      title: "State Department handoff files still need direct RG 59 anchors",
+      title: "State handoff and postwar bridge need direct records",
       evidence:
-        "NARA guides show OWI/OIAA functions moving toward State in 1945, but this page does not yet include direct State Department Central File or IIS file-unit leads.",
+        "NARA guides show OWI/OIAA functions moving toward State in 1945, but this page does not yet include direct State Central File, MacLeish, IIS, or early postwar information file-unit leads.",
       problem:
         "The bridge from wartime information agencies to postwar public diplomacy will remain incomplete without State-side records.",
       needed:
-        "RG 59 and interim international information service source pools with dates, file classifications, and archive locations.",
+        "RG 59 and Interim International Information Service source pools with dates, file classifications, and archive locations.",
       nextActions: [
-        "Search NARA Catalog for Interim International Information Service and Office of International Information and Cultural Affairs.",
-        "Add RG 59 source pools once specific series are verified.",
-        "Connect the handoff to Public Diplomacy Volume IV."
+        "Search NARA Catalog for Interim International Information Service, Assistant Secretary for Public and Cultural Relations, and Office of International Information and Cultural Affairs.",
+        "Add RG 59 file-unit candidates for August-December 1945 handoff decisions.",
+        "Connect the handoff to Public Diplomacy Volume IV, 1945-1952."
       ],
-      targetTerms: ["Interim International Information Service", "IIIS", "RG 59", "State Department"],
-      sourcePools: ["NARA Catalog IIIS search", "RG 44 Guide", "RG 229 Guide"]
+      targetTerms: ["Interim International Information Service", "IIIS", "MacLeish", "EO 9608", "State handoff"],
+      sourcePools: ["RG 59 - General Records of the Department of State", "NARA Catalog IIIS search"]
     },
     {
-      id: "GAP-005",
+      id: "GAP-008",
+      priority: "High",
+      status: "Open",
+      lane: "Peace Aims and Handoff",
+      title: "FDR and White House decision files need document-level matching",
+      evidence:
+        "FDR Library provides digital collections, Day by Day, Master Speech File, and collection-level access to presidential papers, but the current data has no folder-level White House candidates.",
+      problem:
+        "Public speeches alone are not enough; the compiler needs the decision machinery behind the public line.",
+      needed:
+        "For each major speech or public line, connect drafts, White House routing, OWI treatment, overseas guidance, State clearance, and reception evidence.",
+      nextActions: [
+        "Start with Four Freedoms, Pearl Harbor, 1943 State of the Union, D-Day, United Nations, and surrender/victory themes.",
+        "Search President's Secretary's File, Official File, President's Personal File, Master Speech File, Hopkins papers, Early material, and Mellett-related files.",
+        "Date-match FDR Day by Day meetings against OWI, State, and War Department decisions."
+      ],
+      targetTerms: ["Master Speech File", "Day by Day", "President's Secretary's File", "Official File", "speech drafts"],
+      sourcePools: ["FDR Digital Collections", "FDR Master Speech File", "President's Secretary's File", "FDR Library collections list"]
+    },
+    {
+      id: "GAP-009",
+      priority: "High",
+      status: "Open",
+      lane: "Creating War Information",
+      title: "Military public relations and psychological warfare boundaries are unresolved",
+      evidence:
+        "RG 107 contains War Department Bureau of Public Relations records, and RG 165 includes MID/G-2 propaganda and psychological warfare files.",
+      problem:
+        "Some military information records are essential context, but including tactical psychological warfare or armed forces public relations without boundaries would distort the diplomatic volume.",
+      needed:
+        "Include military records only when they document interagency policy, foreign-audience strategy, diplomatic controversy, or OWI/State coordination.",
+      nextActions: [
+        "Add War Department BPR and MID Propaganda Branch as boundary source pools.",
+        "Search for joint OWI-State-War/Navy coordination on information policy.",
+        "Exclude operational theater propaganda unless it affected diplomatic policy or public diplomacy."
+      ],
+      targetTerms: ["Bureau of Public Relations", "Propaganda Branch", "psychological warfare", "War Department", "MID"],
+      sourcePools: ["RG 107 - War Department Bureau of Public Relations", "RG 165 - MID Propaganda Branch"]
+    },
+    {
+      id: "GAP-010",
       priority: "Medium",
       status: "Open",
       lane: "Prewar Information Policy",
       title: "Domestic morale and public-opinion files need selection rules",
       evidence:
-        "RG 44 and RG 208 contain large survey, editorial analysis, public inquiry, and domestic operations files.",
+        "RG 44 and RG 208 contain large survey, editorial analysis, public inquiry, poster, and domestic operations files.",
       problem:
         "Domestic morale records can provide context but may not be foreign relations documents without an overseas policy connection.",
       needed:
-        "A rule that domestic records enter the chronology only when they shaped overseas information policy, foreign audiences, or State/White House decisions.",
+        "A rule that domestic records enter the chronology only when they shaped overseas information policy, foreign audiences, State/White House decisions, or diplomatic activity.",
       nextActions: [
         "Tag domestic-only rows as boundary or context.",
-        "Promote rows with State, White House, foreign audience, or overseas distribution connections.",
-        "Keep surveys and media analysis as evidence fields."
+        "Promote rows with State, White House, foreign audience, overseas distribution, or diplomatic feedback connections.",
+        "Keep surveys and media analysis as evidence fields supporting decision documents."
       ],
-      targetTerms: ["public opinion", "surveys", "civilian morale", "media cooperation"],
-      sourcePools: ["RG 44 Guide", "RG 208 Guide"]
+      targetTerms: ["public opinion", "surveys", "civilian morale", "media cooperation", "Domestic Operations"],
+      sourcePools: ["RG 44 - Records of the Office of Government Reports", "RG 208 - Records of the Office of War Information"]
     },
     {
-      id: "GAP-006",
+      id: "GAP-011",
+      priority: "Medium",
+      status: "Open",
+      lane: "OWI Overseas and VOA",
+      title: "Publication, film, photograph, and exhibit outputs are not tied to policy",
+      evidence:
+        "RG 208 and RG 229 identify large publication, motion picture, still-picture, poster, and exhibit series, while RG 287 holds record copies of U.S. Government publications.",
+      problem:
+        "The compiler needs to show which outputs mattered because they reflected or implemented policy decisions, not merely list media products.",
+      needed:
+        "A production-output crosswalk linking policy decisions to pamphlets, magazines, posters, films, photographs, exhibits, and distribution records.",
+      nextActions: [
+        "Add RG 287 and NARA media series as output verification pools.",
+        "For each selected output, find the guidance, clearance, audience, distribution, and reaction record.",
+        "Keep standalone media artifacts as supporting evidence unless tied to decisions."
+      ],
+      targetTerms: ["RG 287", "Victory Magazine", "En Guardia", "exhibits", "motion pictures", "posters"],
+      sourcePools: ["RG 287 - Publications of the U.S. Government", "RG 208 - Records of the Office of War Information", "RG 229 - Records of the Office of Inter-American Affairs"]
+    },
+    {
+      id: "GAP-012",
       priority: "Medium",
       status: "Open",
       lane: "Peace Aims and Handoff",
-      title: "FDR public line needs document-level matching to OWI guidance",
+      title: "Interwar and postwar volume boundaries are not operationalized",
       evidence:
-        "FDR Library provides Master Speech File, Day by Day, Official File, President's Personal File, and press release anchors.",
+        "History.state.gov lists Public Diplomacy Volume II, The Interwar Period, as Being Researched and Volume IV, 1945-1952, as Planned.",
       problem:
-        "Public speeches alone are not enough; the compiler needs the policy and information machinery behind the public line.",
+        "The WWII volume needs clear entry and exit rules for pre-1939 public information precedents and post-August 1945 State information programs.",
       needed:
-        "For each major speech or public line, connect drafts, White House routing, OWI treatment, overseas radio/publication guidance, and reception evidence.",
+        "Boundary dates and transfer criteria that keep predecessor and successor records from crowding the wartime volume while preserving essential continuity.",
       nextActions: [
-        "Start with Four Freedoms, Pearl Harbor, 1943 State of the Union, D-Day, and United Nations themes.",
-        "Search FDR PSF/PPF and Master Speech File for relevant folders.",
-        "Match dates against OWI overseas and radio files."
+        "Use 1939-1941 material only to explain institutions and decisions that shaped wartime public diplomacy.",
+        "Use post-August 1945 material only for termination, transfer, and immediate State handoff decisions.",
+        "Tag bridge records for possible Volume II or Volume IV coordination."
       ],
-      targetTerms: ["Master Speech File", "Day by Day", "speech drafts", "OWI guidance"],
-      sourcePools: ["FDR Digital Collections", "FDR Master Speech File", "FDR Day by Day"]
+      targetTerms: ["Public Diplomacy Volume II", "Public Diplomacy Volume IV", "interwar", "postwar", "handoff"],
+      sourcePools: ["Status of the Series", "RG 44 - Records of the Office of Government Reports", "RG 59 - General Records of the Department of State"]
+    },
+    {
+      id: "GAP-013",
+      priority: "Medium",
+      status: "Open",
+      lane: "Creating War Information",
+      title: "Persons and organizational authority are too thin",
+      evidence:
+        "The current persons list has 18 entries and several review flags, but a retro volume will require accurate titles, dates, offices, aliases, and organization changes.",
+      problem:
+        "OWI, OGR, OFF, COI, OIAA, State, War, and FDR Library records use changing office names and inconsistent personal-name forms.",
+      needed:
+        "A persons and organization authority file that tracks offices, title dates, agency successions, and aliases.",
+      nextActions: [
+        "Build an organization chronology from executive orders, staff orders, NARA administrative histories, and State records.",
+        "Add officials from OWI Domestic, OWI Overseas, VOA/radio, OIAA, State public/cultural affairs, War BPR, and Foreign Service posts.",
+        "Normalize name forms only after source-note evidence is attached."
+      ],
+      targetTerms: ["persons list", "organization chart", "staff orders", "Executive Order", "aliases"],
+      sourcePools: ["RG 208 - Records of the Office of War Information", "RG 44 - Records of the Office of Government Reports", "RG 59 - General Records of the Department of State"]
+    },
+    {
+      id: "GAP-014",
+      priority: "Medium",
+      status: "Open",
+      lane: "OWI Overseas and VOA",
+      title: "Geographic and audience balance is not yet measurable",
+      evidence:
+        "The lead set does not yet distinguish Europe, Latin America, China, the Pacific, the Middle East, neutral states, occupied territories, exile audiences, or liberated areas.",
+      problem:
+        "A public diplomacy volume needs to avoid overrepresenting agencies or media while missing major audiences and theaters.",
+      needed:
+        "A geographic/audience dashboard keyed to outposts, posts, language services, media channels, and major wartime policy moments.",
+      nextActions: [
+        "Create theater tags for Europe, Latin America, China/Burma/India, Pacific, Middle East/North Africa, neutral Europe, and occupied/liberated areas.",
+        "Tie language services and media channels to each theater.",
+        "Use RG 84 and OWI outpost records to test whether each theater has source coverage."
+      ],
+      targetTerms: ["Europe", "Latin America", "China", "Pacific", "neutral states", "language services"],
+      sourcePools: ["RG 84 - Foreign Service Posts", "RG 208 - Records of the Office of War Information", "RG 229 - Records of the Office of Inter-American Affairs"]
+    },
+    {
+      id: "GAP-015",
+      priority: "Low",
+      status: "Open",
+      lane: "Peace Aims and Handoff",
+      title: "Foreign and private-paper corroboration is not scoped",
+      evidence:
+        "The current source map is intentionally U.S.-government-heavy and has not identified British, Allied, private-paper, press, or memoir collections for verification.",
+      problem:
+        "FRUS selection should rest on U.S. records, but corroborating collections can help identify missing U.S. documents, clarify reception, and explain disputes.",
+      needed:
+        "A controlled supplemental-source list that supports selection without replacing official U.S. documentation.",
+      nextActions: [
+        "Identify private papers for Davis, Mellett, Rockefeller, MacLeish, Sherwood, Hopkins, Early, and other key officials.",
+        "Use Allied and foreign records only to flag missing U.S. records or document reception when U.S. files are silent.",
+        "Keep supplemental sources out of the main chronology unless they meet FRUS source-use standards."
+      ],
+      targetTerms: ["private papers", "British Ministry of Information", "BBC", "Allied records", "foreign reaction"],
+      sourcePools: ["FDR Library collections list", "FRUS source-use review"]
     }
   ],
   sourcePools: [
@@ -749,6 +933,78 @@ window.VOLUME_DATA = {
         "Catalog search seed for VOA broadcaster, radio, and OWI overseas transmission files.",
       nextUse:
         "Build a VOA subset and connect records to overseas policy guidance."
+    },
+    {
+      id: "POOL-013",
+      priority: "Active",
+      lane: "Peace Aims and Handoff",
+      repository: "NARA",
+      title: "RG 59 - General Records of the Department of State",
+      url: "https://www.archives.gov/research/guide-fed-records/groups/059.html",
+      coverage:
+        "State Central Files, principal officer records, Archibald MacLeish files, cultural affairs, public information, and postwar information handoff records.",
+      nextUse:
+        "Use as the main FRUS control pool for State policy, diplomatic activity, clearance, and the transition from OWI/OIAA to State."
+    },
+    {
+      id: "POOL-014",
+      priority: "Active",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      title: "RG 84 - Foreign Service Posts",
+      url: "https://www.archives.gov/research/guide-fed-records/groups/084.html",
+      coverage:
+        "Embassy, legation, mission, and consular post records for wartime reporting, host-government reaction, local implementation, and post coordination.",
+      nextUse:
+        "Build the post-by-post matrix that tests whether OWI and State records produced significant diplomatic activity abroad."
+    },
+    {
+      id: "POOL-015",
+      priority: "Boundary",
+      lane: "Creating War Information",
+      repository: "NARA",
+      title: "RG 107 - War Department Bureau of Public Relations",
+      url: "https://www.archives.gov/research/guide-fed-records/groups/107.html",
+      coverage:
+        "War Department Bureau of Public Relations, public statements, news division records, radio scripts, motion pictures, and military information activity.",
+      nextUse:
+        "Use only for interagency policy, foreign-audience strategy, or diplomatic coordination with State and OWI."
+    },
+    {
+      id: "POOL-016",
+      priority: "Boundary",
+      lane: "Creating War Information",
+      repository: "NARA",
+      title: "RG 165 - MID Propaganda Branch and psychological warfare records",
+      url: "https://www.archives.gov/research/guide-fed-records/groups/165.html",
+      coverage:
+        "War Department General and Special Staffs, Military Intelligence Division, Propaganda Branch, psychological warfare, and military intelligence records.",
+      nextUse:
+        "Separate tactical or clandestine psychological warfare from public diplomacy, keeping rows only when they shaped foreign policy or interagency information decisions."
+    },
+    {
+      id: "POOL-017",
+      priority: "Next",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      title: "RG 287 - Publications of the U.S. Government",
+      url: "https://www.archives.gov/research/guide-fed-records/groups/287.html",
+      coverage:
+        "Record copies of U.S. Government publications, useful for verifying final OWI, OIAA, State, War Department, and related public information outputs.",
+      nextUse:
+        "Tie final publications to policy guidance, clearance records, distribution records, and foreign-audience reaction."
+    },
+    {
+      id: "POOL-018",
+      priority: "Next",
+      lane: "Peace Aims and Handoff",
+      repository: "FDR Library",
+      title: "FDR Official File and President's Personal File leads",
+      url: "https://www.fdrlibrary.org/collections-list",
+      coverage:
+        "Collection-level source map for FDR Official File, President's Personal File, President's Secretary's File, Hopkins papers, Early material, speech files, and related manuscript collections.",
+      nextUse:
+        "Move from collection-level anchors to folder-level White House candidates for OWI, OIAA, State, speeches, and public-line decisions."
     }
   ],
   ledger: [
