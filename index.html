@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRUS Public Diplomacy, World War II Assist</title>
+    <meta
+      name="description"
+      content="A FRUS Assist workbench for Foreign Relations of the United States, 1917-1972, Volume III, Public Diplomacy, World War II."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FRUS Public Diplomacy World War II Assist home">
+        <span class="brand-mark">PD III</span>
+        <span>WWII Public Diplomacy</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#leads">Source Leads</a>
+        <a href="#workbench">Desk</a>
+        <a href="#gap-tracker">Gaps</a>
+        <a href="#source-pools">Source Pools</a>
+        <a href="#ledger">Source Ledger</a>
+        <a href="persons.html">Persons</a>
+        <a href="#lanes">Lanes</a>
+        <a href="#public-line">Public Line</a>
+        <a href="#boundary">Boundaries</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">FRUS 1917-1972, Public Diplomacy, Volume III</p>
+          <h1 id="hero-title">World War II Public Diplomacy</h1>
+          <p class="lede">
+            A compiler-facing assist page for the unpublished World War II public
+            diplomacy volume: OWI, OGR, USIS, VOA, OCIAA, FDR public-line checks,
+            NARA source pools, FDR Library anchors, and boundary controls.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#leads">Open Source Leads</a>
+            <a class="button secondary" href="#source-pools">Review Source Pools</a>
+          </div>
+        </div>
+        <aside class="brief visual-brief" aria-label="Archive scope">
+          <img
+            class="archive-map"
+            src="assets/public-diplomacy-source-map.svg"
+            alt="Research map linking History.state.gov, NARA, and FDR Library source lanes"
+          />
+          <p class="brief-label">Compiler Scope</p>
+          <dl>
+            <div>
+              <dt>Volume</dt>
+              <dd>Public Diplomacy III</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Being Researched</dd>
+            </div>
+            <div>
+              <dt>NARA Base</dt>
+              <dd>RG 208 / 44 / 229 / 216</dd>
+            </div>
+            <div>
+              <dt>FDR Base</dt>
+              <dd>FRANKLIN / Day by Day</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="section records-section" id="leads" aria-labelledby="leads-title">
+        <div class="section-heading">
+          <p class="kicker">Candidate Source Chronology</p>
+          <h2 id="leads-title">Archive Leads for the Volume</h2>
+        </div>
+        <div class="tools" aria-label="Search and filter source leads">
+          <label class="search-field">
+            <span>Search leads</span>
+            <input id="lead-search" type="search" placeholder="Search agencies, people, record groups, terms, source notes" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="lead-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="lead-repository-filter"></select>
+          </label>
+          <label>
+            <span>Source Type</span>
+            <select id="lead-type-filter"></select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="lead-priority-filter"></select>
+          </label>
+          <button id="clear-lead-filters" type="button">Reset</button>
+          <button id="export-leads" type="button">CSV</button>
+          <p id="lead-summary" class="summary">Loading source leads...</p>
+        </div>
+        <div id="leads-root" class="records-root" aria-live="polite">
+          <p class="loading">Loading source leads...</p>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Volume summary">
+        <div>
+          <span id="total-leads">0</span>
+          <p>candidate leads</p>
+        </div>
+        <div>
+          <span id="nara-count">0</span>
+          <p>NARA rows</p>
+        </div>
+        <div>
+          <span id="fdr-count">0</span>
+          <p>FDR rows</p>
+        </div>
+        <div>
+          <span id="pool-count">0</span>
+          <p>source pools</p>
+        </div>
+        <div>
+          <span id="gap-count">0</span>
+          <p>tracked gaps</p>
+        </div>
+      </section>
+
+      <section class="section compiler-section" id="workbench" aria-labelledby="workbench-title">
+        <div class="section-heading">
+          <p class="kicker">Compiler Desk</p>
+          <h2 id="workbench-title">Selection and Boundary Cockpit</h2>
+        </div>
+        <div id="workbench-root" class="workbench-root" aria-live="polite">
+          <p class="loading">Loading compiler desk...</p>
+        </div>
+      </section>
+
+      <section class="section gap-section" id="gap-tracker" aria-labelledby="gap-title">
+        <div class="section-heading">
+          <p class="kicker">Gap Tracker</p>
+          <h2 id="gap-title">What Still Has To Be Found</h2>
+        </div>
+        <div class="tools gap-tools" aria-label="Search and filter gap tracker">
+          <label class="search-field">
+            <span>Search gaps</span>
+            <input id="gap-search" type="search" placeholder="Search problems, evidence, terms, source pools" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="gap-lane-filter"></select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="gap-priority-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="gap-status-filter"></select>
+          </label>
+          <button id="clear-gap-filters" type="button">Reset</button>
+          <button id="export-gaps" type="button">CSV</button>
+          <p id="gap-summary" class="summary">Loading gap tracker...</p>
+        </div>
+        <div id="gap-root" class="gap-grid" aria-live="polite">
+          <p class="loading">Loading gap tracker...</p>
+        </div>
+      </section>
+
+      <section class="section source-pool-section" id="source-pools" aria-labelledby="source-pools-title">
+        <div class="section-heading">
+          <p class="kicker">Source Pools</p>
+          <h2 id="source-pools-title">NARA and FDR Harvest Queue</h2>
+        </div>
+        <div class="tools source-pool-tools" aria-label="Search and filter source pools">
+          <label class="search-field">
+            <span>Search pools</span>
+            <input id="source-pool-search" type="search" placeholder="Search source pool, coverage, repository, next use" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="source-pool-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="source-pool-repository-filter"></select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="source-pool-priority-filter"></select>
+          </label>
+          <button id="clear-source-pool-filters" type="button">Reset</button>
+          <button id="export-source-pools" type="button">CSV</button>
+          <p id="source-pool-summary" class="summary">Loading source pools...</p>
+        </div>
+        <div id="source-pool-root" class="file-grid" aria-live="polite">
+          <p class="loading">Loading source pools...</p>
+        </div>
+      </section>
+
+      <section class="section ledger-section" id="ledger" aria-labelledby="ledger-title">
+        <div class="section-heading">
+          <p class="kicker">Source-Copy Ledger</p>
+          <h2 id="ledger-title">Official, NARA, and FDR Anchors</h2>
+        </div>
+        <p id="ledger-summary" class="summary ledger-summary">Loading source-copy ledger...</p>
+        <div id="ledger-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading source-copy ledger...</p>
+        </div>
+      </section>
+
+      <section class="section" id="lanes" aria-labelledby="lanes-title">
+        <div class="section-heading">
+          <p class="kicker">Research Lanes</p>
+          <h2 id="lanes-title">Working Structure</h2>
+        </div>
+        <div id="lane-grid" class="chapter-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section public-section" id="public-line" aria-labelledby="public-title">
+        <div class="section-heading">
+          <p class="kicker">Public Line</p>
+          <h2 id="public-title">FDR and War-Aims Reference Layer</h2>
+        </div>
+        <div class="tools public-tools" aria-label="Search and filter public-line references">
+          <label class="search-field">
+            <span>Search references</span>
+            <input id="public-search" type="search" placeholder="Search speeches, public themes, citations, matched terms" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="public-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="public-repository-filter"></select>
+          </label>
+          <button id="clear-public-filters" type="button">Reset</button>
+          <button id="export-public" type="button">CSV</button>
+          <p id="public-summary" class="summary">Loading public-line references...</p>
+        </div>
+        <div id="public-root" class="file-grid" aria-live="polite">
+          <p class="loading">Loading public references...</p>
+        </div>
+      </section>
+
+      <section class="section boundary-section" id="boundary" aria-labelledby="boundary-title">
+        <div class="section-heading">
+          <p class="kicker">Boundary Control</p>
+          <h2 id="boundary-title">Rows To Keep In Scope</h2>
+        </div>
+        <div class="tools boundary-tools" aria-label="Search boundary records">
+          <label class="search-field">
+            <span>Search boundary rows</span>
+            <input id="boundary-search" type="search" placeholder="Search source, reason, terms, repository" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="boundary-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="boundary-repository-filter"></select>
+          </label>
+          <button id="clear-boundary-filters" type="button">Reset</button>
+          <p id="boundary-summary" class="summary">Loading boundary index...</p>
+        </div>
+        <div id="boundary-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading boundary records...</p>
+        </div>
+      </section>
+
+      <section class="section sources-section" id="sources" aria-labelledby="sources-title">
+        <div class="section-heading">
+          <p class="kicker">Source Base</p>
+          <h2 id="sources-title">Refresh and Verification Anchors</h2>
+        </div>
+        <div class="source-grid">
+          <article>
+            <h3>Official Volume</h3>
+            <p>
+              <a href="https://history.state.gov/historicaldocuments/frus1917-72PubDipv03">
+                History.state.gov volume page
+              </a>
+              and the
+              <a href="https://history.state.gov/historicaldocuments/status-of-the-series">FRUS status page</a>.
+            </p>
+          </article>
+          <article>
+            <h3>NARA Core</h3>
+            <p>
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/208.html">RG 208 OWI</a>,
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/044.html">RG 44 OGR</a>,
+              <a href="https://www.archives.gov/research/guide-fed-records/groups/229.html">RG 229 OIAA</a>,
+              and <a href="https://www.archives.gov/research/guide-fed-records/groups/216.html">RG 216 Censorship</a>.
+            </p>
+          </article>
+          <article>
+            <h3>NARA Catalog</h3>
+            <p>
+              Seed searches for
+              <a href="https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22">OWI</a>,
+              <a href="https://catalog.archives.gov/search?q=%22Voice%20of%20America%22%20%22Office%20of%20War%20Information%22">VOA</a>,
+              and
+              <a href="https://catalog.archives.gov/search?q=%22Office%20of%20Inter-American%20Affairs%22">OIAA</a>.
+            </p>
+          </article>
+          <article>
+            <h3>FDR Library</h3>
+            <p>
+              <a href="https://www.fdrlibrary.org/digital-collections">Digital Collections</a>,
+              <a href="https://www.fdrlibrary.org/collections-list">Collections List</a>,
+              and <a href="https://www.fdrlibrary.org/timeline">FDR Day by Day</a>.
+            </p>
+          </article>
+          <article>
+            <h3>Persons</h3>
+            <p>
+              <a href="persons.html">Volume persons page</a> generated from the NARA and FDR source-lead data,
+              with scope and authority-status filters.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>FRUS Assist for Public Diplomacy, World War II. Candidate data is drawn from public source records and official archive guides.</p>
+    </footer>
+
+    <script src="data/volume-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

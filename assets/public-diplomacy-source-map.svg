@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" role="img" aria-labelledby="title desc">
+  <title id="title">Public diplomacy source map</title>
+  <desc id="desc">A map of archive source lanes for FRUS Public Diplomacy Volume III.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbfcf8"/>
+      <stop offset="1" stop-color="#edf4f1"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#17223b" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="760" height="520" rx="18" fill="url(#paper)"/>
+  <g fill="none" stroke="#cbd7d1" stroke-width="1">
+    <path d="M70 82h620M70 162h620M70 242h620M70 322h620M70 402h620"/>
+    <path d="M140 48v424M260 48v424M380 48v424M500 48v424M620 48v424"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="66" y="52" width="190" height="118" rx="12" fill="#17223b"/>
+    <text x="90" y="90" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">History.state.gov</text>
+    <text x="90" y="120" fill="#dfe7e2" font-family="Inter, Arial, sans-serif" font-size="13">Official status</text>
+    <text x="90" y="144" fill="#dfe7e2" font-family="Inter, Arial, sans-serif" font-size="13">Being Researched</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="302" y="52" width="190" height="118" rx="12" fill="#2b8a78"/>
+    <text x="326" y="90" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">NARA</text>
+    <text x="326" y="120" fill="#e7f4ef" font-family="Inter, Arial, sans-serif" font-size="13">RG 208 / 44 / 229</text>
+    <text x="326" y="144" fill="#e7f4ef" font-family="Inter, Arial, sans-serif" font-size="13">Catalog source leads</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="526" y="52" width="168" height="118" rx="12" fill="#2f6f9f"/>
+    <text x="550" y="90" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800">FDR Library</text>
+    <text x="550" y="120" fill="#e6f1f8" font-family="Inter, Arial, sans-serif" font-size="13">FRANKLIN</text>
+    <text x="550" y="144" fill="#e6f1f8" font-family="Inter, Arial, sans-serif" font-size="13">Day by Day</text>
+  </g>
+  <g fill="none" stroke-width="5" stroke-linecap="round">
+    <path d="M258 112c35 0 7 0 42 0" stroke="#c2922e"/>
+    <path d="M493 112c17 0 16 0 33 0" stroke="#c2922e"/>
+    <path d="M397 172c-70 40-92 82-88 128" stroke="#2b8a78"/>
+    <path d="M610 172c-38 51-62 96-70 166" stroke="#2f6f9f"/>
+    <path d="M160 172c44 43 68 88 70 162" stroke="#c7503f"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="76" y="230" width="176" height="96" rx="12" fill="#ffffff" stroke="#cbd7d1"/>
+    <circle cx="106" cy="264" r="13" fill="#c7503f"/>
+    <text x="130" y="260" fill="#17223b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Policy Origins</text>
+    <text x="130" y="284" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">OGR, USIS, OFF</text>
+    <text x="130" y="305" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">pre-OWI files</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="292" y="230" width="176" height="96" rx="12" fill="#ffffff" stroke="#cbd7d1"/>
+    <circle cx="322" cy="264" r="13" fill="#2b8a78"/>
+    <text x="346" y="260" fill="#17223b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">OWI Overseas</text>
+    <text x="346" y="284" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">VOA, outposts,</text>
+    <text x="346" y="305" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">publications, radio</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="508" y="230" width="176" height="96" rx="12" fill="#ffffff" stroke="#cbd7d1"/>
+    <circle cx="538" cy="264" r="13" fill="#684f78"/>
+    <text x="562" y="260" fill="#17223b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">FDR Public Line</text>
+    <text x="562" y="284" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">speeches, schedules,</text>
+    <text x="562" y="305" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">White House files</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="166" y="372" width="190" height="86" rx="12" fill="#ffffff" stroke="#cbd7d1"/>
+    <text x="190" y="408" fill="#17223b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">Boundary Controls</text>
+    <text x="190" y="432" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">domestic morale, OSS, WRB</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="406" y="372" width="190" height="86" rx="12" fill="#ffffff" stroke="#cbd7d1"/>
+    <text x="430" y="408" fill="#17223b" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800">State Handoff</text>
+    <text x="430" y="432" fill="#596a70" font-family="Inter, Arial, sans-serif" font-size="12">IIIS and postwar volume bridge</text>
+  </g>
+</svg>

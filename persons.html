@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persons - FRUS Public Diplomacy, World War II Assist</title>
+    <meta
+      name="description"
+      content="Compiler persons list for the FRUS Assist page for Public Diplomacy, World War II."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="FRUS Public Diplomacy World War II Assist home">
+        <span class="brand-mark">PD III</span>
+        <span>WWII Public Diplomacy</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html#leads">Source Leads</a>
+        <a href="index.html#workbench">Desk</a>
+        <a href="index.html#gap-tracker">Gaps</a>
+        <a href="index.html#source-pools">Source Pools</a>
+        <a href="persons.html" aria-current="page">Persons</a>
+        <a href="index.html#boundary">Boundaries</a>
+        <a href="index.html#sources">Sources</a>
+      </nav>
+    </header>
+
+    <main class="document-main" id="top">
+      <section class="document-heading" aria-labelledby="persons-title">
+        <p class="kicker">FRUS 1917-1972, Public Diplomacy, Volume III</p>
+        <h1 id="persons-title">Persons</h1>
+        <p class="lede">
+          A working persons list for the World War II public diplomacy volume,
+          generated from the NARA and FDR Library source leads. Entries marked
+          for review should be checked against selected archival documents before
+          use as final FRUS persons-list text.
+        </p>
+      </section>
+
+      <section class="section persons-section" aria-labelledby="persons-list-title">
+        <div class="section-heading compact-heading">
+          <h2 id="persons-list-title">Alphabetical List</h2>
+          <p id="persons-build-note" class="source-note compact-note">
+            Loading persons authority data...
+          </p>
+        </div>
+        <div class="tools persons-tools" aria-label="Search and filter persons">
+          <label class="search-field">
+            <span>Search persons</span>
+            <input id="person-search" type="search" placeholder="Search names, offices, agencies, scopes, places" />
+          </label>
+          <label>
+            <span>Scope</span>
+            <select id="person-scope-filter"></select>
+          </label>
+          <label>
+            <span>Source</span>
+            <select id="person-source-filter"></select>
+          </label>
+          <button id="clear-person-filters" type="button">Reset</button>
+          <button id="export-persons" type="button">CSV</button>
+          <p id="person-summary" class="summary">Loading persons...</p>
+        </div>
+        <div id="persons-root" class="persons-root" aria-live="polite">
+          <p class="loading">Loading persons list...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Persons list for Public Diplomacy, World War II. Authority status is provisional until archival document selection is complete.</p>
+    </footer>
+
+    <script src="data/volume-data.js"></script>
+    <script src="persons.js"></script>
+  </body>
+</html>
