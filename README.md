@@ -11,7 +11,8 @@ rather than a published FRUS document chronology.
 
 - candidate source chronology with lane, repository, source-type, priority, and text search filters
 - document-intake ledger with selection tests, source-copy tasks, and gap IDs
-- CSV export for source leads, document intake, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
+- State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
+- CSV export for source leads, document intake, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
 - source-note copy buttons for compiler-ready provenance snippets
 - NARA and FDR Library source-pool queue
 - gap-closure task queue with proof requirements, closure criteria, direct searches, and CSV export
@@ -30,6 +31,7 @@ The committed data currently contains:
 
 - `16` candidate source leads
 - `18` document-intake rows
+- `17` State cable leads
 - `12` selection and boundary rules
 - `10` theater/audience coverage rows
 - `18` gap-closure tasks
@@ -54,7 +56,12 @@ The committed data currently contains:
 - Official volume: <https://history.state.gov/historicaldocuments/frus1917-72PubDipv03>
 - Status of the FRUS series: <https://history.state.gov/historicaldocuments/status-of-the-series>
 - NARA RG 59, Department of State: <https://www.archives.gov/research/guide-fed-records/groups/059.html>
+- NARA RG 59 Central Decimal Files guide: <https://www.archives.gov/research/foreign-policy/state-dept/rg-59-central-files/1910-1963>
+- NARA RG 59 Central Decimal Files catalog record: <https://catalog.archives.gov/id/302021>
+- NARA RG 59 Purport Lists and Cards catalog record: <https://catalog.archives.gov/id/580701>
 - NARA RG 84, Foreign Service Posts: <https://www.archives.gov/research/guide-fed-records/groups/084.html>
+- NARA RG 84 Foreign Service post files guide: <https://www.archives.gov/research/foreign-policy/state-dept/rg-84>
+- NARA RG 84 reference paper: <https://www.archives.gov/files/research/foreign-policy/state-dept/finding-aids/rg-84-reference-paper.pdf>
 - NARA RG 208, Office of War Information: <https://www.archives.gov/research/guide-fed-records/groups/208.html>
 - NARA RG 44, Office of Government Reports: <https://www.archives.gov/research/guide-fed-records/groups/044.html>
 - NARA RG 229, Office of Inter-American Affairs: <https://www.archives.gov/research/guide-fed-records/groups/229.html>

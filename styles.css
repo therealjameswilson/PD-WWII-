@@ -464,7 +464,8 @@ dd {
 .source-pool-tools,
 .document-tools,
 .closure-tools,
-.packet-tools {
+.packet-tools,
+.cable-tools {
   grid-template-columns: minmax(260px, 2fr) repeat(3, minmax(140px, 1fr)) auto auto;
 }
 

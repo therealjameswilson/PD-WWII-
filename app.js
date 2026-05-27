@@ -8,6 +8,7 @@ const sourcePools = data.sourcePools || [];
 const ledger = data.ledger || [];
 const boundaryRecords = data.boundaryRecords || [];
 const documentIntake = data.documentIntake || [];
+const stateCableLeads = data.stateCableLeads || [];
 const selectionRules = data.selectionRules || [];
 const coverageMatrix = data.coverageMatrix || [];
 const closureTasks = data.closureTasks || [];
@@ -48,6 +49,12 @@ const state = {
   evidencePackets: {
     query: "",
     lane: "",
+    status: ""
+  },
+  stateCables: {
+    query: "",
+    lane: "",
+    recordGroup: "",
     status: ""
   },
   public: {
@@ -125,6 +132,14 @@ const nodes = {
   packetStatusFilter: document.querySelector("#packet-status-filter"),
   clearPacketFilters: document.querySelector("#clear-packet-filters"),
   exportPackets: document.querySelector("#export-packets"),
+  cableRoot: document.querySelector("#cable-root"),
+  cableSummary: document.querySelector("#cable-summary"),
+  cableSearch: document.querySelector("#cable-search"),
+  cableLaneFilter: document.querySelector("#cable-lane-filter"),
+  cableRecordGroupFilter: document.querySelector("#cable-record-group-filter"),
+  cableStatusFilter: document.querySelector("#cable-status-filter"),
+  clearCableFilters: document.querySelector("#clear-cable-filters"),
+  exportCables: document.querySelector("#export-cables"),
   ledgerRoot: document.querySelector("#ledger-root"),
   ledgerSummary: document.querySelector("#ledger-summary"),
   publicRoot: document.querySelector("#public-root"),
@@ -225,6 +240,11 @@ function searchText(item) {
     item.boundaryReason,
     item.source,
     item.sourceNote,
+    item.series,
+    item.naId,
+    item.cableUse,
+    item.catalogUrl,
+    item.searchUrl,
     item.documentType,
     item.issueType,
     item.links?.map((link) => `${link.label} ${link.url}`).join(" "),
@@ -270,6 +290,7 @@ function renderWorkbench() {
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
     metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
+    metricCard("State cable leads", stateCableLeads.length, "RG 59 controls and RG 84 post-file targets for State telegrams, despatches, and instructions."),
     metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert packeted gaps into source-copy work."),
     metricCard("Source pools", naraPools.length + fdrPools.length, "NARA and FDR Library lanes for first-pass harvesting."),
     metricCard("Unfixed gaps", unfixedGaps.length, `${plural(boundaryCount, "boundary row")} keep the harvest honest.`)
@@ -803,6 +824,78 @@ function evidencePacketCard(packet) {
   return card;
 }
 
+function filteredStateCableLeads() {
+  return stateCableLeads.filter((lead) => {
+    if (!matchesQuery(lead, state.stateCables.query)) return false;
+    if (state.stateCables.lane && lead.lane !== state.stateCables.lane) return false;
+    if (state.stateCables.recordGroup && lead.recordGroup !== state.stateCables.recordGroup) return false;
+    if (state.stateCables.status && lead.status !== state.stateCables.status) return false;
+    return true;
+  });
+}
+
+function renderStateCableLeads() {
+  const priorityOrder = new Map([
+    ["Critical", 1],
+    ["High", 2],
+    ["Medium", 3]
+  ]);
+  const visible = filteredStateCableLeads().sort(
+    (a, b) =>
+      (priorityOrder.get(a.priority) || 99) - (priorityOrder.get(b.priority) || 99) ||
+      a.recordGroup.localeCompare(b.recordGroup) ||
+      chapterNumber(a.lane) - chapterNumber(b.lane) ||
+      a.id.localeCompare(b.id)
+  );
+  const rg59 = visible.filter((lead) => lead.recordGroup === "RG 59").length;
+  const rg84 = visible.filter((lead) => lead.recordGroup === "RG 84").length;
+  nodes.cableSummary.textContent = `${plural(visible.length, "lead")} visible from ${stateCableLeads.length} State cable leads: ${plural(rg59, "RG 59 row")} and ${plural(rg84, "RG 84 row")}.`;
+  nodes.cableRoot.replaceChildren(...visible.map(stateCableCard));
+  if (!visible.length) nodes.cableRoot.innerHTML = '<p class="empty">No State cable leads match the current filters.</p>';
+}
+
+function stateCableCard(lead) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${lead.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(lead.id), textSpan(lead.recordGroup), textSpan(lead.dateRange), textSpan(lead.status));
+  const title = document.createElement("h4");
+  title.textContent = lead.title;
+  titleBlock.append(metaRow, title);
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(lead.lane), priorityChip(lead.priority), chip(lead.status));
+  header.append(titleBlock, chips);
+
+  const series = document.createElement("p");
+  series.className = "source-note";
+  series.textContent = `Series/control: ${lead.series || "Series pending."}${lead.naId ? ` | NAID ${lead.naId}` : ""}`;
+  const material = document.createElement("p");
+  material.textContent = lead.material;
+  const use = document.createElement("p");
+  use.className = "source-note";
+  use.textContent = `Cable use: ${lead.cableUse}`;
+  const next = document.createElement("p");
+  next.className = "source-note";
+  next.textContent = `Next action: ${lead.nextAction}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  if (lead.catalogUrl) actions.append(linkButton("Catalog", lead.catalogUrl));
+  if (lead.searchUrl) actions.append(linkButton("Search", lead.searchUrl));
+  for (const link of lead.links || []) actions.append(linkButton(link.label, link.url));
+  if (lead.sourceNote) actions.append(copyButton(lead.sourceNote));
+
+  card.append(header, series, material, use, next, actions, sourceNoteDetails(lead));
+  if (lead.targetTerms?.length) card.append(termChips(lead.targetTerms));
+  if (lead.gapIds?.length) card.append(termChips(lead.gapIds));
+  return card;
+}
+
 function renderLedger() {
   const naraRows = ledger.filter((row) => row.repository === "NARA").length;
   const fdrRows = ledger.filter((row) => row.repository === "FDR Library").length;
@@ -1045,6 +1138,9 @@ function populateFilters() {
   addOptions(nodes.closureStatusFilter, uniqueSorted(closureTasks.map((task) => task.status)), "All statuses");
   addOptions(nodes.packetLaneFilter, uniqueSorted(evidencePackets.map((packet) => packet.lane)), "All lanes");
   addOptions(nodes.packetStatusFilter, uniqueSorted(evidencePackets.map((packet) => packet.status)), "All statuses");
+  addOptions(nodes.cableLaneFilter, uniqueSorted(stateCableLeads.map((lead) => lead.lane)), "All lanes");
+  addOptions(nodes.cableRecordGroupFilter, uniqueSorted(stateCableLeads.map((lead) => lead.recordGroup)), "All record groups");
+  addOptions(nodes.cableStatusFilter, uniqueSorted(stateCableLeads.map((lead) => lead.status)), "All statuses");
   addOptions(nodes.publicLaneFilter, uniqueSorted(publicReferences.map((item) => item.lane)), "All lanes");
   addOptions(nodes.publicRepositoryFilter, uniqueSorted(publicReferences.map((item) => item.repository)), "All repositories");
   addOptions(nodes.boundaryLaneFilter, uniqueSorted(boundaryRecords.map((record) => record.lane)), "All lanes");
@@ -1352,6 +1448,57 @@ function setupEvents() {
     );
   });
 
+  nodes.cableSearch.addEventListener("input", (event) => {
+    state.stateCables.query = event.target.value;
+    renderStateCableLeads();
+  });
+  nodes.cableLaneFilter.addEventListener("change", (event) => {
+    state.stateCables.lane = event.target.value;
+    renderStateCableLeads();
+  });
+  nodes.cableRecordGroupFilter.addEventListener("change", (event) => {
+    state.stateCables.recordGroup = event.target.value;
+    renderStateCableLeads();
+  });
+  nodes.cableStatusFilter.addEventListener("change", (event) => {
+    state.stateCables.status = event.target.value;
+    renderStateCableLeads();
+  });
+  nodes.clearCableFilters.addEventListener("click", () => {
+    state.stateCables = { query: "", lane: "", recordGroup: "", status: "" };
+    nodes.cableSearch.value = "";
+    nodes.cableLaneFilter.value = "";
+    nodes.cableRecordGroupFilter.value = "";
+    nodes.cableStatusFilter.value = "";
+    renderStateCableLeads();
+  });
+  nodes.exportCables.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-state-cable-leads.csv",
+      toCsv(filteredStateCableLeads(), [
+        { label: "ID", value: (lead) => lead.id },
+        { label: "Priority", value: (lead) => lead.priority },
+        { label: "Status", value: (lead) => lead.status },
+        { label: "Lane", value: (lead) => lead.lane },
+        { label: "Repository", value: (lead) => lead.repository },
+        { label: "Record Group", value: (lead) => lead.recordGroup },
+        { label: "Date Range", value: (lead) => lead.dateRange },
+        { label: "Title", value: (lead) => lead.title },
+        { label: "Series", value: (lead) => lead.series },
+        { label: "NAID", value: (lead) => lead.naId },
+        { label: "Material", value: (lead) => lead.material },
+        { label: "Cable Use", value: (lead) => lead.cableUse },
+        { label: "Next Action", value: (lead) => lead.nextAction },
+        { label: "Catalog URL", value: (lead) => lead.catalogUrl },
+        { label: "Search URL", value: (lead) => lead.searchUrl },
+        { label: "Links", value: (lead) => (lead.links || []).map((link) => `${link.label}: ${link.url}`).join("; ") },
+        { label: "Target Terms", value: (lead) => (lead.targetTerms || []).join("; ") },
+        { label: "Gap IDs", value: (lead) => (lead.gapIds || []).join("; ") },
+        { label: "Source Note", value: (lead) => lead.sourceNote }
+      ])
+    );
+  });
+
   nodes.publicSearch.addEventListener("input", (event) => {
     state.public.query = event.target.value;
     renderPublicReferences();
@@ -1421,6 +1568,7 @@ function init() {
   renderCoverageMatrix();
   renderClosureTasks();
   renderEvidencePackets();
+  renderStateCableLeads();
   renderLedger();
   renderPublicReferences();
   renderBoundaryRecords();

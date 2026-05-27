@@ -24,6 +24,7 @@
         <a href="#coverage">Coverage</a>
         <a href="#closure">Closure</a>
         <a href="#evidence-packets">Packets</a>
+        <a href="#state-cables">State Cables</a>
         <a href="#gap-tracker">Gaps</a>
         <a href="#source-pools">Source Pools</a>
         <a href="#ledger">Source Ledger</a>
@@ -46,7 +47,7 @@
             NARA source pools, FDR Library anchors, document-intake rows,
             selection rules, gap-closure tasks, coverage checks, and boundary controls.
             Evidence packets now bind each gap to policy, implementation, reaction, and
-            source-copy proof.
+            source-copy proof, with a State cable search layer for RG 59 and RG 84 post files.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#leads">Open Source Leads</a>
@@ -71,7 +72,7 @@
             </div>
             <div>
               <dt>NARA Base</dt>
-              <dd>RG 208 / 44 / 229 / 216</dd>
+              <dd>RG 59 / 84 / 208 / 44 / 229 / 216</dd>
             </div>
             <div>
               <dt>FDR Base</dt>
@@ -267,6 +268,37 @@
         </div>
         <div id="packet-root" class="records-root compact-records" aria-live="polite">
           <p class="loading">Loading evidence packets...</p>
+        </div>
+      </section>
+
+      <section class="section records-section" id="state-cables" aria-labelledby="cable-title">
+        <div class="section-heading">
+          <p class="kicker">NARA State Cable Search</p>
+          <h2 id="cable-title">RG 59 and RG 84 State Cable Leads</h2>
+        </div>
+        <div class="tools cable-tools" aria-label="Search and filter State cable leads">
+          <label class="search-field">
+            <span>Search cables</span>
+            <input id="cable-search" type="search" placeholder="Search post, decimal class, telegram, despatch, OWI, OIAA, USIS" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="cable-lane-filter"></select>
+          </label>
+          <label>
+            <span>Record Group</span>
+            <select id="cable-record-group-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="cable-status-filter"></select>
+          </label>
+          <button id="clear-cable-filters" type="button">Reset</button>
+          <button id="export-cables" type="button">CSV</button>
+          <p id="cable-summary" class="summary">Loading State cable leads...</p>
+        </div>
+        <div id="cable-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading State cable leads...</p>
         </div>
       </section>
 

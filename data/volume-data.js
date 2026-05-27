@@ -483,6 +483,450 @@ window.VOLUME_DATA = {
         "National Archives Catalog search lead for OWI United Nations Conference records and RG 208 Pictures Division files."
     }
   ],
+  stateCableLeads: [
+    {
+      id: "CABLE-001",
+      priority: "Critical",
+      status: "Core series",
+      lane: "Creating War Information",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      dateRange: "1910-1963; use 1940-1944 segment",
+      title: "Central Decimal Files",
+      series: "Central Decimal Files, NAID 302021",
+      naId: "302021",
+      catalogUrl: "https://catalog.archives.gov/id/302021",
+      material:
+        "State Department correspondence, telegrams, reports, and records generated in Washington and by diplomatic and consular posts worldwide.",
+      cableUse:
+        "Use as the source-copy target after the purport and source-card controls identify OWI, OIAA, USIS, propaganda, radio, press, film, and cultural-relations traffic.",
+      nextAction:
+        "Pull 1940-1944 decimal classes 103.9166, 103.9161, 111, 124, 125, 8**.911-8**.918, and country-specific files once exact purport entries are selected.",
+      sourceNote:
+        "National Archives Catalog, General Records of the Department of State, RG 59, Central Decimal Files, 1910-1963, NAID 302021.",
+      targetTerms: ["telegram", "despatch", "airgram", "instruction", "103.9166", "103.9161"],
+      gapIds: ["GAP-002", "GAP-003", "GAP-007"]
+    },
+    {
+      id: "CABLE-002",
+      priority: "Critical",
+      status: "Index first",
+      lane: "Creating War Information",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      dateRange: "1910-1959; use M973 1940-1944",
+      title: "Purport Lists and Cards for the Central Decimal Files",
+      series: "Purport Lists and Cards, NAID 580701",
+      naId: "580701",
+      catalogUrl: "https://catalog.archives.gov/id/580701",
+      material:
+        "Brief abstracts of Central Decimal File documents, arranged by decimal classification and file number.",
+      cableUse:
+        "This is the fastest route to identify exact State-to-post and post-to-State telegram/despatch entries before requesting the full RG 59 file.",
+      nextAction:
+        "Search the digitized 1940-June 1944 lists and July-December 1944 cards for file number, date, from/to line, and purport before harvesting source copies.",
+      sourceNote:
+        "National Archives Catalog, RG 59, Purport Lists and Cards, 1910-1959, NAID 580701; use M973 for 1910-1944 purport controls.",
+      targetTerms: ["Purport Lists", "Purport Cards", "M973", "from/to", "gist"],
+      gapIds: ["GAP-001", "GAP-002"]
+    },
+    {
+      id: "CABLE-003",
+      priority: "Critical",
+      status: "Digitized control run",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      dateRange: "1940-1944; July-December 1944",
+      title: "OWI decimal-class purport runs, 103.9166",
+      series: "Purport Lists and Cards file units",
+      naId: "87951622; 88176221; 88177001; 88175408; 88177931",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      searchUrl: "https://catalog.archives.gov/search?q=103.9166&recordGroupNumber=59",
+      material:
+        "Digitized RG 59 purport file units around Office of War Information class 103.9166, including July-December 1944 card runs.",
+      cableUse:
+        "Use these controls to isolate State cables, instructions, and despatches concerning OWI overseas operations, propaganda, radio, publications, and post reaction.",
+      nextAction:
+        "Review NAIDs 87951622, 88176221, 88177001, 88175408, and 88177931; extract exact date/from/to/purport rows, then request matching Central Decimal File documents.",
+      links: [
+        { label: "103.9166 lead 1", url: "https://catalog.archives.gov/id/87951622" },
+        { label: "103.9166 lead 2", url: "https://catalog.archives.gov/id/88176221" },
+        { label: "103.9166 lead 3", url: "https://catalog.archives.gov/id/88177001" },
+        { label: "103.9166 lead 4", url: "https://catalog.archives.gov/id/88175408" },
+        { label: "103.9166 lead 5", url: "https://catalog.archives.gov/id/88177931" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 59, Purport Lists and Cards, Office of War Information decimal class 103.9166 file-unit leads, 1940-1944.",
+      targetTerms: ["Office of War Information", "103.9166", "OWI overseas", "VOA", "radio", "propaganda"],
+      gapIds: ["GAP-002", "GAP-004", "GAP-005"]
+    },
+    {
+      id: "CABLE-004",
+      priority: "High",
+      status: "Digitized control run",
+      lane: "Hemisphere and Cultural Exchange",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      dateRange: "1940-1944",
+      title: "Coordinator of Inter-American Affairs decimal-class purport runs, 103.9161",
+      series: "Purport Lists and Cards file units",
+      naId: "87948981; 87950164",
+      catalogUrl: "https://catalog.archives.gov/id/87948981",
+      searchUrl: "https://catalog.archives.gov/search?q=103.9161&recordGroupNumber=59",
+      material:
+        "Digitized RG 59 purport file units around Coordinator of Inter-American Affairs class 103.9161.",
+      cableUse:
+        "Use for State communications touching OCIAA/OIAA press, radio, film, education, publications, and embassy coordination in the other American republics.",
+      nextAction:
+        "Extract exact 103.9161 entries and pair with RG 229 information files and RG 84 Latin American post records.",
+      links: [
+        { label: "103.9161 lead 1", url: "https://catalog.archives.gov/id/87948981" },
+        { label: "103.9161 lead 2", url: "https://catalog.archives.gov/id/87950164" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 59, Purport Lists and Cards, Coordinator of Inter-American Affairs decimal class 103.9161 file-unit leads, 1940-1944.",
+      targetTerms: ["Coordinator of Inter-American Affairs", "103.9161", "OCIAA", "OIAA", "radio", "film"],
+      gapIds: ["GAP-006", "GAP-014"]
+    },
+    {
+      id: "CABLE-005",
+      priority: "High",
+      status: "Search control",
+      lane: "Peace Aims and Handoff",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      dateRange: "1940-1945",
+      title: "State public information and cultural-relations traffic controls",
+      series: "Central Decimal Files and Purport Lists",
+      naId: "87955967",
+      catalogUrl: "https://catalog.archives.gov/id/87955967",
+      searchUrl:
+        "https://catalog.archives.gov/search?q=%22Division%20of%20Current%20Information%22%20OR%20%22Division%20of%20Cultural%20Relations%22&recordGroupNumber=59",
+      material:
+        "RG 59 purport and item leads for State public-information offices, cultural relations, and current-information correspondence.",
+      cableUse:
+        "Use to find State-originated guidance and clearance traffic that framed OWI/OIAA work as foreign policy rather than media production.",
+      nextAction:
+        "Search Michael J. McDermott, Division of Current Information, Division of Cultural Relations, MacLeish, public affairs, and cultural relations alongside OWI file numbers.",
+      sourceNote:
+        "National Archives Catalog, RG 59 search leads for State public information and cultural relations, including Purport Lists and Cards NAID 87955967.",
+      targetTerms: ["Division of Current Information", "Division of Cultural Relations", "McDermott", "MacLeish", "public affairs"],
+      gapIds: ["GAP-002", "GAP-007"]
+    },
+    {
+      id: "CABLE-006",
+      priority: "High",
+      status: "Index first",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      dateRange: "1940-1949",
+      title: "Source Card Index by communication source and destination",
+      series: "Source Cards for Central Decimal Files",
+      catalogUrl: "https://www.archives.gov/research/foreign-policy/state-dept/rg-59-central-files/1910-1963",
+      material:
+        "NARA describes source cards arranged by source or destination of the communication, including country, city, organization, to/from, date, or originating State office.",
+      cableUse:
+        "Use when searching specifically for cables from State to a post or from a post to State, especially where keyword search misses the relevant decimal file.",
+      nextAction:
+        "Request or search the 1940-1944 source-card segment for Washington-to-post and post-to-Washington traffic on OWI, USIS, radio, films, press, and cultural relations.",
+      sourceNote:
+        "National Archives, RG 59 Central Decimal Files reference page; Source Card Index for 1910-1949 State Department communications.",
+      targetTerms: ["Source Card Index", "to/from", "Department of State", "embassy", "consulate", "Washington"],
+      gapIds: ["GAP-002", "GAP-003"]
+    },
+    {
+      id: "CABLE-007",
+      priority: "Critical",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1937-1961",
+      title: "U.S. Embassy Great Britain, London: Classified General Records",
+      series: "Classified General Records, NAID 1667864",
+      naId: "1667864",
+      catalogUrl: "https://catalog.archives.gov/id/1667864",
+      material:
+        "London embassy working files with instructions, despatches, telegrams, memoranda, reports, and correspondence with State in Washington.",
+      cableUse:
+        "Priority post for OWI London, BBC coordination, Allied information policy, VOA relay, British Ministry of Information contacts, and host-government reaction.",
+      nextAction:
+        "Search 1942-1945 folders for OWI, USIS, information, radio, BBC, propaganda, films, press, and United Nations public line.",
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Great Britain, Classified General Records, NAID 1667864.",
+      targetTerms: ["London", "BBC", "Ministry of Information", "OWI", "USIS", "radio"],
+      gapIds: ["GAP-003", "GAP-005", "GAP-014"]
+    },
+    {
+      id: "CABLE-008",
+      priority: "High",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1924-1961; 1925-1949",
+      title: "Portugal, Lisbon: embassy and consular classified general records",
+      series: "Classified General Records, NAIDs 1801218 and 1766818",
+      naId: "1801218; 1766818",
+      catalogUrl: "https://catalog.archives.gov/id/1801218",
+      material:
+        "Neutral-country post files for embassy and consular records in Portugal, including State instructions, telegrams, despatches, and post reporting.",
+      cableUse:
+        "Use for neutral Europe information work, censorship, transit/distribution, Axis/Allied propaganda contest, and overseas broadcasting reception.",
+      nextAction:
+        "Pair Lisbon post records with RG 59 103.9166 and OWI overseas communications entries by date and subject.",
+      links: [
+        { label: "Embassy Portugal", url: "https://catalog.archives.gov/id/1801218" },
+        { label: "Lisbon consular", url: "https://catalog.archives.gov/id/1766818" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Portugal and Lisbon consular classified general records, NAIDs 1801218 and 1766818.",
+      targetTerms: ["Lisbon", "Portugal", "neutral Europe", "OWI", "propaganda", "broadcasting"],
+      gapIds: ["GAP-003", "GAP-014"]
+    },
+    {
+      id: "CABLE-009",
+      priority: "High",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1940-1963",
+      title: "Spain, Madrid: Classified General Records",
+      series: "Classified General Records, NAID 1728932",
+      naId: "1728932",
+      catalogUrl: "https://catalog.archives.gov/id/1728932",
+      material:
+        "Madrid embassy classified working files with State instructions, telegrams, despatches, reports, and host-government correspondence.",
+      cableUse:
+        "Use for propaganda and information policy in Franco Spain, censorship issues, neutral audience strategy, and diplomatic reaction to OWI content.",
+      nextAction:
+        "Search Madrid 1942-1945 files for OWI, USIS, information, press, films, radio, propaganda, censorship, and Embassy clearance.",
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Spain, Classified General Records, NAID 1728932.",
+      targetTerms: ["Madrid", "Spain", "Franco", "censorship", "OWI", "propaganda"],
+      gapIds: ["GAP-003", "GAP-014"]
+    },
+    {
+      id: "CABLE-010",
+      priority: "High",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1944-1963; 1940-1963",
+      title: "Sweden and Switzerland neutral-post classified general records",
+      series: "Classified General Records, NAIDs 1871966 and 1884125",
+      naId: "1871966; 1884125",
+      catalogUrl: "https://catalog.archives.gov/id/1871966",
+      material:
+        "Neutral Europe post files for Stockholm and Bern, including State instructions, telegrams, despatches, reports, and local correspondence.",
+      cableUse:
+        "Use for neutral-country public diplomacy, Axis information competition, press reaction, refugee/public-line issues, and broadcasting reception.",
+      nextAction:
+        "Search Stockholm and Bern by OWI, USIS, radio, news, propaganda, press, films, and information terms; pair hits with RG 59 source cards.",
+      links: [
+        { label: "Stockholm", url: "https://catalog.archives.gov/id/1871966" },
+        { label: "Bern", url: "https://catalog.archives.gov/id/1884125" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Sweden and U.S. Embassy Switzerland classified general records, NAIDs 1871966 and 1884125.",
+      targetTerms: ["Stockholm", "Bern", "Sweden", "Switzerland", "neutral Europe", "press reaction"],
+      gapIds: ["GAP-003", "GAP-014"]
+    },
+    {
+      id: "CABLE-011",
+      priority: "High",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1938-1958; 1939-1942",
+      title: "Turkey, Ankara: classified general and international affairs records",
+      series: "Classified General Records, NAIDs 1726786 and 1740824",
+      naId: "1726786; 1740824",
+      catalogUrl: "https://catalog.archives.gov/id/1726786",
+      material:
+        "Ankara embassy files and Turkey/international affairs records for a key neutral and Middle East information-policy post.",
+      cableUse:
+        "Use for State instructions and reporting on neutral Turkey, Axis/Allied propaganda competition, broadcasting, press, and regional information work.",
+      nextAction:
+        "Search by OWI, radio, propaganda, information, films, press, Turkey, Near East, and neutral-country terms.",
+      links: [
+        { label: "Ankara classified", url: "https://catalog.archives.gov/id/1726786" },
+        { label: "Turkey affairs", url: "https://catalog.archives.gov/id/1740824" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Turkey classified general records and classified records regarding Turkey and international affairs, NAIDs 1726786 and 1740824.",
+      targetTerms: ["Ankara", "Turkey", "Near East", "radio", "propaganda", "press"],
+      gapIds: ["GAP-003", "GAP-014"]
+    },
+    {
+      id: "CABLE-012",
+      priority: "High",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1940-1942; 1943-1958; 1944-1963",
+      title: "France and North Africa: Vichy, Paris, and Algiers classified records",
+      series: "Classified General Records, NAIDs 1667919, 1663362, and 1571307",
+      naId: "1667919; 1663362; 1571307",
+      catalogUrl: "https://catalog.archives.gov/id/1667919",
+      material:
+        "French post and Algiers files spanning Vichy, liberated France, and North African operations.",
+      cableUse:
+        "Use for wartime and liberation information policy, propaganda contests, press relations, films, broadcasting, and diplomatic reaction in French territories.",
+      nextAction:
+        "Search Vichy, Paris, and Algiers files by OWI, information, propaganda, radio, press, films, liberation, and United Nations public-line terms.",
+      links: [
+        { label: "Vichy France", url: "https://catalog.archives.gov/id/1667919" },
+        { label: "Paris France", url: "https://catalog.archives.gov/id/1663362" },
+        { label: "Algiers", url: "https://catalog.archives.gov/id/1571307" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy France and U.S. Consulate Algiers classified general records, NAIDs 1667919, 1663362, and 1571307.",
+      targetTerms: ["Vichy", "Paris", "Algiers", "liberation", "OWI", "propaganda"],
+      gapIds: ["GAP-003", "GAP-014"]
+    },
+    {
+      id: "CABLE-013",
+      priority: "High",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1943-1945; 1945; 1942-1963",
+      title: "China and India: Chungking top secret/general records and India classified records",
+      series: "General Records and Classified General Records, NAIDs 1576657, 2068454, and 2062543",
+      naId: "1576657; 2068454; 2062543",
+      catalogUrl: "https://catalog.archives.gov/id/1576657",
+      material:
+        "China and India post files, including Chungking general and top secret records and U.S. Commission/Embassy India records.",
+      cableUse:
+        "Use for CBI theater information strategy, Chinese audience work, Pacific/Asia propaganda policy, OWI San Francisco links, and State/post reporting.",
+      nextAction:
+        "Search Chungking and India records for OWI, USIS, information, radio, films, press, China, India, Burma, Japan, and psychological warfare boundary terms.",
+      links: [
+        { label: "China general", url: "https://catalog.archives.gov/id/1576657" },
+        { label: "China top secret", url: "https://catalog.archives.gov/id/2068454" },
+        { label: "India classified", url: "https://catalog.archives.gov/id/2062543" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy China and U.S. Embassy/Commission India records, NAIDs 1576657, 2068454, and 2062543.",
+      targetTerms: ["Chungking", "China", "India", "CBI", "San Francisco Office", "radio"],
+      gapIds: ["GAP-003", "GAP-004", "GAP-014"]
+    },
+    {
+      id: "CABLE-014",
+      priority: "Medium",
+      status: "Post-file target",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1942-1961; 1936-1954; 1942-1944",
+      title: "Egypt and Brazzaville: Middle East and Africa post files",
+      series: "Classified General Records, NAIDs 1674037, 1675826, and 1670211",
+      naId: "1674037; 1675826; 1670211",
+      catalogUrl: "https://catalog.archives.gov/id/1674037",
+      material:
+        "Alexandria, Port Said, and Brazzaville post records with State instructions, telegrams, despatches, memoranda, reports, and correspondence.",
+      cableUse:
+        "Use for Middle East/Africa public diplomacy, shipping and transit information, Free French/colonial audiences, radio, and press reaction.",
+      nextAction:
+        "Search by OWI, information, radio, propaganda, press, films, Free French, Africa, Egypt, and Near East terms.",
+      links: [
+        { label: "Alexandria", url: "https://catalog.archives.gov/id/1674037" },
+        { label: "Port Said", url: "https://catalog.archives.gov/id/1675826" },
+        { label: "Brazzaville", url: "https://catalog.archives.gov/id/1670211" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. posts in Alexandria, Port Said, and Brazzaville classified general records, NAIDs 1674037, 1675826, and 1670211.",
+      targetTerms: ["Egypt", "Brazzaville", "Africa", "Near East", "radio", "Free French"],
+      gapIds: ["GAP-003", "GAP-014"]
+    },
+    {
+      id: "CABLE-015",
+      priority: "High",
+      status: "Post-file target",
+      lane: "Hemisphere and Cultural Exchange",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1941-1958; 1941-1963; 1940-1946",
+      title: "Mexico and Brazil: embassy classified and strictly confidential records",
+      series: "Classified General Records, NAIDs 1677124, 1518696, and 1518701",
+      naId: "1677124; 1518696; 1518701",
+      catalogUrl: "https://catalog.archives.gov/id/1677124",
+      material:
+        "Mexico and Brazil embassy post files for major Latin American public diplomacy, including State/OIAA/OWI coordination and local reaction.",
+      cableUse:
+        "Use for OCIAA/OIAA information programs, radio, film, press, publications, education, anti-Axis messaging, and embassy reporting.",
+      nextAction:
+        "Pair Mexico and Brazil post files with RG 59 103.9161 purport entries and RG 229 Department of Information records.",
+      links: [
+        { label: "Mexico", url: "https://catalog.archives.gov/id/1677124" },
+        { label: "Brazil classified", url: "https://catalog.archives.gov/id/1518696" },
+        { label: "Brazil strictly confidential", url: "https://catalog.archives.gov/id/1518701" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Mexico and Brazil classified/strictly confidential general records, NAIDs 1677124, 1518696, and 1518701.",
+      targetTerms: ["Mexico City", "Rio de Janeiro", "Brazil", "OIAA", "OCIAA", "En Guardia"],
+      gapIds: ["GAP-006", "GAP-014"]
+    },
+    {
+      id: "CABLE-016",
+      priority: "High",
+      status: "Post-file target",
+      lane: "Hemisphere and Cultural Exchange",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1936-1961; 1940-1963; 1936-1943",
+      title: "Argentina and Chile: embassy classified and strictly classified records",
+      series: "Classified General Records, NAIDs 1565938, 1613201, and 1613203",
+      naId: "1565938; 1613201; 1613203",
+      catalogUrl: "https://catalog.archives.gov/id/1565938",
+      material:
+        "Buenos Aires and Santiago post files for Southern Cone information policy, press, radio, film, and host-government reaction.",
+      cableUse:
+        "Use for anti-Axis information work, neutrality politics, OCIAA coordination, propaganda disputes, and embassy reporting on audience response.",
+      nextAction:
+        "Search Argentina and Chile post records by OIAA, OWI, information, radio, press, films, propaganda, censorship, and German influence terms.",
+      links: [
+        { label: "Argentina", url: "https://catalog.archives.gov/id/1565938" },
+        { label: "Chile classified", url: "https://catalog.archives.gov/id/1613201" },
+        { label: "Chile strictly classified", url: "https://catalog.archives.gov/id/1613203" }
+      ],
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Argentina and Chile classified/strictly classified general records, NAIDs 1565938, 1613201, and 1613203.",
+      targetTerms: ["Buenos Aires", "Santiago", "Argentina", "Chile", "OIAA", "propaganda"],
+      gapIds: ["GAP-006", "GAP-014"]
+    },
+    {
+      id: "CABLE-017",
+      priority: "Medium",
+      status: "Post-file target",
+      lane: "Hemisphere and Cultural Exchange",
+      repository: "NARA",
+      recordGroup: "RG 84",
+      dateRange: "1940-1961",
+      title: "Cuba, Havana: embassy classified general records",
+      series: "Classified General Records, NAID 1609355",
+      naId: "1609355",
+      catalogUrl: "https://catalog.archives.gov/id/1609355",
+      material:
+        "Havana embassy files with State instructions, telegrams, despatches, memoranda, reports, and correspondence.",
+      cableUse:
+        "Use for Caribbean OIAA/OWI information work, radio, press, film distribution, anti-Axis messaging, and local diplomatic reaction.",
+      nextAction:
+        "Search Havana files by OWI, OIAA, information, radio, press, films, propaganda, censorship, and cultural relations.",
+      sourceNote:
+        "National Archives Catalog, RG 84, U.S. Embassy Cuba, Classified General Records, NAID 1609355.",
+      targetTerms: ["Havana", "Cuba", "OIAA", "radio", "press", "films"],
+      gapIds: ["GAP-006", "GAP-014"]
+    }
+  ],
   documentIntake: [
     {
       id: "DOC-001",
