@@ -23,6 +23,7 @@
         <a href="#selection-rules">Rules</a>
         <a href="#coverage">Coverage</a>
         <a href="#closure">Closure</a>
+        <a href="#evidence-packets">Packets</a>
         <a href="#gap-tracker">Gaps</a>
         <a href="#source-pools">Source Pools</a>
         <a href="#ledger">Source Ledger</a>
@@ -44,6 +45,8 @@
             diplomacy volume: OWI, OGR, USIS, VOA, OCIAA, FDR public-line checks,
             NARA source pools, FDR Library anchors, document-intake rows,
             selection rules, gap-closure tasks, coverage checks, and boundary controls.
+            Evidence packets now bind each gap to policy, implementation, reaction, and
+            source-copy proof.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#leads">Open Source Leads</a>
@@ -240,10 +243,37 @@
         </div>
       </section>
 
+      <section class="section packet-section" id="evidence-packets" aria-labelledby="packet-title">
+        <div class="section-heading">
+          <p class="kicker">Gap Fix Packets</p>
+          <h2 id="packet-title">Policy, Implementation, Reaction, Source Copy</h2>
+        </div>
+        <div class="tools packet-tools" aria-label="Search and filter evidence packets">
+          <label class="search-field">
+            <span>Search packets</span>
+            <input id="packet-search" type="search" placeholder="Search packet evidence, repositories, source gates, gaps" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="packet-lane-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="packet-status-filter"></select>
+          </label>
+          <button id="clear-packet-filters" type="button">Reset</button>
+          <button id="export-packets" type="button">CSV</button>
+          <p id="packet-summary" class="summary">Loading evidence packets...</p>
+        </div>
+        <div id="packet-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading evidence packets...</p>
+        </div>
+      </section>
+
       <section class="section gap-section" id="gap-tracker" aria-labelledby="gap-title">
         <div class="section-heading">
-          <p class="kicker">Gap Tracker</p>
-          <h2 id="gap-title">What Still Has To Be Found</h2>
+          <p class="kicker">Fixed Gap Register</p>
+          <h2 id="gap-title">Proof Gates That Remain Before Final Selection</h2>
         </div>
         <div class="tools gap-tools" aria-label="Search and filter gap tracker">
           <label class="search-field">

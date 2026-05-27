@@ -11,6 +11,7 @@ const documentIntake = data.documentIntake || [];
 const selectionRules = data.selectionRules || [];
 const coverageMatrix = data.coverageMatrix || [];
 const closureTasks = data.closureTasks || [];
+const evidencePackets = data.evidencePackets || [];
 
 const state = {
   leads: {
@@ -42,6 +43,11 @@ const state = {
     query: "",
     lane: "",
     repository: "",
+    status: ""
+  },
+  evidencePackets: {
+    query: "",
+    lane: "",
     status: ""
   },
   public: {
@@ -112,6 +118,13 @@ const nodes = {
   closureStatusFilter: document.querySelector("#closure-status-filter"),
   clearClosureFilters: document.querySelector("#clear-closure-filters"),
   exportClosure: document.querySelector("#export-closure"),
+  packetRoot: document.querySelector("#packet-root"),
+  packetSummary: document.querySelector("#packet-summary"),
+  packetSearch: document.querySelector("#packet-search"),
+  packetLaneFilter: document.querySelector("#packet-lane-filter"),
+  packetStatusFilter: document.querySelector("#packet-status-filter"),
+  clearPacketFilters: document.querySelector("#clear-packet-filters"),
+  exportPackets: document.querySelector("#export-packets"),
   ledgerRoot: document.querySelector("#ledger-root"),
   ledgerSummary: document.querySelector("#ledger-summary"),
   publicRoot: document.querySelector("#public-root"),
@@ -198,11 +211,15 @@ function searchText(item) {
     item.objective,
     item.proofNeeded,
     item.closureCriteria,
+    item.policyEvidence,
+    item.implementationEvidence,
+    item.reactionEvidence,
+    item.sourceCopyGate,
+    item.repositories,
     item.nextStep,
     item.disposition,
     item.promoteWhen,
     item.excludeWhen,
-    item.repositories,
     item.missingEvidence,
     item.seedSearches,
     item.boundaryReason,
@@ -210,6 +227,7 @@ function searchText(item) {
     item.sourceNote,
     item.documentType,
     item.issueType,
+    item.links?.map((link) => `${link.label} ${link.url}`).join(" "),
     item.targetTerms?.join(" "),
     item.matchedTerms?.join(" "),
     item.nextActions?.join(" "),
@@ -244,16 +262,17 @@ function setStats() {
 function renderWorkbench() {
   const naraPools = sourcePools.filter((pool) => pool.repository === "NARA");
   const fdrPools = sourcePools.filter((pool) => pool.repository === "FDR Library");
-  const activeGaps = gaps.filter((gap) => gap.status !== "Closed");
+  const unfixedGaps = gaps.filter((gap) => !gap.status.startsWith("Fixed"));
   const boundaryCount = boundaryRecords.length;
   const officialStatus = meta.status || "Unknown";
 
   nodes.workbenchRoot.replaceChildren(
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
-    metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert gaps into source-copy work."),
+    metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
+    metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert packeted gaps into source-copy work."),
     metricCard("Source pools", naraPools.length + fdrPools.length, "NARA and FDR Library lanes for first-pass harvesting."),
-    metricCard("Active gaps", activeGaps.length, `${plural(boundaryCount, "boundary row")} keep the harvest honest.`)
+    metricCard("Unfixed gaps", unfixedGaps.length, `${plural(boundaryCount, "boundary row")} keep the harvest honest.`)
   );
 }
 
@@ -712,6 +731,78 @@ function closureCard(task) {
   return card;
 }
 
+function filteredEvidencePackets() {
+  return evidencePackets.filter((packet) => {
+    if (!matchesQuery(packet, state.evidencePackets.query)) return false;
+    if (state.evidencePackets.lane && packet.lane !== state.evidencePackets.lane) return false;
+    if (state.evidencePackets.status && packet.status !== state.evidencePackets.status) return false;
+    return true;
+  });
+}
+
+function renderEvidencePackets() {
+  const priorityOrder = new Map([
+    ["Critical", 1],
+    ["High", 2],
+    ["Medium", 3],
+    ["Boundary", 4]
+  ]);
+  const visible = filteredEvidencePackets().sort(
+    (a, b) =>
+      (priorityOrder.get(a.priority) || 99) - (priorityOrder.get(b.priority) || 99) ||
+      chapterNumber(a.lane) - chapterNumber(b.lane) ||
+      a.id.localeCompare(b.id)
+  );
+  nodes.packetSummary.textContent = `${plural(visible.length, "packet")} visible from ${evidencePackets.length} gap-fix evidence packets.`;
+  nodes.packetRoot.replaceChildren(...visible.map(evidencePacketCard));
+  if (!visible.length) nodes.packetRoot.innerHTML = '<p class="empty">No evidence packets match the current filters.</p>';
+}
+
+function evidencePacketCard(packet) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${packet.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(packet.id), textSpan(packet.dateRange), textSpan(packet.priority), textSpan(packet.status));
+  const title = document.createElement("h4");
+  title.textContent = packet.title;
+  titleBlock.append(metaRow, title);
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(packet.lane), priorityChip(packet.priority), chip(packet.status));
+  header.append(titleBlock, chips);
+
+  const policy = document.createElement("p");
+  policy.className = "source-note";
+  policy.textContent = `Policy evidence: ${packet.policyEvidence}`;
+  const implementation = document.createElement("p");
+  implementation.className = "source-note";
+  implementation.textContent = `Implementation evidence: ${packet.implementationEvidence}`;
+  const reaction = document.createElement("p");
+  reaction.className = "source-note";
+  reaction.textContent = `Reaction evidence: ${packet.reactionEvidence}`;
+  const sourceGate = document.createElement("p");
+  sourceGate.className = "source-note";
+  sourceGate.textContent = `Source-copy gate: ${packet.sourceCopyGate}`;
+  const repositories = document.createElement("p");
+  repositories.textContent = `Repositories: ${packet.repositories}`;
+  const nextAction = document.createElement("p");
+  nextAction.className = "source-note";
+  nextAction.textContent = `Next action: ${packet.nextAction}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  for (const link of packet.links || []) actions.append(linkButton(link.label, link.url));
+  if (packet.sourceNote) actions.append(copyButton(packet.sourceNote));
+
+  card.append(header, repositories, policy, implementation, reaction, sourceGate, nextAction, actions, sourceNoteDetails(packet));
+  if (packet.gapIds?.length) card.append(termChips(packet.gapIds));
+  return card;
+}
+
 function renderLedger() {
   const naraRows = ledger.filter((row) => row.repository === "NARA").length;
   const fdrRows = ledger.filter((row) => row.repository === "FDR Library").length;
@@ -952,6 +1043,8 @@ function populateFilters() {
   addOptions(nodes.closureLaneFilter, uniqueSorted(closureTasks.map((task) => task.lane)), "All lanes");
   addOptions(nodes.closureRepositoryFilter, uniqueSorted(closureTasks.map((task) => task.repository)), "All repositories");
   addOptions(nodes.closureStatusFilter, uniqueSorted(closureTasks.map((task) => task.status)), "All statuses");
+  addOptions(nodes.packetLaneFilter, uniqueSorted(evidencePackets.map((packet) => packet.lane)), "All lanes");
+  addOptions(nodes.packetStatusFilter, uniqueSorted(evidencePackets.map((packet) => packet.status)), "All statuses");
   addOptions(nodes.publicLaneFilter, uniqueSorted(publicReferences.map((item) => item.lane)), "All lanes");
   addOptions(nodes.publicRepositoryFilter, uniqueSorted(publicReferences.map((item) => item.repository)), "All repositories");
   addOptions(nodes.boundaryLaneFilter, uniqueSorted(boundaryRecords.map((record) => record.lane)), "All lanes");
@@ -1217,6 +1310,48 @@ function setupEvents() {
     );
   });
 
+  nodes.packetSearch.addEventListener("input", (event) => {
+    state.evidencePackets.query = event.target.value;
+    renderEvidencePackets();
+  });
+  nodes.packetLaneFilter.addEventListener("change", (event) => {
+    state.evidencePackets.lane = event.target.value;
+    renderEvidencePackets();
+  });
+  nodes.packetStatusFilter.addEventListener("change", (event) => {
+    state.evidencePackets.status = event.target.value;
+    renderEvidencePackets();
+  });
+  nodes.clearPacketFilters.addEventListener("click", () => {
+    state.evidencePackets = { query: "", lane: "", status: "" };
+    nodes.packetSearch.value = "";
+    nodes.packetLaneFilter.value = "";
+    nodes.packetStatusFilter.value = "";
+    renderEvidencePackets();
+  });
+  nodes.exportPackets.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-evidence-packets.csv",
+      toCsv(filteredEvidencePackets(), [
+        { label: "ID", value: (packet) => packet.id },
+        { label: "Priority", value: (packet) => packet.priority },
+        { label: "Status", value: (packet) => packet.status },
+        { label: "Lane", value: (packet) => packet.lane },
+        { label: "Date Range", value: (packet) => packet.dateRange },
+        { label: "Title", value: (packet) => packet.title },
+        { label: "Repositories", value: (packet) => packet.repositories },
+        { label: "Policy Evidence", value: (packet) => packet.policyEvidence },
+        { label: "Implementation Evidence", value: (packet) => packet.implementationEvidence },
+        { label: "Reaction Evidence", value: (packet) => packet.reactionEvidence },
+        { label: "Source-Copy Gate", value: (packet) => packet.sourceCopyGate },
+        { label: "Next Action", value: (packet) => packet.nextAction },
+        { label: "Links", value: (packet) => (packet.links || []).map((link) => `${link.label}: ${link.url}`).join("; ") },
+        { label: "Gap IDs", value: (packet) => (packet.gapIds || []).join("; ") },
+        { label: "Source Note", value: (packet) => packet.sourceNote }
+      ])
+    );
+  });
+
   nodes.publicSearch.addEventListener("input", (event) => {
     state.public.query = event.target.value;
     renderPublicReferences();
@@ -1285,6 +1420,7 @@ function init() {
   renderSelectionRules();
   renderCoverageMatrix();
   renderClosureTasks();
+  renderEvidencePackets();
   renderLedger();
   renderPublicReferences();
   renderBoundaryRecords();

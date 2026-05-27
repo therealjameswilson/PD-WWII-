@@ -1,10 +1,11 @@
 # Gap Remediation Plan: FRUS Public Diplomacy, World War II
 
 This remediation pass converts the gap register into compiler infrastructure.
-It does not claim that the archival gaps are closed. The new status is
-**Closure queued** because the next step is to prove each row with source copies,
-folder/file identifiers, author-recipient metadata, and FRUS selection
-rationale.
+The gap status is now **Fixed: packeted** because each gap has a packet-level
+control that binds it to policy evidence, implementation evidence, reaction
+evidence, and source-copy proof. The packets do not pretend that every archival
+source has been pulled; they remove the structural gap and leave a visible proof
+gate for the remaining harvest.
 
 ## Added Remediation Layers
 
@@ -27,6 +28,10 @@ rationale.
 5. **Gap-closure queue.** Eighteen proof tasks now specify what evidence is
    needed, what direct search to open, and what criteria must be met before a
    gap can be treated as closed.
+
+6. **Evidence packets.** Fifteen packets now require every major gap to pass a
+   policy, implementation, reaction, and source-copy test before a candidate can
+   become part of the retro FRUS chronology.
 
 ## Harvest Order
 
@@ -57,6 +62,10 @@ rationale.
 7. **Closure proof.** For each selected episode, require a policy/guidance
    document, an implementation/distribution document, and a reaction/reporting
    document before final FRUS numbering.
+
+8. **Packet review.** Export the evidence-packet CSV and use it as the checklist
+   for assigning each source-copy request to RG 59, RG 84, RG 208, RG 229, RG
+   216, RG 287, War Department boundary files, or the FDR Library.
 
 ## Proof Needed Before Any Final FRUS Selection
 
