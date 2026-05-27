@@ -22,6 +22,7 @@
         <a href="#document-intake">Intake</a>
         <a href="#selection-rules">Rules</a>
         <a href="#coverage">Coverage</a>
+        <a href="#closure">Closure</a>
         <a href="#gap-tracker">Gaps</a>
         <a href="#source-pools">Source Pools</a>
         <a href="#ledger">Source Ledger</a>
@@ -42,7 +43,7 @@
             A compiler-facing assist page for the unpublished World War II public
             diplomacy volume: OWI, OGR, USIS, VOA, OCIAA, FDR public-line checks,
             NARA source pools, FDR Library anchors, document-intake rows,
-            selection rules, coverage checks, and boundary controls.
+            selection rules, gap-closure tasks, coverage checks, and boundary controls.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#leads">Open Source Leads</a>
@@ -205,6 +206,37 @@
         </div>
         <div id="coverage-root" class="file-grid" aria-live="polite">
           <p class="loading">Loading coverage matrix...</p>
+        </div>
+      </section>
+
+      <section class="section closure-section" id="closure" aria-labelledby="closure-title">
+        <div class="section-heading">
+          <p class="kicker">Gap Closure Queue</p>
+          <h2 id="closure-title">Proof Tasks That Close The Gaps</h2>
+        </div>
+        <div class="tools closure-tools" aria-label="Search and filter gap-closure tasks">
+          <label class="search-field">
+            <span>Search closure tasks</span>
+            <input id="closure-search" type="search" placeholder="Search proof, criteria, source notes, gaps, repositories" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="closure-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="closure-repository-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="closure-status-filter"></select>
+          </label>
+          <button id="clear-closure-filters" type="button">Reset</button>
+          <button id="export-closure" type="button">CSV</button>
+          <p id="closure-summary" class="summary">Loading gap-closure tasks...</p>
+        </div>
+        <div id="closure-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading gap-closure tasks...</p>
         </div>
       </section>
 

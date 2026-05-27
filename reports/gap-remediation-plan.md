@@ -2,7 +2,7 @@
 
 This remediation pass converts the gap register into compiler infrastructure.
 It does not claim that the archival gaps are closed. The new status is
-**Mitigating** because the next step is to prove each row with source copies,
+**Closure queued** because the next step is to prove each row with source copies,
 folder/file identifiers, author-recipient metadata, and FRUS selection
 rationale.
 
@@ -23,6 +23,10 @@ rationale.
 
 4. **Gap remediation notes.** Each of the 15 original gaps now records the
    intake rows, rules, or coverage rows that mitigate it.
+
+5. **Gap-closure queue.** Eighteen proof tasks now specify what evidence is
+   needed, what direct search to open, and what criteria must be met before a
+   gap can be treated as closed.
 
 ## Harvest Order
 
@@ -49,6 +53,10 @@ rationale.
 6. **Boundary review.** Keep OCIAA operational programs, domestic morale,
    military psychological warfare, and supplemental/private sources outside the
    main chronology unless the selection rules promote them.
+
+7. **Closure proof.** For each selected episode, require a policy/guidance
+   document, an implementation/distribution document, and a reaction/reporting
+   document before final FRUS numbering.
 
 ## Proof Needed Before Any Final FRUS Selection
 

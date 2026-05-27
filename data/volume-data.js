@@ -1143,11 +1143,373 @@ window.VOLUME_DATA = {
       gapIds: ["GAP-015"]
     }
   ],
+  closureTasks: [
+    {
+      id: "FIX-001",
+      priority: "Critical",
+      status: "Ready to harvest",
+      lane: "Creating War Information",
+      repository: "NARA RG 59",
+      title: "State Department central control search for OWI foreign information policy",
+      objective:
+        "Find State Department decisions, objections, clearances, and instructions that establish FRUS-level policy control over OWI and foreign information work.",
+      proofNeeded:
+        "At least five file-unit or item candidates with date, author, recipient, file locator, and source-copy status from RG 59.",
+      closureCriteria:
+        "GAP-002 can close only when each major OWI/OIAA initiative in the chronology has a State clearance, objection, instruction, or documented absence.",
+      nextStep:
+        "Search State Central Files and public/cultural affairs terms before adding more OWI media-output rows.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20%22Department%20of%20State%22",
+      gapIds: ["GAP-001", "GAP-002", "GAP-007"],
+      sourceNote:
+        "National Archives, General Records of the Department of State, Record Group 59; State Department central and public/cultural affairs records."
+    },
+    {
+      id: "FIX-002",
+      priority: "Critical",
+      status: "Ready to harvest",
+      lane: "Peace Aims and Handoff",
+      repository: "NARA RG 59",
+      title: "MacLeish, IIIS, and 1945 State handoff proof packet",
+      objective:
+        "Locate direct State records for the transfer of international information functions from OWI/OIAA into State.",
+      proofNeeded:
+        "Folder-level candidates for MacLeish, Interim International Information Service, EO 9608, public and cultural relations, and August-December 1945 transfer decisions.",
+      closureCriteria:
+        "GAP-007 and the postwar side of GAP-012 can close when the handoff has State-side authority, personnel/program, and overseas-continuity documents.",
+      nextStep:
+        "Search IIIS, MacLeish, Assistant Secretary for Public and Cultural Relations, public affairs, and cultural relations terms.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Interim%20International%20Information%20Service%22%20MacLeish",
+      gapIds: ["GAP-002", "GAP-007", "GAP-012", "GAP-013"],
+      sourceNote:
+        "National Archives Catalog search lead for Interim International Information Service and State Department public/cultural relations transfer files."
+    },
+    {
+      id: "FIX-003",
+      priority: "Critical",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 84",
+      title: "European and neutral-post reporting matrix",
+      objective:
+        "Recover embassy evidence for how OWI, VOA, films, press, and information programs operated abroad and affected diplomatic activity.",
+      proofNeeded:
+        "Post-file candidates for London, Lisbon, Madrid, Stockholm, Bern, Ankara, Cairo, Moscow, and liberated/occupied posts.",
+      closureCriteria:
+        "GAP-003 can close only when each priority theater has at least one post report or instruction documenting implementation, reaction, dispute, or local clearance.",
+      nextStep:
+        "Search post files for OWI, USIS, information, propaganda, radio, films, exhibits, press, and cultural relations.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20%22Foreign%20Service%20Posts%22",
+      gapIds: ["GAP-003", "GAP-014"],
+      sourceNote:
+        "National Archives, Records of Foreign Service Posts of the Department of State, Record Group 84."
+    },
+    {
+      id: "FIX-004",
+      priority: "High",
+      status: "Ready to harvest",
+      lane: "Hemisphere and Cultural Exchange",
+      repository: "NARA RG 84 / RG 229",
+      title: "Latin America post and OCIAA coordination matrix",
+      objective:
+        "Tie OCIAA information, film, radio, education, press, publications, and graphics work to post reporting and State/embassy coordination.",
+      proofNeeded:
+        "Paired RG 84 and RG 229 candidates for Mexico City, Rio de Janeiro, Buenos Aires, Santiago, Bogota, Havana, and Lima.",
+      closureCriteria:
+        "GAP-006 can close when OCIAA information records are separated from operational programs and paired with embassy or State policy evidence.",
+      nextStep:
+        "Harvest Department of Information and Press/Publications first; keep non-information OCIAA records in boundary status.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20Inter-American%20Affairs%22%20%22Department%20of%20Information%22",
+      gapIds: ["GAP-003", "GAP-006", "GAP-014"],
+      sourceNote:
+        "National Archives, Records of the Office of Inter-American Affairs, Record Group 229, cross-checked against Foreign Service post records in Record Group 84."
+    },
+    {
+      id: "FIX-005",
+      priority: "Critical",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 208",
+      title: "OWI Overseas Operations Washington policy and communications packet",
+      objective:
+        "Convert RG 208 overseas operations from a source pool into candidate documents with policy guidance, cable traffic, communications control, and outpost reporting.",
+      proofNeeded:
+        "At least one Washington policy/guidance file, one communications/cable file, and one field-reaction/outpost file for the core OWI overseas lane.",
+      closureCriteria:
+        "GAP-004 can close only when OWI overseas rows connect Washington guidance to country/outpost implementation and reaction.",
+      nextStep:
+        "Mine Overseas Operations Branch, communications control, outpost, country desk, and overseas publications records.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Overseas%20Operations%20Branch%22%20%22Office%20of%20War%20Information%22",
+      gapIds: ["GAP-004", "GAP-011", "GAP-014"],
+      sourceNote:
+        "National Archives, Records of the Office of War Information, Record Group 208; Overseas Operations Branch records."
+    },
+    {
+      id: "FIX-006",
+      priority: "High",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 208",
+      title: "New York Overseas Operations radio, review board, and language-service packet",
+      objective:
+        "Locate New York records that show content control, target audience, policy review, scripts, language services, and reaction.",
+      proofNeeded:
+        "Candidates from New York Office, Review Board, German Committee, Radio Program Bureau, News and Features, and analysis files.",
+      closureCriteria:
+        "GAP-005 can close when VOA/radio records include guidance, scripts, clearance, language desk, monitoring, and reaction evidence.",
+      nextStep:
+        "Search New York Office, Radio Program Bureau, German Committee, Review Board, scripts, and language services.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20%22New%20York%20Office%22%20radio",
+      gapIds: ["GAP-004", "GAP-005", "GAP-014"],
+      sourceNote:
+        "National Archives Catalog search lead for Office of War Information New York Overseas Operations records."
+    },
+    {
+      id: "FIX-007",
+      priority: "High",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 208",
+      title: "San Francisco Overseas Operations Pacific and Asia packet",
+      objective:
+        "Build the Pacific/Asia side of the OWI overseas record through San Francisco program, analysis, operations, publications, and country desk material.",
+      proofNeeded:
+        "Candidates for Pacific, China, Philippines, Japan, surrender/victory messaging, language services, and overseas distribution.",
+      closureCriteria:
+        "The Pacific and China-Burma-India coverage rows can close when policy/guidance and implementation/reaction evidence are both present.",
+      nextStep:
+        "Search San Francisco Office, Program Bureau, Analysis Bureau, Pacific, China, Philippines, Japan, and overseas distribution terms.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20%22San%20Francisco%20Office%22",
+      gapIds: ["GAP-004", "GAP-014"],
+      sourceNote:
+        "National Archives Catalog search lead for Office of War Information San Francisco Overseas Operations records."
+    },
+    {
+      id: "FIX-008",
+      priority: "High",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 216 / RG 208",
+      title: "VOA monitoring and shortwave reaction packet",
+      objective:
+        "Tie VOA scripts and language services to shortwave monitoring, diplomatic reaction, and policy clearance.",
+      proofNeeded:
+        "OWI radio/script candidates plus Office of Censorship short-wave watch logs and at least two post or monitoring reaction records.",
+      closureCriteria:
+        "The radio gap can close when each selected broadcast or program decision has guidance, content, monitoring, and reaction evidence.",
+      nextStep:
+        "Pair Voice of America and OWI radio searches with RG 216 Broadcasting Division monitoring records.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Voice%20of%20America%22%20%22short-wave%22%20monitoring",
+      gapIds: ["GAP-005", "GAP-014"],
+      sourceNote:
+        "National Archives, Records of the Office of Censorship, Record Group 216, and Office of War Information, Record Group 208."
+    },
+    {
+      id: "FIX-009",
+      priority: "High",
+      status: "Ready to harvest",
+      lane: "Peace Aims and Handoff",
+      repository: "FDR Library",
+      title: "FDR White House public-line decision binder",
+      objective:
+        "Move from public speeches to the decision files behind Four Freedoms, Pearl Harbor, 1943 State of the Union, D-Day, United Nations, surrender, and victory themes.",
+      proofNeeded:
+        "Drafts, routing, schedules, memoranda, OWI treatment, State clearance, overseas guidance, and reception links for each public-line anchor.",
+      closureCriteria:
+        "GAP-008 can close when each major public-line document has a White House decision path and at least one agency or post reaction record.",
+      nextStep:
+        "Use Master Speech File, President's Secretary's File, President's Personal File, Official File, Hopkins papers, Early material, and Day by Day.",
+      queryUrl: "https://www.fdrlibrary.org/digital-collections",
+      gapIds: ["GAP-008", "GAP-011", "GAP-013"],
+      sourceNote:
+        "Franklin D. Roosevelt Presidential Library and Museum, Digital Collections and presidential papers finding aids."
+    },
+    {
+      id: "FIX-010",
+      priority: "Medium",
+      status: "Boundary fixed",
+      lane: "Creating War Information",
+      repository: "NARA RG 107 / RG 165",
+      title: "War Department public relations and psychological warfare boundary packet",
+      objective:
+        "Prevent tactical psychological warfare and military publicity from distorting the public-diplomacy volume.",
+      proofNeeded:
+        "Only interagency policy, State/OWI coordination, foreign-audience strategy, or diplomatic controversy records should be promoted.",
+      closureCriteria:
+        "GAP-009 is structurally fixed when every War Department candidate is tagged Promote, Boundary, or Exclude under RULE-008.",
+      nextStep:
+        "Search War Department BPR and MID/Propaganda Branch only after State/OWI policy terms are attached.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Bureau%20of%20Public%20Relations%22%20%22Office%20of%20War%20Information%22",
+      gapIds: ["GAP-009", "GAP-015"],
+      sourceNote:
+        "National Archives, Records of the Office of the Secretary of War, Record Group 107, and War Department General and Special Staffs, Record Group 165."
+    },
+    {
+      id: "FIX-011",
+      priority: "Medium",
+      status: "Boundary fixed",
+      lane: "Prewar Information Policy",
+      repository: "NARA RG 44 / RG 208",
+      title: "Domestic morale and public-opinion promotion test",
+      objective:
+        "Keep surveys, public inquiries, editorial analysis, and domestic morale as supporting evidence unless they shaped foreign information policy.",
+      proofNeeded:
+        "Domestic records must show foreign-audience assumptions, White House/State decisions, overseas messaging, or diplomatic activity before promotion.",
+      closureCriteria:
+        "GAP-010 is structurally fixed when all domestic records are tagged Context, Boundary, or Promote with a foreign-policy rationale.",
+      nextStep:
+        "Apply RULE-009 to every survey, media-analysis, public-inquiry, poster, and domestic operations candidate.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20surveys%20%22foreign%20audience%22",
+      gapIds: ["GAP-010", "GAP-012"],
+      sourceNote:
+        "National Archives, Records of the Office of Government Reports, Record Group 44, and Office of War Information, Record Group 208."
+    },
+    {
+      id: "FIX-012",
+      priority: "High",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 287 / RG 208 / RG 229",
+      title: "Output-to-policy proof crosswalk",
+      objective:
+        "Tie publications, films, photographs, posters, exhibits, broadcasts, and magazines to policy guidance and foreign reaction.",
+      proofNeeded:
+        "For each output: guidance/clearance record, distribution/audience record, final artifact or record copy, and reaction or diplomatic consequence.",
+      closureCriteria:
+        "GAP-011 can close when no output is promoted as a FRUS document without policy and reaction evidence.",
+      nextStep:
+        "Use RG 287 for final record-copy verification only after policy, clearance, and distribution records are found.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20publications%20%22Record%20Group%20287%22",
+      gapIds: ["GAP-011", "GAP-014"],
+      sourceNote:
+        "National Archives, Publications of the U.S. Government, Record Group 287, cross-checked against OWI and OIAA production records."
+    },
+    {
+      id: "FIX-013",
+      priority: "Medium",
+      status: "Rule fixed",
+      lane: "Peace Aims and Handoff",
+      repository: "History.state.gov / NARA",
+      title: "Interwar and postwar boundary enforcement",
+      objective:
+        "Stop predecessor and successor material from crowding the wartime volume while preserving necessary continuity.",
+      proofNeeded:
+        "Every 1939-1941 or post-August 1945 candidate must be tagged Predecessor, Wartime, Bridge, or Successor.",
+      closureCriteria:
+        "GAP-012 is structurally fixed when boundary tags are applied before document selection and successor rows are routed to Volume IV coordination.",
+      nextStep:
+        "Apply RULE-010 to OGR, OFF, IIIS, State handoff, and postwar information-program candidates.",
+      queryUrl: "https://history.state.gov/historicaldocuments/status-of-the-series",
+      gapIds: ["GAP-012"],
+      sourceNote:
+        "Office of the Historian, Status of the Foreign Relations series; coordinate Public Diplomacy Volumes II, III, and IV boundaries."
+    },
+    {
+      id: "FIX-014",
+      priority: "Medium",
+      status: "Authority work",
+      lane: "Creating War Information",
+      repository: "Cross-repository",
+      title: "Persons and organization authority normalization packet",
+      objective:
+        "Build source-backed authority control for names, aliases, offices, title dates, and agency successions.",
+      proofNeeded:
+        "At least one source note for every title date, office succession, alias, and preferred name form used in the persons list.",
+      closureCriteria:
+        "GAP-013 can close when selected-document authors and recipients are all normalized with source-backed dates and office names.",
+      nextStep:
+        "Prioritize Davis, Mellett, Rockefeller, MacLeish, Sherwood, Houseman, Early, Rosenman, Hopkins, Stettinius, and post officials.",
+      queryUrl: "persons.html",
+      gapIds: ["GAP-013"],
+      sourceNote:
+        "Compiler authority-control task generated from NARA, FDR Library, and History.state.gov source leads."
+    },
+    {
+      id: "FIX-015",
+      priority: "Medium",
+      status: "Coverage fixed",
+      lane: "OWI Overseas and VOA",
+      repository: "Cross-repository",
+      title: "Theater and audience balance enforcement",
+      objective:
+        "Prevent the chronology from overrepresenting Washington, OWI, or media outputs while missing major audiences.",
+      proofNeeded:
+        "Each coverage row needs at least one policy/guidance record and one implementation/reaction record before the chronology is balanced.",
+      closureCriteria:
+        "GAP-014 is structurally fixed when coverage rows are used as a required checklist before final selection.",
+      nextStep:
+        "Track Europe, neutral Europe, Latin America, China-Burma-India, Pacific, Middle East/North Africa, Soviet/Eastern Europe, global radio, and Washington control.",
+      queryUrl: "https://www.archives.gov/research/guide-fed-records/groups/084.html",
+      gapIds: ["GAP-003", "GAP-004", "GAP-014"],
+      sourceNote:
+        "Compiler coverage task anchored in NARA RG 84, RG 208, RG 229, RG 59, and FDR Library source pools."
+    },
+    {
+      id: "FIX-016",
+      priority: "Boundary",
+      status: "Boundary fixed",
+      lane: "Peace Aims and Handoff",
+      repository: "Supplemental sources",
+      title: "Private, Allied, press, memoir, and foreign-reaction control list",
+      objective:
+        "Use supplemental sources to locate missing U.S. records and reception evidence without replacing official U.S. documentation.",
+      proofNeeded:
+        "Every supplemental lead must name the U.S. official record it points toward or the reaction gap it explains.",
+      closureCriteria:
+        "GAP-015 is structurally fixed when supplemental records are tagged Locator, Reception, Context, or Exclude before use.",
+      nextStep:
+        "Start with Davis, Mellett, Rockefeller, MacLeish, Sherwood, Hopkins, Early, BBC, British Ministry of Information, and press reaction.",
+      queryUrl: "https://www.fdrlibrary.org/collections-list",
+      gapIds: ["GAP-015"],
+      sourceNote:
+        "FDR Library Collections List and related manuscript collection leads; supplemental records require separate FRUS source-use review."
+    },
+    {
+      id: "FIX-017",
+      priority: "Critical",
+      status: "Selection proof",
+      lane: "Creating War Information",
+      repository: "Cross-repository",
+      title: "Source-copy proof packet for every candidate document",
+      objective:
+        "Prevent final numbering until each candidate has a verifiable source copy and FRUS-worthiness rationale.",
+      proofNeeded:
+        "Date, author, recipient, document type, repository, collection/record group, box/file or catalog ID, source-copy status, and selection rationale.",
+      closureCriteria:
+        "GAP-001 can close when every promoted row has complete source metadata and a selection rationale separate from source-pool IDs.",
+      nextStep:
+        "Export the document-intake CSV, add source-copy locators, and do not assign final FRUS numbers until the chronology is selected.",
+      queryUrl: "https://history.state.gov/historicaldocuments/frus1917-72PubDipv03",
+      gapIds: ["GAP-001"],
+      sourceNote:
+        "Office of the Historian, Foreign Relations of the United States, 1917-1972, Volume III, Public Diplomacy, World War II."
+    },
+    {
+      id: "FIX-018",
+      priority: "Critical",
+      status: "Ready to harvest",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA RG 208 / RG 84 / RG 59",
+      title: "Triangulation packet: policy, implementation, reaction",
+      objective:
+        "Make every selected wartime public-diplomacy episode rest on a three-part evidentiary chain.",
+      proofNeeded:
+        "One policy/guidance document, one implementation/distribution document, and one reaction/reporting document for each major episode.",
+      closureCriteria:
+        "Core gaps close only when the selected chronology can show decision, action, and diplomatic or audience consequence.",
+      nextStep:
+        "Start with OWI overseas, VOA/radio, OCIAA hemisphere work, FDR public line, and State handoff episodes.",
+      queryUrl: "https://catalog.archives.gov/search?q=%22Office%20of%20War%20Information%22%20%22Department%20of%20State%22%20embassy",
+      gapIds: ["GAP-002", "GAP-003", "GAP-004", "GAP-005", "GAP-008", "GAP-011", "GAP-014"],
+      sourceNote:
+        "Cross-repository triangulation task for State Department, Foreign Service post, OWI, OIAA, and FDR Library records."
+    }
+  ],
   gaps: [
     {
       id: "GAP-001",
       priority: "Critical",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Creating War Information",
       title: "No document-level FRUS selection register yet",
       evidence:
@@ -1169,7 +1531,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-002",
       priority: "Critical",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Creating War Information",
       title: "State Department policy records are underrepresented",
       evidence:
@@ -1191,7 +1553,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-003",
       priority: "Critical",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "OWI Overseas and VOA",
       title: "Foreign Service post reporting is missing",
       evidence:
@@ -1213,7 +1575,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-004",
       priority: "Critical",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "OWI Overseas and VOA",
       title: "OWI overseas outpost map is not yet harvested",
       evidence:
@@ -1235,7 +1597,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-005",
       priority: "High",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "OWI Overseas and VOA",
       title: "VOA and radio policy chain is incomplete",
       evidence:
@@ -1261,7 +1623,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-006",
       priority: "High",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Hemisphere and Cultural Exchange",
       title: "Latin America boundary between OWI and OCIAA requires firm controls",
       evidence:
@@ -1283,7 +1645,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-007",
       priority: "High",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Peace Aims and Handoff",
       title: "State handoff and postwar bridge need direct records",
       evidence:
@@ -1305,7 +1667,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-008",
       priority: "High",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Peace Aims and Handoff",
       title: "FDR and White House decision files need document-level matching",
       evidence:
@@ -1327,7 +1689,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-009",
       priority: "High",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Creating War Information",
       title: "Military public relations and psychological warfare boundaries are unresolved",
       evidence:
@@ -1349,7 +1711,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-010",
       priority: "Medium",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Prewar Information Policy",
       title: "Domestic morale and public-opinion files need selection rules",
       evidence:
@@ -1371,7 +1733,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-011",
       priority: "Medium",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "OWI Overseas and VOA",
       title: "Publication, film, photograph, and exhibit outputs are not tied to policy",
       evidence:
@@ -1393,7 +1755,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-012",
       priority: "Medium",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Peace Aims and Handoff",
       title: "Interwar and postwar volume boundaries are not operationalized",
       evidence:
@@ -1415,7 +1777,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-013",
       priority: "Medium",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Creating War Information",
       title: "Persons and organizational authority are too thin",
       evidence:
@@ -1437,7 +1799,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-014",
       priority: "Medium",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "OWI Overseas and VOA",
       title: "Geographic and audience balance is not yet measurable",
       evidence:
@@ -1459,7 +1821,7 @@ window.VOLUME_DATA = {
     {
       id: "GAP-015",
       priority: "Low",
-      status: "Mitigating",
+      status: "Closure queued",
       lane: "Peace Aims and Handoff",
       title: "Foreign and private-paper corroboration is not scoped",
       evidence:

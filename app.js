@@ -10,6 +10,7 @@ const boundaryRecords = data.boundaryRecords || [];
 const documentIntake = data.documentIntake || [];
 const selectionRules = data.selectionRules || [];
 const coverageMatrix = data.coverageMatrix || [];
+const closureTasks = data.closureTasks || [];
 
 const state = {
   leads: {
@@ -32,6 +33,12 @@ const state = {
     priority: ""
   },
   documentIntake: {
+    query: "",
+    lane: "",
+    repository: "",
+    status: ""
+  },
+  closure: {
     query: "",
     lane: "",
     repository: "",
@@ -97,6 +104,14 @@ const nodes = {
   coverageRoot: document.querySelector("#coverage-root"),
   coverageSummary: document.querySelector("#coverage-summary"),
   exportCoverage: document.querySelector("#export-coverage"),
+  closureRoot: document.querySelector("#closure-root"),
+  closureSummary: document.querySelector("#closure-summary"),
+  closureSearch: document.querySelector("#closure-search"),
+  closureLaneFilter: document.querySelector("#closure-lane-filter"),
+  closureRepositoryFilter: document.querySelector("#closure-repository-filter"),
+  closureStatusFilter: document.querySelector("#closure-status-filter"),
+  clearClosureFilters: document.querySelector("#clear-closure-filters"),
+  exportClosure: document.querySelector("#export-closure"),
   ledgerRoot: document.querySelector("#ledger-root"),
   ledgerSummary: document.querySelector("#ledger-summary"),
   publicRoot: document.querySelector("#public-root"),
@@ -180,6 +195,10 @@ function searchText(item) {
     item.likelyOffices,
     item.selectionTest,
     item.sourceCopyTask,
+    item.objective,
+    item.proofNeeded,
+    item.closureCriteria,
+    item.nextStep,
     item.disposition,
     item.promoteWhen,
     item.excludeWhen,
@@ -232,8 +251,8 @@ function renderWorkbench() {
   nodes.workbenchRoot.replaceChildren(
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
-    metricCard("NARA pools", naraPools.length, "Record group and catalog searches on the National Archives website."),
-    metricCard("FDR pools", fdrPools.length, "FRANKLIN, speeches, schedules, and presidential-paper anchors."),
+    metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert gaps into source-copy work."),
+    metricCard("Source pools", naraPools.length + fdrPools.length, "NARA and FDR Library lanes for first-pass harvesting."),
     metricCard("Active gaps", activeGaps.length, `${plural(boundaryCount, "boundary row")} keep the harvest honest.`)
   );
 }
@@ -626,6 +645,73 @@ function coverageCard(item) {
   return card;
 }
 
+function filteredClosureTasks() {
+  return closureTasks.filter((task) => {
+    if (!matchesQuery(task, state.closure.query)) return false;
+    if (state.closure.lane && task.lane !== state.closure.lane) return false;
+    if (state.closure.repository && task.repository !== state.closure.repository) return false;
+    if (state.closure.status && task.status !== state.closure.status) return false;
+    return true;
+  });
+}
+
+function renderClosureTasks() {
+  const priorityOrder = new Map([
+    ["Critical", 1],
+    ["High", 2],
+    ["Medium", 3],
+    ["Boundary", 4]
+  ]);
+  const visible = filteredClosureTasks().sort(
+    (a, b) =>
+      (priorityOrder.get(a.priority) || 99) - (priorityOrder.get(b.priority) || 99) ||
+      chapterNumber(a.lane) - chapterNumber(b.lane) ||
+      a.id.localeCompare(b.id)
+  );
+  nodes.closureSummary.textContent = `${plural(visible.length, "task")} visible from ${closureTasks.length} gap-closure tasks.`;
+  nodes.closureRoot.replaceChildren(...visible.map(closureCard));
+  if (!visible.length) nodes.closureRoot.innerHTML = '<p class="empty">No gap-closure tasks match the current filters.</p>';
+}
+
+function closureCard(task) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${task.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(task.id), textSpan(task.priority), textSpan(task.status), textSpan(task.repository));
+  const title = document.createElement("h4");
+  title.textContent = task.title;
+  titleBlock.append(metaRow, title);
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(task.lane), priorityChip(task.priority), chip(task.status));
+  header.append(titleBlock, chips);
+
+  const objective = document.createElement("p");
+  objective.textContent = task.objective;
+  const proof = document.createElement("p");
+  proof.className = "source-note";
+  proof.textContent = `Proof needed: ${task.proofNeeded}`;
+  const criteria = document.createElement("p");
+  criteria.className = "source-note";
+  criteria.textContent = `Closure criteria: ${task.closureCriteria}`;
+  const next = document.createElement("p");
+  next.className = "source-note";
+  next.textContent = `Next step: ${task.nextStep}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  if (task.queryUrl) actions.append(linkButton("Open search", task.queryUrl));
+  if (task.sourceNote) actions.append(copyButton(task.sourceNote));
+
+  card.append(header, objective, proof, criteria, next, actions, sourceNoteDetails(task));
+  if (task.gapIds?.length) card.append(termChips(task.gapIds));
+  return card;
+}
+
 function renderLedger() {
   const naraRows = ledger.filter((row) => row.repository === "NARA").length;
   const fdrRows = ledger.filter((row) => row.repository === "FDR Library").length;
@@ -863,6 +949,9 @@ function populateFilters() {
   addOptions(nodes.documentLaneFilter, uniqueSorted(documentIntake.map((item) => item.lane)), "All lanes");
   addOptions(nodes.documentRepositoryFilter, uniqueSorted(documentIntake.map((item) => item.repository)), "All repositories");
   addOptions(nodes.documentStatusFilter, uniqueSorted(documentIntake.map((item) => item.status)), "All statuses");
+  addOptions(nodes.closureLaneFilter, uniqueSorted(closureTasks.map((task) => task.lane)), "All lanes");
+  addOptions(nodes.closureRepositoryFilter, uniqueSorted(closureTasks.map((task) => task.repository)), "All repositories");
+  addOptions(nodes.closureStatusFilter, uniqueSorted(closureTasks.map((task) => task.status)), "All statuses");
   addOptions(nodes.publicLaneFilter, uniqueSorted(publicReferences.map((item) => item.lane)), "All lanes");
   addOptions(nodes.publicRepositoryFilter, uniqueSorted(publicReferences.map((item) => item.repository)), "All repositories");
   addOptions(nodes.boundaryLaneFilter, uniqueSorted(boundaryRecords.map((record) => record.lane)), "All lanes");
@@ -957,6 +1046,7 @@ function setupEvents() {
         { label: "Evidence", value: (gap) => gap.evidence },
         { label: "Problem", value: (gap) => gap.problem },
         { label: "Needed", value: (gap) => gap.needed },
+        { label: "Remediation", value: (gap) => gap.remediation },
         { label: "Next Actions", value: (gap) => (gap.nextActions || []).join("; ") },
         { label: "Target Terms", value: (gap) => (gap.targetTerms || []).join("; ") },
         { label: "Source Pools", value: (gap) => (gap.sourcePools || []).join("; ") }
@@ -1082,6 +1172,51 @@ function setupEvents() {
     );
   });
 
+  nodes.closureSearch.addEventListener("input", (event) => {
+    state.closure.query = event.target.value;
+    renderClosureTasks();
+  });
+  nodes.closureLaneFilter.addEventListener("change", (event) => {
+    state.closure.lane = event.target.value;
+    renderClosureTasks();
+  });
+  nodes.closureRepositoryFilter.addEventListener("change", (event) => {
+    state.closure.repository = event.target.value;
+    renderClosureTasks();
+  });
+  nodes.closureStatusFilter.addEventListener("change", (event) => {
+    state.closure.status = event.target.value;
+    renderClosureTasks();
+  });
+  nodes.clearClosureFilters.addEventListener("click", () => {
+    state.closure = { query: "", lane: "", repository: "", status: "" };
+    nodes.closureSearch.value = "";
+    nodes.closureLaneFilter.value = "";
+    nodes.closureRepositoryFilter.value = "";
+    nodes.closureStatusFilter.value = "";
+    renderClosureTasks();
+  });
+  nodes.exportClosure.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-gap-closure-tasks.csv",
+      toCsv(filteredClosureTasks(), [
+        { label: "ID", value: (task) => task.id },
+        { label: "Priority", value: (task) => task.priority },
+        { label: "Status", value: (task) => task.status },
+        { label: "Lane", value: (task) => task.lane },
+        { label: "Repository", value: (task) => task.repository },
+        { label: "Title", value: (task) => task.title },
+        { label: "Objective", value: (task) => task.objective },
+        { label: "Proof Needed", value: (task) => task.proofNeeded },
+        { label: "Closure Criteria", value: (task) => task.closureCriteria },
+        { label: "Next Step", value: (task) => task.nextStep },
+        { label: "Query URL", value: (task) => task.queryUrl },
+        { label: "Gap IDs", value: (task) => (task.gapIds || []).join("; ") },
+        { label: "Source Note", value: (task) => task.sourceNote }
+      ])
+    );
+  });
+
   nodes.publicSearch.addEventListener("input", (event) => {
     state.public.query = event.target.value;
     renderPublicReferences();
@@ -1149,6 +1284,7 @@ function init() {
   renderDocumentIntake();
   renderSelectionRules();
   renderCoverageMatrix();
+  renderClosureTasks();
   renderLedger();
   renderPublicReferences();
   renderBoundaryRecords();

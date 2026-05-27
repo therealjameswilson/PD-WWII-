@@ -462,7 +462,8 @@ dd {
 
 .gap-tools,
 .source-pool-tools,
-.document-tools {
+.document-tools,
+.closure-tools {
   grid-template-columns: minmax(260px, 2fr) repeat(3, minmax(140px, 1fr)) auto auto;
 }
 
@@ -926,6 +927,7 @@ footer {
   .gap-tools,
   .source-pool-tools,
   .document-tools,
+  .closure-tools,
   .public-tools,
   .boundary-tools,
   .persons-tools {
@@ -974,6 +976,7 @@ footer {
   .gap-tools,
   .source-pool-tools,
   .document-tools,
+  .closure-tools,
   .public-tools,
   .boundary-tools,
   .persons-tools {

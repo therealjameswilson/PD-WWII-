@@ -14,6 +14,7 @@ rather than a published FRUS document chronology.
 - CSV export for source leads, document intake, selection rules, coverage matrix, gap tracker, source pools, public-line references, and persons
 - source-note copy buttons for compiler-ready provenance snippets
 - NARA and FDR Library source-pool queue
+- gap-closure task queue with proof requirements, closure criteria, direct searches, and CSV export
 - gap tracker with remediation rows for unresolved compiler work
 - selection and boundary rules for promoting, holding, or excluding candidate documents
 - theater and audience coverage matrix for geographic balance
@@ -30,10 +31,11 @@ The committed data currently contains:
 - `18` document-intake rows
 - `12` selection and boundary rules
 - `10` theater/audience coverage rows
+- `18` gap-closure tasks
 - `18` NARA/FDR source pools
 - `7` source-copy ledger anchors
 - `6` public-line references
-- `15` compiler gap-tracker items marked as mitigating
+- `15` compiler gap-tracker items marked as closure queued
 - `4` boundary-control rows
 - `18` persons-list candidates
 
