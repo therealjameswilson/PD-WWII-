@@ -927,6 +927,1008 @@ window.VOLUME_DATA = {
       gapIds: ["GAP-006", "GAP-014"]
     }
   ],
+  candidateDocuments: [
+    {
+      id: "DOC50-001",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "September 9-11, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/9-944; M973 roll 607, image 0095",
+      title: "CIAA circular announcing morning and noon Spanish-language shortwave service",
+      documentType: "Circular telegram",
+      candidateValue:
+        "Shows State/CIAA use of diplomatic posts to announce new Spanish-language shortwave service beginning September 12, 1944.",
+      frusCheck:
+        "No exact file-number or title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22103.9161%2F9-944%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, 7/1944-12/1944: 103.91602/4-1544 - 103.9166/12-3144, NAID 88176221, M973-607-0095."
+    },
+    {
+      id: "DOC50-002",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "September 21, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/9-2144; M973 roll 607, image 0100",
+      title: "Dominican Republic report that WNBI broadcasts were excellent but reception varied by date",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Supplies foreign reception evidence for shortwave broadcasting in the American republics.",
+      frusCheck:
+        "No exact file-number hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22103.9161%2F9-2144%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0100."
+    },
+    {
+      id: "DOC50-003",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "September 22, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/9-2244; M973 roll 607, image 0100",
+      title: "Circular to diplomatic officers requesting replies to a motion-picture questionnaire",
+      documentType: "Circular telegram",
+      candidateValue:
+        "Documents State/CIAA measurement of motion-picture work through posts.",
+      frusCheck:
+        "No exact file-number hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22103.9161%2F9-2244%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0100."
+    },
+    {
+      id: "DOC50-004",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "October 20, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/10-2044; M973 roll 607, image 0110",
+      title: "Colombia telegram listing latest CIAA program numbers and expiration dates",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Links post reporting to radio/transcription program control in Latin America.",
+      frusCheck:
+        "No exact file-number hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22103.9161%2F10-2044%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0110."
+    },
+    {
+      id: "DOC50-005",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "October 20, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/10-2044; M973 roll 607, image 0110",
+      title: "Chile telegram reporting that no CIAA transcriptions were then in use",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Useful negative evidence for measuring uneven radio/transcription implementation by post.",
+      frusCheck:
+        "No exact file-number hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22103.9161%2F10-2044%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0110."
+    },
+    {
+      id: "DOC50-006",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "November 21, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/11-2144; M973 roll 607, image 0120",
+      title: "Circular transmitting changes in the English shortwave schedule",
+      documentType: "Circular telegram",
+      candidateValue:
+        "Shows posts being used to distribute radio schedule changes for foreign audiences.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22English%20short%20wave%20schedule%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0120."
+    },
+    {
+      id: "DOC50-007",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "November 20, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/11-2044; M973 roll 607, image 0120",
+      title: "Brazil telegram on proposed Hemisphere information service through CIAA",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Potential policy-level evidence for a hemispheric information service and U.S. personality/background material.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Hemisphere%20information%20service%22%20CIAA",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0120."
+    },
+    {
+      id: "DOC50-008",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "September 21, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9161/9-2144; M973 roll 607, image 0100",
+      title: "Costa Rica telegram enclosing Nelson Rockefeller message for Teodoro Picado",
+      documentType: "Outgoing telegram",
+      candidateValue:
+        "Potential State/CIAA diplomatic-message example tied to the Coordinator's use of posts.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Teodoro%20Picado%22%20%22Rockefeller%22%20%221944%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0100."
+    },
+    {
+      id: "DOC50-009",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "July 10, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/7-1044; M973 roll 607, image 0500",
+      title: "Dakar telegram to Motion Picture Radio Division advising United Newsreel 108 arrived",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Shows overseas distribution and receipt of OWI motion-picture/newsreel material.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22United%20Newsreel%20108%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0500."
+    },
+    {
+      id: "DOC50-010",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "July 8, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/7-844; M973 roll 607, image 0500",
+      title: "The Iceland Outpost: Analysis of an Informational Operation",
+      documentType: "Report",
+      candidateValue:
+        "A named OWI outpost analysis, useful for moving the volume beyond Washington organization history.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22The%20Iceland%20Outpost%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0500."
+    },
+    {
+      id: "DOC50-011",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "July 9, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/7-944; M973 roll 607, image 0500",
+      title: "Switzerland telegram carrying OWI message on prewar Bern-Rome communications",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Potential neutral-Europe communications and information-operations evidence.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Bern-Rome%20communications%22%20OWI",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0500."
+    },
+    {
+      id: "DOC50-012",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "August 8, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/8-844; M973 roll 607, image 0550",
+      title: "Manchester dispatch enclosing notices on the OWI Information Center Unit",
+      documentType: "Despatch or enclosure",
+      candidateValue:
+        "Good post-level implementation record for an OWI information center in Britain.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Information%20Center%20Unit%22%20Manchester%20OWI",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0550."
+    },
+    {
+      id: "DOC50-013",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "August 8, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/8-844; M973 roll 607, image 0550",
+      title: "Manchester Press Attache report for the week ending August 5, 1944",
+      documentType: "Post report",
+      candidateValue:
+        "Potential foreign press/public information reporting from a British post.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Manchester%20Press%20Attache%22%20%22August%205%2C%201944%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0550."
+    },
+    {
+      id: "DOC50-014",
+      priority: "Critical",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "September 2, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/9-244; M973 roll 607, image 0600",
+      title: "Naples telegram on the present state of OWI thinking with regard to Balkan affairs",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "High-value evidence connecting field reporting, regional policy, and OWI strategy.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22OWI%27s%20thinking%22%20%22Balkan%20affairs%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0600."
+    },
+    {
+      id: "DOC50-015",
+      priority: "Critical",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "September 2, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/9-244; M973 roll 607, image 0600",
+      title: "Switzerland telegram submitting suggestions for Allied propaganda for Italy",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Direct evidence of neutral-post input into Allied propaganda strategy.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22suggestions%20for%20allied%20propaganda%20for%20Italy%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0600."
+    },
+    {
+      id: "DOC50-016",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "September 2, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/9-244; M973 roll 607, image 0600",
+      title: "Suva telegram summarizing a Central Directive from OWI",
+      documentType: "Incoming telegram",
+      candidateValue:
+        "Useful Pacific post evidence for how OWI central directives reached field posts.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Summary%20of%20Central%20Directive%20from%20OWI%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0600."
+    },
+    {
+      id: "DOC50-017",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "October 31, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/10-3144; M973 roll 607, image 0700",
+      title: "Las Palmas report on Legation activities for OWI and American programs broadcast in September",
+      documentType: "Post report",
+      candidateValue:
+        "Strong neutral/post implementation evidence for broadcasts and legation support.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22American%20programs%20broadcast%22%20%22Las%20Palmas%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0700."
+    },
+    {
+      id: "DOC50-018",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "December 6, 1944",
+      repository: "NARA",
+      recordGroup: "RG 59",
+      sourceLocator: "103.9166/12-644; M973 roll 607, image 0750",
+      title: "New Zealand report on informational activities on behalf of OWI, September-October 1944",
+      documentType: "Post report",
+      candidateValue:
+        "Provides Pacific implementation evidence and supporting newspaper-clipping material.",
+      frusCheck:
+        "No exact file-number/title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/88176221",
+      frusSearchUrl: "https://history.state.gov/search?q=%22informational%20activities%22%20%22Office%20of%20War%20Information%22%20%22New%20Zealand%22",
+      sourceNote:
+        "NARA RG 59, Purport Lists and Cards, NAID 88176221, M973-607-0750."
+    },
+    {
+      id: "DOC50-019",
+      priority: "Critical",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "May 1943",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 6851138",
+      title: "Weekly Propaganda Directive: Poland",
+      documentType: "Policy directive",
+      candidateValue:
+        "Digitized OWI policy-directive item that can anchor the treatment of Poland and exile/occupied audiences.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; source copy is digitized in NARA Catalog.",
+      catalogUrl: "https://catalog.archives.gov/id/6851138",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%3A%20Poland%22",
+      sourceNote:
+        "NARA RG 208, Records of the Office of War Information, Record Set of Policy Directives, Regional Directives-May 1943, NAID 6851138."
+    },
+    {
+      id: "DOC50-020",
+      priority: "Critical",
+      status: "Candidate - not found in FRUS",
+      lane: "Peace Aims and Handoff",
+      date: "April 26, 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732380",
+      title: "Basic Policy Directive for Information in Germany",
+      documentType: "Policy directive",
+      candidateValue:
+        "Core postwar-transition directive for information policy in defeated Germany.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732380",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Basic%20Policy%20Directive%20for%20Information%20in%20Germany%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Basic Policy Directive for Information in Germany-April 26, 1945, NAID 4732380."
+    },
+    {
+      id: "DOC50-021",
+      priority: "Critical",
+      status: "Candidate - not found in FRUS",
+      lane: "Peace Aims and Handoff",
+      date: "May 29, 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732379",
+      title: "Directive on Basic Themes for Output to Germany",
+      documentType: "Policy directive",
+      candidateValue:
+        "Names the themes OWI output was to carry into Germany after surrender.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732379",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Directive%20on%20Basic%20Themes%20for%20Output%20to%20Germany%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Directive on Basic Themes for Output to Germany-May 29, 1945, NAID 4732379."
+    },
+    {
+      id: "DOC50-022",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "December 5, 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732381",
+      title: "Long Range Directive for Germany",
+      documentType: "Policy directive",
+      candidateValue:
+        "Pre-surrender Germany directive, useful for comparing wartime themes to 1945 occupation information policy.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732381",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long%20Range%20Directive%20for%20Germany%22%20%221944%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Extra Copies of Long Range Directive for Germany-December 5, 1944, NAID 4732381."
+    },
+    {
+      id: "DOC50-023",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Peace Aims and Handoff",
+      date: "April 18, 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732378",
+      title: "Long-Range Directive-France",
+      documentType: "Policy directive",
+      candidateValue:
+        "Helps connect liberation, French public opinion, and the transition from wartime to postwar information work.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732378",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long-Range%20Directive-France%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Long-Range Directive-France-April 18, 1945, NAID 4732378."
+    },
+    {
+      id: "DOC50-024",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Peace Aims and Handoff",
+      date: "April 12, 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732367",
+      title: "Long-Range Policy Directive-Austria",
+      documentType: "Policy directive",
+      candidateValue:
+        "Captures end-of-war information policy toward Austria before occupation settlement material takes over.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732367",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long-Range%20Policy%20Directive-Austria%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Long-Range Policy Directive-Austria-April 12, 1945, NAID 4732367."
+    },
+    {
+      id: "DOC50-025",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Peace Aims and Handoff",
+      date: "February 23, 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732395",
+      title: "Long-Range Policy Guidance-Poland",
+      documentType: "Policy guidance",
+      candidateValue:
+        "Potentially essential for Polish exile, Soviet, and Allied public-line tensions.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732395",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long-Range%20Policy%20Guidance-Poland%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Long-Range Policy Guidance-Poland-February 23, 1945, NAID 4732395."
+    },
+    {
+      id: "DOC50-026",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "October 28, 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732375",
+      title: "Long-Range Directive for Czechoslovakia",
+      documentType: "Policy directive",
+      candidateValue:
+        "Adds Central European audience planning to the volume's liberation and exile-government lanes.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732375",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long-Range%20Directive%20for%20Czechoslovakia%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Long-Range Directive for Czechoslovakia-October 28, 1944, NAID 4732375."
+    },
+    {
+      id: "DOC50-027",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "December 6, 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732402",
+      title: "Long-Range Guidance-Switzerland",
+      documentType: "Policy guidance",
+      candidateValue:
+        "Neutral-country guidance for Switzerland, useful beside Bern post reporting and RG 59 103.9166 traffic.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732402",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long-Range%20Guidance-Switzerland%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Long-Range Guidance-Switzerland-December 6, 1944, NAID 4732402."
+    },
+    {
+      id: "DOC50-028",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "November 20, 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732392",
+      title: "Netherlands Long Range Directive",
+      documentType: "Policy directive",
+      candidateValue:
+        "Adds Dutch occupied/liberated-audience guidance to the Europe coverage matrix.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732392",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Netherlands%20Long%20Range%20Directive%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Extra Copies of Netherlands Long Range Directive-November 20, 1944, NAID 4732392."
+    },
+    {
+      id: "DOC50-029",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "July 1944-February 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732414",
+      title: "Special Guidances-London Policy Directives",
+      documentType: "Policy directive file",
+      candidateValue:
+        "Connects Washington and London information policy; high value when paired with RG 84 London post files.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732414",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Special%20Guidances-London%20Policy%20Directives%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Special Guidances-London Policy Directives-July 1944-February 1945, NAID 4732414."
+    },
+    {
+      id: "DOC50-030",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "October 1943-September 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732413",
+      title: "Special Guidances-Moscow Cables on Directives",
+      documentType: "Cable/directive file",
+      candidateValue:
+        "Rare bridge between OWI directives and Moscow cable traffic; useful for Soviet/Eastern Europe public-line tensions.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732413",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Special%20Guidances-Moscow%20Cables%20on%20Directives%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Special Guidances-Moscow Cables on Directives-October 1943-September 1945, NAID 4732413."
+    },
+    {
+      id: "DOC50-031",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Creating War Information",
+      date: "September 1943-June 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732416",
+      title: "OWI-OSS Relations",
+      documentType: "Policy relationship file",
+      candidateValue:
+        "Boundary-control document set for distinguishing public diplomacy from intelligence and psychological warfare.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732416",
+      frusSearchUrl: "https://history.state.gov/search?q=%22OWI-OSS%20Relations%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, OWI-OSS Relations-September 1943-June 1944, NAID 4732416."
+    },
+    {
+      id: "DOC50-032",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "January-December 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732424",
+      title: "Political Warfare Executive Central Directives",
+      documentType: "Allied directive file",
+      candidateValue:
+        "Useful for comparing OWI directives with British Political Warfare Executive guidance.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732424",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Political%20Warfare%20Executive%20Central%20Directives%22%20%221944%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Political Warfare Executive Central Directives-January-December 1944, NAID 4732424."
+    },
+    {
+      id: "DOC50-033",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "May-June 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732319",
+      title: "Central Directives-May-June 1944",
+      documentType: "Central directive file",
+      candidateValue:
+        "Likely contains central OWI guidance around D-Day and liberation messaging.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732319",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Central%20Directives-May-June%201944%22%20OWI",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Central Directives-May-June 1944, NAID 4732319."
+    },
+    {
+      id: "DOC50-034",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "September 1944",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732351",
+      title: "Regional Directives-September 1944",
+      documentType: "Regional directive file",
+      candidateValue:
+        "Can be paired with September RG 59 post traffic on Balkans, Italy, and shortwave schedule changes.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732351",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Regional%20Directives-September%201944%22%20OWI",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Regional Directives-September 1944, NAID 4732351."
+    },
+    {
+      id: "DOC50-035",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "OWI Overseas and VOA",
+      date: "January 30, 1945",
+      repository: "NARA",
+      recordGroup: "RG 208",
+      sourceLocator: "NAID 4732400",
+      title: "Long-Range Policy Directive for Thailand",
+      documentType: "Policy directive",
+      candidateValue:
+        "Adds Southeast Asia coverage and a Pacific-facing long-range public-diplomacy directive.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/4732400",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Long-Range%20Policy%20Directive%20for%20Thailand%22",
+      sourceNote:
+        "NARA RG 208, Record Set of Policy Directives, Long-Range Policy Directive for Thailand-January 30, 1945, NAID 4732400."
+    },
+    {
+      id: "DOC50-036",
+      priority: "High",
+      status: "Candidate - boundary check",
+      lane: "OWI Overseas and VOA",
+      date: "June 30, 1944",
+      repository: "NARA",
+      recordGroup: "RG 165",
+      sourceLocator: "NAID 2149194",
+      title: "Weekly Propaganda Directive Office of War Information Germany",
+      documentType: "Weekly propaganda directive",
+      candidateValue:
+        "Potentially strong if it documents OWI-State-War coordination on Germany messaging.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; boundary review needed before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/2149194",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Germany%22",
+      sourceNote:
+        "NARA RG 165, Weekly Propaganda Directive Office of War Information Germany June 30, 1944, NAID 2149194."
+    },
+    {
+      id: "DOC50-037",
+      priority: "Medium",
+      status: "Candidate - boundary check",
+      lane: "OWI Overseas and VOA",
+      date: "January 12, 1945",
+      repository: "NARA",
+      recordGroup: "RG 165",
+      sourceLocator: "NAID 2149191",
+      title: "Weekly Propaganda Directive Office of War Information Czechoslovakia",
+      documentType: "Weekly propaganda directive",
+      candidateValue:
+        "Possible occupied/liberated Central Europe guidance, subject to military boundary review.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; boundary review needed before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/2149191",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Czechoslovakia%22",
+      sourceNote:
+        "NARA RG 165, Weekly Propaganda Directive Office of War Information Czechoslovakia January 12, 1945, NAID 2149191."
+    },
+    {
+      id: "DOC50-038",
+      priority: "Medium",
+      status: "Candidate - boundary check",
+      lane: "OWI Overseas and VOA",
+      date: "1944-1945",
+      repository: "NARA",
+      recordGroup: "RG 165",
+      sourceLocator: "NAID 2149198",
+      title: "Weekly Propaganda Directive Office of War Information Sweden",
+      documentType: "Weekly propaganda directive",
+      candidateValue:
+        "Can be paired with RG 84 Stockholm/Bern neutral-post evidence.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; boundary review needed before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/2149198",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Sweden%22",
+      sourceNote:
+        "NARA RG 165, Weekly Propaganda Directive Office of War Information Sweden, NAID 2149198."
+    },
+    {
+      id: "DOC50-039",
+      priority: "Medium",
+      status: "Candidate - boundary check",
+      lane: "OWI Overseas and VOA",
+      date: "1944-1945",
+      repository: "NARA",
+      recordGroup: "RG 165",
+      sourceLocator: "NAID 2149195",
+      title: "Weekly Propaganda Directive Office of War Information Iberia",
+      documentType: "Weekly propaganda directive",
+      candidateValue:
+        "Useful for neutral Iberia if State/post evidence confirms diplomatic significance.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; boundary review needed before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/2149195",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Iberia%22",
+      sourceNote:
+        "NARA RG 165, Weekly Propaganda Directive Office of War Information Iberia, NAID 2149195."
+    },
+    {
+      id: "DOC50-040",
+      priority: "Medium",
+      status: "Candidate - boundary check",
+      lane: "OWI Overseas and VOA",
+      date: "1944-1945",
+      repository: "NARA",
+      recordGroup: "RG 165",
+      sourceLocator: "NAID 2149196",
+      title: "Weekly Propaganda Directive Office of War Information Norway, Netherlands, Middle East",
+      documentType: "Weekly propaganda directive",
+      candidateValue:
+        "Potential cross-regional weekly guidance; include only if it shaped diplomatic public messaging.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; boundary review needed before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/2149196",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Norway%20Netherlands%20Middle%20East%22",
+      sourceNote:
+        "NARA RG 165, Weekly Propaganda Directive Office of War Information Norway, Netherlands, Middle East #39, NAID 2149196."
+    },
+    {
+      id: "DOC50-041",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Creating War Information",
+      date: "1942-1944",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "President's Secretary's File",
+      sourceLocator: "NAID 16620603",
+      title: "Office of War Information, 1942-1944",
+      documentType: "White House subject file",
+      candidateValue:
+        "Folder-level White House material to find FDR-side OWI decisions and routing.",
+      frusCheck:
+        "No exact folder-title hit found in public History.state.gov search; pull folder source copies and select individual documents.",
+      catalogUrl: "https://catalog.archives.gov/id/16620603",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Office%20of%20War%20Information%2C%201942-1944%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, President's Secretary's File, Subject Files, Office of War Information, 1942-1944, NAID 16620603."
+    },
+    {
+      id: "DOC50-042",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Creating War Information",
+      date: "1942-1945",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "President's Secretary's File",
+      sourceLocator: "NAID 16609748",
+      title: "Office of War Information confidential file",
+      documentType: "White House confidential file",
+      candidateValue:
+        "Potential FDR-level policy and controversy material for OWI.",
+      frusCheck:
+        "No exact folder-title hit found in public History.state.gov search; pull folder source copies and select individual documents.",
+      catalogUrl: "https://catalog.archives.gov/id/16609748",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Office%20of%20War%20Information%20confidential%20file%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, President's Secretary's File, Confidential Files, Office of War Information, NAID 16609748."
+    },
+    {
+      id: "DOC50-043",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Creating War Information",
+      date: "June 1942",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "President's Secretary's File",
+      sourceLocator: "NAID 16620611",
+      title: "Office of War Information - Survey of Intelligence, June 1942",
+      documentType: "Survey/intelligence report",
+      candidateValue:
+        "Early OWI intelligence/research evidence soon after creation of OWI.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/16620611",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Office%20of%20War%20Information%20-%20Survey%20of%20Intelligence%2C%20June%201942%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, President's Secretary's File, Subject Files, Office of War Information - Survey of Intelligence, June 1942, NAID 16620611."
+    },
+    {
+      id: "DOC50-044",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Creating War Information",
+      date: "August 1942",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "President's Secretary's File",
+      sourceLocator: "NAID 16620616",
+      title: "Office of War Information - Survey of Intelligence, August 1942",
+      documentType: "Survey/intelligence report",
+      candidateValue:
+        "White House-level evidence on OWI intelligence and opinion/research functions.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/16620616",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Office%20of%20War%20Information%20-%20Survey%20of%20Intelligence%2C%20August%201942%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, President's Secretary's File, Subject Files, Office of War Information - Survey of Intelligence, August 1942, NAID 16620616."
+    },
+    {
+      id: "DOC50-045",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Creating War Information",
+      date: "December 1942",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "President's Secretary's File",
+      sourceLocator: "NAID 16620625",
+      title: "Office of War Information - Survey of Intelligence, December 1942",
+      documentType: "Survey/intelligence report",
+      candidateValue:
+        "Can support the transition from early OWI organization to mature overseas/public-line strategy.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/16620625",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Office%20of%20War%20Information%20-%20Survey%20of%20Intelligence%2C%20December%201942%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, President's Secretary's File, Subject Files, Office of War Information - Survey of Intelligence, December 1942, NAID 16620625."
+    },
+    {
+      id: "DOC50-046",
+      priority: "Medium",
+      status: "Candidate - not found in FRUS",
+      lane: "Prewar Information Policy",
+      date: "November 19, 1942",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "Philleo Nash Papers",
+      sourceLocator: "NAID 509549657",
+      title: "Memorandum to Philleo Nash from Leo C. Rosten, with attachment",
+      documentType: "Memorandum",
+      candidateValue:
+        "Shows OWI rumor-control guidance for editors and publishers; useful only if tied to foreign public-line policy.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; source copy is digitized in NARA Catalog.",
+      catalogUrl: "https://catalog.archives.gov/id/509549657",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Memorandum%20to%20Philleo%20Nash%20from%20Leo%20C.%20Rosten%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, Philleo Nash Papers, Office of War Information Files, Rumors memoranda for editors and publishers, NAID 509549657."
+    },
+    {
+      id: "DOC50-047",
+      priority: "Low",
+      status: "Candidate - boundary check",
+      lane: "Prewar Information Policy",
+      date: "October 1942-April 1943",
+      repository: "FDR Library / NARA Catalog",
+      recordGroup: "Philleo Nash Papers",
+      sourceLocator: "NAID 509549751",
+      title: "Letter to Warren B. Walsh from Leo C. Rosten, with attachments",
+      documentType: "Letter with attachments",
+      candidateValue:
+        "Rumor-control correspondence; include only if it illuminates official information policy beyond domestic morale.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; source copy is digitized in NARA Catalog.",
+      catalogUrl: "https://catalog.archives.gov/id/509549751",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Letter%20to%20Warren%20B.%20Walsh%20from%20Leo%20C.%20Rosten%22",
+      sourceNote:
+        "FDR Library via NARA Catalog, Philleo Nash Papers, Office of War Information Files, Rumors-Syracuse University Rumor Clinic, NAID 509549751."
+    },
+    {
+      id: "DOC50-048",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "1942",
+      repository: "NARA",
+      recordGroup: "RG 229",
+      sourceLocator: "NAID 782735",
+      title: "Radio Reaction Reports",
+      documentType: "Audience reaction reports",
+      candidateValue:
+        "Direct listener-response evidence from the United States and Latin America on shortwave broadcasts.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy and select strongest individual reports.",
+      catalogUrl: "https://catalog.archives.gov/id/782735",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Radio%20Reaction%20Reports%22%20%22Inter-American%22",
+      sourceNote:
+        "NARA RG 229, Office of the Coordinator of Inter-American Affairs, Department of Information, Radio Division, Radio Reaction Reports, NAID 782735."
+    },
+    {
+      id: "DOC50-049",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "1945",
+      repository: "NARA",
+      recordGroup: "RG 229",
+      sourceLocator: "NAID 2102897",
+      title: "Radio Division Resume of Operations",
+      documentType: "Operations report",
+      candidateValue:
+        "Strong summary document for OIAA radio operations, budget, personnel, and program structure at handoff.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy before final selection.",
+      catalogUrl: "https://catalog.archives.gov/id/2102897",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Radio%20Division%20Resume%20of%20Operations%22",
+      sourceNote:
+        "NARA RG 229, Office of Inter-American Affairs, Department of Information, Radio Division, Resume of Operations, NAID 2102897."
+    },
+    {
+      id: "DOC50-050",
+      priority: "High",
+      status: "Candidate - not found in FRUS",
+      lane: "Hemisphere and Cultural Exchange",
+      date: "1941-1943",
+      repository: "NARA",
+      recordGroup: "RG 229",
+      sourceLocator: "NAID 2102898",
+      title: "Radio Division Reports and Issuances",
+      documentType: "Reports and issuances",
+      candidateValue:
+        "Contains field inspection reports, monthly reports, operations reports, and Mexico radio surveys for OIAA radio policy.",
+      frusCheck:
+        "No exact title hit found in public History.state.gov search; pull source copy and select individual reports.",
+      catalogUrl: "https://catalog.archives.gov/id/2102898",
+      frusSearchUrl: "https://history.state.gov/search?q=%22Radio%20Division%20Reports%20and%20Issuances%22",
+      sourceNote:
+        "NARA RG 229, Office of the Coordinator of Inter-American Affairs, Department of Information, Radio Division, Reports and Issuances, NAID 2102898."
+    }
+  ],
   documentIntake: [
     {
       id: "DOC-001",

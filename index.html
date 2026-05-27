@@ -20,6 +20,7 @@
         <a href="#leads">Source Leads</a>
         <a href="#workbench">Desk</a>
         <a href="#document-intake">Intake</a>
+        <a href="#candidate-documents">50 Docs</a>
         <a href="#selection-rules">Rules</a>
         <a href="#coverage">Coverage</a>
         <a href="#closure">Closure</a>
@@ -48,6 +49,8 @@
             selection rules, gap-closure tasks, coverage checks, and boundary controls.
             Evidence packets now bind each gap to policy, implementation, reaction, and
             source-copy proof, with a State cable search layer for RG 59 and RG 84 post files.
+            A 50-document candidate register now flags potential additions not found in
+            public FRUS exact-title or file-number checks.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#leads">Open Source Leads</a>
@@ -182,6 +185,41 @@
         </div>
         <div id="document-root" class="records-root compact-records" aria-live="polite">
           <p class="loading">Loading document-intake rows...</p>
+        </div>
+      </section>
+
+      <section class="section records-section" id="candidate-documents" aria-labelledby="candidate-title">
+        <div class="section-heading">
+          <p class="kicker">Candidate Document Register</p>
+          <h2 id="candidate-title">50 Potential Documents Not Found In Existing FRUS</h2>
+        </div>
+        <div class="tools candidate-tools" aria-label="Search and filter candidate documents">
+          <label class="search-field">
+            <span>Search candidates</span>
+            <input id="candidate-search" type="search" placeholder="Search titles, file numbers, repositories, FRUS checks, source notes" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="candidate-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="candidate-repository-filter"></select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="candidate-priority-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="candidate-status-filter"></select>
+          </label>
+          <button id="clear-candidate-filters" type="button">Reset</button>
+          <button id="export-candidates" type="button">CSV</button>
+          <p id="candidate-summary" class="summary">Loading candidate documents...</p>
+        </div>
+        <div id="candidate-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading candidate documents...</p>
         </div>
       </section>
 

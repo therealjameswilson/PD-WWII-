@@ -9,6 +9,7 @@ const ledger = data.ledger || [];
 const boundaryRecords = data.boundaryRecords || [];
 const documentIntake = data.documentIntake || [];
 const stateCableLeads = data.stateCableLeads || [];
+const candidateDocuments = data.candidateDocuments || [];
 const selectionRules = data.selectionRules || [];
 const coverageMatrix = data.coverageMatrix || [];
 const closureTasks = data.closureTasks || [];
@@ -38,6 +39,13 @@ const state = {
     query: "",
     lane: "",
     repository: "",
+    status: ""
+  },
+  candidateDocuments: {
+    query: "",
+    lane: "",
+    repository: "",
+    priority: "",
     status: ""
   },
   closure: {
@@ -111,6 +119,15 @@ const nodes = {
   documentStatusFilter: document.querySelector("#document-status-filter"),
   clearDocumentFilters: document.querySelector("#clear-document-filters"),
   exportDocuments: document.querySelector("#export-documents"),
+  candidateRoot: document.querySelector("#candidate-root"),
+  candidateSummary: document.querySelector("#candidate-summary"),
+  candidateSearch: document.querySelector("#candidate-search"),
+  candidateLaneFilter: document.querySelector("#candidate-lane-filter"),
+  candidateRepositoryFilter: document.querySelector("#candidate-repository-filter"),
+  candidatePriorityFilter: document.querySelector("#candidate-priority-filter"),
+  candidateStatusFilter: document.querySelector("#candidate-status-filter"),
+  clearCandidateFilters: document.querySelector("#clear-candidate-filters"),
+  exportCandidates: document.querySelector("#export-candidates"),
   rulesRoot: document.querySelector("#rules-root"),
   rulesSummary: document.querySelector("#rules-summary"),
   exportRules: document.querySelector("#export-rules"),
@@ -245,6 +262,10 @@ function searchText(item) {
     item.cableUse,
     item.catalogUrl,
     item.searchUrl,
+    item.sourceLocator,
+    item.candidateValue,
+    item.frusCheck,
+    item.frusSearchUrl,
     item.documentType,
     item.issueType,
     item.links?.map((link) => `${link.label} ${link.url}`).join(" "),
@@ -289,6 +310,7 @@ function renderWorkbench() {
   nodes.workbenchRoot.replaceChildren(
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
+    metricCard("Candidate docs", candidateDocuments.length, "Potential documents not found in public FRUS exact-title or file-number checks."),
     metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
     metricCard("State cable leads", stateCableLeads.length, "RG 59 controls and RG 84 post-file targets for State telegrams, despatches, and instructions."),
     metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert packeted gaps into source-copy work."),
@@ -614,6 +636,71 @@ function documentCard(item) {
 
   card.append(header, offices, selection, task, actions, sourceNoteDetails(item));
   if (item.gapIds?.length) card.append(termChips(item.gapIds));
+  return card;
+}
+
+function filteredCandidateDocuments() {
+  return candidateDocuments.filter((item) => {
+    if (!matchesQuery(item, state.candidateDocuments.query)) return false;
+    if (state.candidateDocuments.lane && item.lane !== state.candidateDocuments.lane) return false;
+    if (state.candidateDocuments.repository && item.repository !== state.candidateDocuments.repository) return false;
+    if (state.candidateDocuments.priority && item.priority !== state.candidateDocuments.priority) return false;
+    if (state.candidateDocuments.status && item.status !== state.candidateDocuments.status) return false;
+    return true;
+  });
+}
+
+function renderCandidateDocuments() {
+  const priorityOrder = new Map([
+    ["Critical", 1],
+    ["High", 2],
+    ["Medium", 3],
+    ["Low", 4]
+  ]);
+  const visible = filteredCandidateDocuments().sort(
+    (a, b) =>
+      (priorityOrder.get(a.priority) || 99) - (priorityOrder.get(b.priority) || 99) ||
+      chapterNumber(a.lane) - chapterNumber(b.lane) ||
+      a.id.localeCompare(b.id)
+  );
+  nodes.candidateSummary.textContent = `${plural(visible.length, "candidate")} visible from ${candidateDocuments.length} potential documents not found in public FRUS exact-title/file-number checks.`;
+  nodes.candidateRoot.replaceChildren(...visible.map(candidateDocumentCard));
+  if (!visible.length) nodes.candidateRoot.innerHTML = '<p class="empty">No candidate documents match the current filters.</p>';
+}
+
+function candidateDocumentCard(item) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${item.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(item.id), textSpan(item.date), textSpan(item.recordGroup), textSpan(item.status));
+  const title = document.createElement("h4");
+  title.textContent = item.title;
+  titleBlock.append(metaRow, title);
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(item.lane), priorityChip(item.priority), chip(item.documentType));
+  header.append(titleBlock, chips);
+
+  const locator = document.createElement("p");
+  locator.className = "source-note";
+  locator.textContent = `Locator: ${item.sourceLocator}`;
+  const value = document.createElement("p");
+  value.textContent = item.candidateValue;
+  const check = document.createElement("p");
+  check.className = "source-note";
+  check.textContent = `FRUS check: ${item.frusCheck}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  if (item.catalogUrl) actions.append(linkButton("Catalog", item.catalogUrl));
+  if (item.frusSearchUrl) actions.append(linkButton("FRUS check", item.frusSearchUrl));
+  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+
+  card.append(header, locator, value, check, actions, sourceNoteDetails(item));
   return card;
 }
 
@@ -1133,6 +1220,10 @@ function populateFilters() {
   addOptions(nodes.documentLaneFilter, uniqueSorted(documentIntake.map((item) => item.lane)), "All lanes");
   addOptions(nodes.documentRepositoryFilter, uniqueSorted(documentIntake.map((item) => item.repository)), "All repositories");
   addOptions(nodes.documentStatusFilter, uniqueSorted(documentIntake.map((item) => item.status)), "All statuses");
+  addOptions(nodes.candidateLaneFilter, uniqueSorted(candidateDocuments.map((item) => item.lane)), "All lanes");
+  addOptions(nodes.candidateRepositoryFilter, uniqueSorted(candidateDocuments.map((item) => item.repository)), "All repositories");
+  addOptions(nodes.candidatePriorityFilter, uniqueSorted(candidateDocuments.map((item) => item.priority)), "All priorities");
+  addOptions(nodes.candidateStatusFilter, uniqueSorted(candidateDocuments.map((item) => item.status)), "All statuses");
   addOptions(nodes.closureLaneFilter, uniqueSorted(closureTasks.map((task) => task.lane)), "All lanes");
   addOptions(nodes.closureRepositoryFilter, uniqueSorted(closureTasks.map((task) => task.repository)), "All repositories");
   addOptions(nodes.closureStatusFilter, uniqueSorted(closureTasks.map((task) => task.status)), "All statuses");
@@ -1324,6 +1415,58 @@ function setupEvents() {
         { label: "Source Copy Task", value: (item) => item.sourceCopyTask },
         { label: "Gap IDs", value: (item) => (item.gapIds || []).join("; ") },
         { label: "URL", value: (item) => item.url },
+        { label: "Source Note", value: (item) => item.sourceNote }
+      ])
+    );
+  });
+
+  nodes.candidateSearch.addEventListener("input", (event) => {
+    state.candidateDocuments.query = event.target.value;
+    renderCandidateDocuments();
+  });
+  nodes.candidateLaneFilter.addEventListener("change", (event) => {
+    state.candidateDocuments.lane = event.target.value;
+    renderCandidateDocuments();
+  });
+  nodes.candidateRepositoryFilter.addEventListener("change", (event) => {
+    state.candidateDocuments.repository = event.target.value;
+    renderCandidateDocuments();
+  });
+  nodes.candidatePriorityFilter.addEventListener("change", (event) => {
+    state.candidateDocuments.priority = event.target.value;
+    renderCandidateDocuments();
+  });
+  nodes.candidateStatusFilter.addEventListener("change", (event) => {
+    state.candidateDocuments.status = event.target.value;
+    renderCandidateDocuments();
+  });
+  nodes.clearCandidateFilters.addEventListener("click", () => {
+    state.candidateDocuments = { query: "", lane: "", repository: "", priority: "", status: "" };
+    nodes.candidateSearch.value = "";
+    nodes.candidateLaneFilter.value = "";
+    nodes.candidateRepositoryFilter.value = "";
+    nodes.candidatePriorityFilter.value = "";
+    nodes.candidateStatusFilter.value = "";
+    renderCandidateDocuments();
+  });
+  nodes.exportCandidates.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-50-candidate-documents.csv",
+      toCsv(filteredCandidateDocuments(), [
+        { label: "ID", value: (item) => item.id },
+        { label: "Priority", value: (item) => item.priority },
+        { label: "Status", value: (item) => item.status },
+        { label: "Lane", value: (item) => item.lane },
+        { label: "Date", value: (item) => item.date },
+        { label: "Repository", value: (item) => item.repository },
+        { label: "Record Group", value: (item) => item.recordGroup },
+        { label: "Source Locator", value: (item) => item.sourceLocator },
+        { label: "Document Type", value: (item) => item.documentType },
+        { label: "Title", value: (item) => item.title },
+        { label: "Candidate Value", value: (item) => item.candidateValue },
+        { label: "FRUS Check", value: (item) => item.frusCheck },
+        { label: "Catalog URL", value: (item) => item.catalogUrl },
+        { label: "FRUS Search URL", value: (item) => item.frusSearchUrl },
         { label: "Source Note", value: (item) => item.sourceNote }
       ])
     );
@@ -1564,6 +1707,7 @@ function init() {
   renderGapTracker();
   renderSourcePools();
   renderDocumentIntake();
+  renderCandidateDocuments();
   renderSelectionRules();
   renderCoverageMatrix();
   renderClosureTasks();
