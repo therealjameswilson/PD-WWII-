@@ -21,6 +21,7 @@
         <a href="#workbench">Desk</a>
         <a href="#document-intake">Intake</a>
         <a href="#candidate-documents">50 Docs</a>
+        <a href="#pull-sheets">Pull Sheets</a>
         <a href="#selection-rules">Rules</a>
         <a href="#coverage">Coverage</a>
         <a href="#closure">Closure</a>
@@ -220,6 +221,37 @@
         </div>
         <div id="candidate-root" class="records-root compact-records" aria-live="polite">
           <p class="loading">Loading candidate documents...</p>
+        </div>
+      </section>
+
+      <section class="section records-section" id="pull-sheets" aria-labelledby="pull-title">
+        <div class="section-heading">
+          <p class="kicker">Compiler Pull Sheets</p>
+          <h2 id="pull-title">First Pulls, Request Text, and Source-Copy Gates</h2>
+        </div>
+        <div class="tools cable-tools pull-tools" aria-label="Search and filter compiler pull sheets">
+          <label class="search-field">
+            <span>Search pull sheets</span>
+            <input id="pull-search" type="search" placeholder="Search requests, candidate IDs, repositories, deliverables" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="pull-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="pull-repository-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="pull-status-filter"></select>
+          </label>
+          <button id="clear-pull-filters" type="button">Reset</button>
+          <button id="export-pulls" type="button">CSV</button>
+          <p id="pull-summary" class="summary">Loading compiler pull sheets...</p>
+        </div>
+        <div id="pull-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading compiler pull sheets...</p>
         </div>
       </section>
 
@@ -539,5 +571,6 @@
 
     <script src="data/volume-data.js"></script>
     <script src="app.js"></script>
+    <script src="pull-sheets.js"></script>
   </body>
 </html>
