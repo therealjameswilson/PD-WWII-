@@ -19,6 +19,7 @@
       <nav aria-label="Primary navigation">
         <a href="#leads">Source Leads</a>
         <a href="#workbench">Desk</a>
+        <a href="#docket">Docket</a>
         <a href="compiler-guide.html">Guide</a>
         <a href="#document-intake">Intake</a>
         <a href="#candidate-documents">50 Docs</a>
@@ -55,9 +56,9 @@
             public FRUS exact-title or file-number checks.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#leads">Open Source Leads</a>
+            <a class="button primary" href="#docket">Open Docket</a>
             <a class="button secondary" href="compiler-guide.html">Open Compiler Guide</a>
-            <a class="button secondary" href="#source-pools">Review Source Pools</a>
+            <a class="button secondary" href="#candidate-documents">Review 50 Docs</a>
           </div>
         </div>
         <aside class="brief visual-brief" aria-label="Archive scope">
@@ -157,6 +158,21 @@
         </div>
         <div id="workbench-root" class="workbench-root" aria-live="polite">
           <p class="loading">Loading compiler desk...</p>
+        </div>
+      </section>
+
+      <section class="section docket-section" id="docket" aria-labelledby="docket-title">
+        <div class="section-heading">
+          <p class="kicker">Immediate Compiler Docket</p>
+          <h2 id="docket-title">First Pulls and Proof Gates</h2>
+        </div>
+        <div class="section-actions">
+          <button id="export-docket" type="button">CSV</button>
+          <a class="button secondary" href="templates/immediate-compiler-docket.csv">Static CSV</a>
+          <p id="docket-summary" class="summary">Loading compiler docket...</p>
+        </div>
+        <div id="docket-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading compiler docket...</p>
         </div>
       </section>
 

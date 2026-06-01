@@ -13,8 +13,10 @@ rather than a published FRUS document chronology.
 - document-intake ledger with selection tests, source-copy tasks, and gap IDs
 - 50-document candidate register for potential additions not found in public FRUS exact-title or file-number checks
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
+- immediate compiler docket with first-pull actions, proof gates, related IDs, direct links, and CSV export
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
 - reusable source-copy packet and archive-request templates for compiler fieldwork
+- static immediate-docket CSV for spreadsheet import or archive-trip planning
 - seeded 50-document packet register and 12-pull archive request register for spreadsheet import
 - State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
 - CSV export for source leads, document intake, 50-document candidates, compiler pull sheets, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
@@ -38,6 +40,7 @@ The committed data currently contains:
 - `18` document-intake rows
 - `50` candidate documents not found in public FRUS exact-title/file-number checks
 - `12` compiler pull sheets
+- `8` immediate compiler docket moves
 - `17` State cable leads
 - `12` selection and boundary rules
 - `10` theater/audience coverage rows

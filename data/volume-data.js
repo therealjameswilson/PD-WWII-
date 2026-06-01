@@ -1929,6 +1929,190 @@ window.VOLUME_DATA = {
         "NARA RG 229, Office of the Coordinator of Inter-American Affairs, Department of Information, Radio Division, Reports and Issuances, NAID 2102898."
     }
   ],
+  compilerDocket: [
+    {
+      id: "DKT-001",
+      priority: "Critical",
+      phase: "Setup",
+      gate: "Register freeze",
+      lane: "Volume-wide",
+      repository: "Cross-repository",
+      title: "Freeze the 50-document packet register",
+      objective:
+        "Start the compiler from a dated, editable register instead of a loose list of candidate records.",
+      action:
+        "Download the seeded 50-document packet register, save a dated working copy, and assign initial disposition, source-copy status, duplicate status, and boundary ruling for every DOC50 row.",
+      proof:
+        "All 50 packet rows have a working disposition and named next action before any row receives a final FRUS number.",
+      links: [
+        { label: "50-doc packet CSV", url: "templates/seeded-source-copy-packet-register.csv" },
+        { label: "50 Docs section", url: "#candidate-documents" }
+      ],
+      relatedIds: ["DOC50-001-DOC50-050", "PULL-012"],
+      sourceNote:
+        "Compiler docket item generated from the seeded source-copy packet register and the 50-document candidate register."
+    },
+    {
+      id: "DKT-002",
+      priority: "Critical",
+      phase: "First pull",
+      gate: "RG 59 source copies",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      title: "Submit the RG 59 OWI 103.9166 source-copy batch",
+      objective:
+        "Turn the strongest OWI purport-card hits into actual Central Decimal File source copies.",
+      action:
+        "Request the underlying RG 59 Central Decimal Files for 103.9166/7-844, 103.9166/7-944, 103.9166/7-1044, 103.9166/8-844, 103.9166/9-244, 103.9166/10-3144, and 103.9166/12-644.",
+      proof:
+        "Each pulled file has date, author/post, recipient, full text, enclosures, routing marks, FRUS duplicate proof, and a promote/hold/boundary ruling.",
+      links: [
+        { label: "Pull sheet", url: "#pull-sheets" },
+        { label: "Purport cards", url: "https://catalog.archives.gov/id/88176221" },
+        { label: "Central Decimal Files", url: "https://catalog.archives.gov/id/302021" }
+      ],
+      relatedIds: ["PULL-001", "DOC50-009-DOC50-018"],
+      sourceNote:
+        "First docket pull from RG 59 Purport Lists and Cards, NAID 88176221, M973 roll 607 images 0500-0750."
+    },
+    {
+      id: "DKT-003",
+      priority: "Critical",
+      phase: "First pull",
+      gate: "RG 59 source copies",
+      lane: "Hemisphere and Cultural Exchange",
+      repository: "NARA",
+      title: "Submit the RG 59 CIAA/OIAA 103.9161 source-copy batch",
+      objective:
+        "Recover State/CIAA cables for Spanish-language shortwave, WNBI reception, motion pictures, and hemispheric information service work.",
+      action:
+        "Request RG 59 Central Decimal Files for 103.9161/9-944, 103.9161/9-2144, 103.9161/9-2244, 103.9161/10-2044, 103.9161/11-2044, 103.9161/11-2144, and 103.9161/12-644.",
+      proof:
+        "Each Latin America candidate has a source copy, post or office routing, audience/reception evidence, and cross-link to RG 84 or RG 229 where available.",
+      links: [
+        { label: "Pull sheet", url: "#pull-sheets" },
+        { label: "Purport cards", url: "https://catalog.archives.gov/id/88176221" },
+        { label: "103.9161 catalog search", url: "https://catalog.archives.gov/search?q=103.9161&recordGroupNumber=59" }
+      ],
+      relatedIds: ["PULL-002", "DOC50-001-DOC50-008", "DOC50-048-DOC50-050"],
+      sourceNote:
+        "First docket pull from RG 59 Purport Lists and Cards, NAID 88176221, M973 roll 607 images 0095-0125."
+    },
+    {
+      id: "DKT-004",
+      priority: "Critical",
+      phase: "First pull",
+      gate: "Policy directives",
+      lane: "Peace Aims and Handoff",
+      repository: "NARA",
+      title: "Pull the RG 208 long-range policy directive batch",
+      objective:
+        "Anchor the wartime and liberation chronology in policy guidance before choosing implementation and reaction documents.",
+      action:
+        "Request RG 208 Record Set of Policy Directives source copies for Germany, France, Austria, Poland, Czechoslovakia, Switzerland, Netherlands, and Thailand directive candidates.",
+      proof:
+        "Directive packet records issue date, target country, themes, approving office, relation to State/handoff, and duplicate-check result.",
+      links: [
+        { label: "Pull sheet", url: "#pull-sheets" },
+        { label: "Record Set of Policy Directives", url: "https://catalog.archives.gov/id/648565" },
+        { label: "Germany directive", url: "https://catalog.archives.gov/id/4732380" }
+      ],
+      relatedIds: ["PULL-003", "DOC50-020-DOC50-028", "DOC50-035"],
+      sourceNote:
+        "Directive docket item generated from RG 208 Record Set of Policy Directives candidate records."
+    },
+    {
+      id: "DKT-005",
+      priority: "Critical",
+      phase: "Quality gate",
+      gate: "Duplicate audit",
+      lane: "Volume-wide",
+      repository: "History.state.gov",
+      title: "Run the FRUS duplicate gate for every promoted row",
+      objective:
+        "Keep the retro volume from duplicating already-published FRUS documents and preserve the audit trail for each selection decision.",
+      action:
+        "For every promoted DOC50 row, save an exact-title or exact-file-number History.state.gov search and a broader topical search with checked date and result count.",
+      proof:
+        "The packet register records search URL, checked date, result count, duplicate status, and the final duplicate ruling for each promoted candidate.",
+      links: [
+        { label: "History search", url: "https://history.state.gov/search" },
+        { label: "Packet register", url: "templates/seeded-source-copy-packet-register.csv" }
+      ],
+      relatedIds: ["PULL-011", "DOC50-001-DOC50-050"],
+      sourceNote:
+        "Quality gate generated from the 50-document candidate register and public FRUS exact-match checks."
+    },
+    {
+      id: "DKT-006",
+      priority: "High",
+      phase: "Post-file pairing",
+      gate: "Diplomatic context",
+      lane: "OWI Overseas and VOA",
+      repository: "NARA",
+      title: "Pair first pulls with RG 84 post-file reporting",
+      objective:
+        "Give selected documents diplomatic context by pairing Washington guidance with embassy implementation, clearance, or foreign reaction.",
+      action:
+        "Search priority RG 84 post files for London, Lisbon, Madrid, Stockholm, Bern, Mexico, Brazil, Argentina, Chile, and Cuba using OWI, USIS, OIAA, CIAA, radio, films, press, propaganda, censorship, WNBI, and shortwave terms.",
+      proof:
+        "At least one post-file implementation or reaction record is linked to each promoted policy/output cluster where RG 84 coverage exists.",
+      links: [
+        { label: "State cable leads", url: "#state-cables" },
+        { label: "London RG 84", url: "https://catalog.archives.gov/id/1667864" },
+        { label: "Mexico RG 84", url: "https://catalog.archives.gov/id/1677124" }
+      ],
+      relatedIds: ["PULL-005", "PULL-006", "PULL-007", "CABLE-008-CABLE-017"],
+      sourceNote:
+        "Post-file docket item generated from RG 84 State cable leads and the first pull sheets."
+    },
+    {
+      id: "DKT-007",
+      priority: "High",
+      phase: "White House check",
+      gate: "Presidential control",
+      lane: "Creating War Information",
+      repository: "FDR Library / NARA Catalog",
+      title: "Pull the FDR Library OWI White House decision packet",
+      objective:
+        "Prevent the volume from leaning only on agency records by checking presidential routing, oversight, and public-line control.",
+      action:
+        "Pull the President's Secretary's File OWI subject/confidential files and Survey of Intelligence folders for source copies, routing, FDR action, and relation to State/OWI decisions.",
+      proof:
+        "White House packet identifies which FDR Library records promote, support, or merely contextualize the document chronology.",
+      links: [
+        { label: "Pull sheet", url: "#pull-sheets" },
+        { label: "OWI subject file", url: "https://catalog.archives.gov/id/16620603" },
+        { label: "OWI confidential file", url: "https://catalog.archives.gov/id/16609748" }
+      ],
+      relatedIds: ["PULL-008", "DOC50-041-DOC50-045"],
+      sourceNote:
+        "White House docket item generated from FDR Library President's Secretary's File candidates."
+    },
+    {
+      id: "DKT-008",
+      priority: "High",
+      phase: "Packet build",
+      gate: "Source-copy standard",
+      lane: "Volume-wide",
+      repository: "Cross-repository",
+      title: "Build source-copy packets before assigning final chronology numbers",
+      objective:
+        "Make every selected candidate defensible as a FRUS document, not just an interesting source lead.",
+      action:
+        "For each promoted candidate, complete a packet with repository, series, box/file or NAID, date, author, recipient, classification, full source copy or image link, enclosures, duplicate proof, selection rationale, boundary ruling, and cross-references.",
+      proof:
+        "No row receives final chronology placement until the packet standard is complete and the promotion rationale is explicit.",
+      links: [
+        { label: "Packet template CSV", url: "templates/source-copy-packet-template.csv" },
+        { label: "Packet template Markdown", url: "templates/source-copy-packet-template.md" },
+        { label: "Compiler guide", url: "compiler-guide.html" }
+      ],
+      relatedIds: ["PULL-012", "RULE-001-RULE-012"],
+      sourceNote:
+        "Packet-build docket item generated from the compiler guide, packet template, selection rules, and pull sheets."
+    }
+  ],
   documentIntake: [
     {
       id: "DOC-001",

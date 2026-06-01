@@ -10,6 +10,7 @@ const boundaryRecords = data.boundaryRecords || [];
 const documentIntake = data.documentIntake || [];
 const stateCableLeads = data.stateCableLeads || [];
 const candidateDocuments = data.candidateDocuments || [];
+const compilerDocket = data.compilerDocket || [];
 const selectionRules = data.selectionRules || [];
 const coverageMatrix = data.coverageMatrix || [];
 const closureTasks = data.closureTasks || [];
@@ -85,6 +86,9 @@ const nodes = {
   poolCount: document.querySelector("#pool-count"),
   gapCount: document.querySelector("#gap-count"),
   workbenchRoot: document.querySelector("#workbench-root"),
+  docketRoot: document.querySelector("#docket-root"),
+  docketSummary: document.querySelector("#docket-summary"),
+  exportDocket: document.querySelector("#export-docket"),
   laneGrid: document.querySelector("#lane-grid"),
   leadsRoot: document.querySelector("#leads-root"),
   leadSummary: document.querySelector("#lead-summary"),
@@ -234,6 +238,9 @@ function searchText(item) {
     item.nextUse,
     item.nextAction,
     item.action,
+    item.phase,
+    item.gate,
+    item.proof,
     item.dateRange,
     item.recordGroup,
     item.candidateType,
@@ -272,6 +279,7 @@ function searchText(item) {
     item.targetTerms?.join(" "),
     item.matchedTerms?.join(" "),
     item.nextActions?.join(" "),
+    item.relatedIds?.join(" "),
     item.sourcePools?.join(" "),
     item.gapIds?.join(" ")
   ]
@@ -311,6 +319,7 @@ function renderWorkbench() {
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
     metricCard("Candidate docs", candidateDocuments.length, "Potential documents not found in public FRUS exact-title or file-number checks."),
+    metricCard("Docket moves", compilerDocket.length, "Immediate pull and proof-gate actions for the compiler's first archive cycle."),
     metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
     metricCard("State cable leads", stateCableLeads.length, "RG 59 controls and RG 84 post-file targets for State telegrams, despatches, and instructions."),
     metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert packeted gaps into source-copy work."),
@@ -329,6 +338,61 @@ function metricCard(label, value, detail) {
   const paragraph = document.createElement("p");
   paragraph.textContent = detail;
   card.append(strong, span, paragraph);
+  return card;
+}
+
+function renderCompilerDocket() {
+  const priorityOrder = new Map([
+    ["Critical", 1],
+    ["High", 2],
+    ["Medium", 3],
+    ["Low", 4]
+  ]);
+  const visible = [...compilerDocket].sort(
+    (a, b) =>
+      (priorityOrder.get(a.priority) || 99) - (priorityOrder.get(b.priority) || 99) ||
+      a.id.localeCompare(b.id)
+  );
+  nodes.docketSummary.textContent = `${plural(visible.length, "docket move")} ready for the first archive cycle.`;
+  nodes.docketRoot.replaceChildren(...visible.map(docketCard));
+  if (!visible.length) nodes.docketRoot.innerHTML = '<p class="empty">No compiler docket rows were generated.</p>';
+}
+
+function docketCard(item) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${item.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(item.id), textSpan(item.priority), textSpan(item.phase), textSpan(item.gate));
+  const title = document.createElement("h4");
+  title.textContent = item.title;
+  titleBlock.append(metaRow, title);
+
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(item.lane), priorityChip(item.priority), chip(item.repository));
+  header.append(titleBlock, chips);
+
+  const objective = document.createElement("p");
+  objective.textContent = item.objective;
+  const action = document.createElement("p");
+  action.className = "source-note";
+  action.textContent = `Do next: ${item.action}`;
+  const proof = document.createElement("p");
+  proof.className = "source-note";
+  proof.textContent = `Proof gate: ${item.proof}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  for (const link of item.links || []) actions.append(linkButton(link.label, link.url));
+  if (item.action) actions.append(copyButton(item.action, "Copy action"));
+  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+
+  card.append(header, objective, action, proof, actions, sourceNoteDetails(item));
+  if (item.relatedIds?.length) card.append(termChips(item.relatedIds));
   return card;
 }
 
@@ -1291,6 +1355,27 @@ function setupEvents() {
     );
   });
 
+  nodes.exportDocket.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-immediate-compiler-docket.csv",
+      toCsv(compilerDocket, [
+        { label: "ID", value: (item) => item.id },
+        { label: "Priority", value: (item) => item.priority },
+        { label: "Phase", value: (item) => item.phase },
+        { label: "Gate", value: (item) => item.gate },
+        { label: "Lane", value: (item) => item.lane },
+        { label: "Repository", value: (item) => item.repository },
+        { label: "Title", value: (item) => item.title },
+        { label: "Objective", value: (item) => item.objective },
+        { label: "Action", value: (item) => item.action },
+        { label: "Proof Gate", value: (item) => item.proof },
+        { label: "Links", value: (item) => (item.links || []).map((link) => `${link.label}: ${link.url}`).join("; ") },
+        { label: "Related IDs", value: (item) => (item.relatedIds || []).join("; ") },
+        { label: "Source Note", value: (item) => item.sourceNote }
+      ])
+    );
+  });
+
   nodes.gapSearch.addEventListener("input", (event) => {
     state.gaps.query = event.target.value;
     renderGapTracker();
@@ -1701,6 +1786,7 @@ function setupEvents() {
 function init() {
   setStats();
   renderWorkbench();
+  renderCompilerDocket();
   renderLanes();
   populateFilters();
   renderLeads();
