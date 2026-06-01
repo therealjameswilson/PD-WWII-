@@ -14,6 +14,7 @@ rather than a published FRUS document chronology.
 - 50-document candidate register for potential additions not found in public FRUS exact-title or file-number checks
 - chronology seed register that orders the 50 candidates by date with editorial role, proof status, related pull sheets, docket gates, and next action
 - duplicate-gate register for exact and broad History.state.gov searches, result counts, checked dates, duplicate status, and final rulings
+- seeded selection-decision register that ties packet, chronology, duplicate, boundary, evidence, source-note, reviewer, and final FRUS-number fields together
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
 - immediate compiler docket with first-pull actions, proof gates, related IDs, direct links, and CSV export
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
@@ -22,6 +23,7 @@ rather than a published FRUS document chronology.
 - static immediate-docket CSV for spreadsheet import or archive-trip planning
 - static chronology-seed CSV for drafting the first working FRUS sequence
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
+- static selection-decision CSV for promotion, hold, boundary, exclusion, and final numbering decisions
 - seeded 50-document packet register and 12-pull archive request register for spreadsheet import
 - State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
 - CSV export for source leads, document intake, 50-document candidates, compiler pull sheets, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
@@ -46,6 +48,7 @@ The committed data currently contains:
 - `50` candidate documents not found in public FRUS exact-title/file-number checks
 - `50` chronology seed rows for first-pass FRUS ordering
 - `50` duplicate-gate rows for exact and broad FRUS search proof
+- `50` selection-decision rows for final editorial rulings
 - `12` compiler pull sheets
 - `8` immediate compiler docket moves
 - `17` State cable leads

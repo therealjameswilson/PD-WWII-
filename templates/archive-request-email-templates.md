@@ -200,6 +200,8 @@ Attach or paste only the rows needed for the request.
   placement note
 - `duplicate-gate-register.csv`: exact search URL, broad search URL, duplicate
   status and ruling fields
+- `selection-decision-register.csv`: final promotion, hold, boundary, duplicate,
+  exclusion, reviewer, and proposed FRUS-number fields
 
 Before sending, fill in:
 
