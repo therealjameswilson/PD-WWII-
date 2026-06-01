@@ -15,6 +15,7 @@ const selectionRules = data.selectionRules || [];
 const coverageMatrix = data.coverageMatrix || [];
 const closureTasks = data.closureTasks || [];
 const evidencePackets = data.evidencePackets || [];
+const chronologyRows = buildChronologyRows(candidateDocuments);
 
 const state = {
   leads: {
@@ -48,6 +49,12 @@ const state = {
     repository: "",
     priority: "",
     status: ""
+  },
+  chronology: {
+    query: "",
+    lane: "",
+    role: "",
+    sourceCopyStatus: ""
   },
   closure: {
     query: "",
@@ -132,6 +139,14 @@ const nodes = {
   candidateStatusFilter: document.querySelector("#candidate-status-filter"),
   clearCandidateFilters: document.querySelector("#clear-candidate-filters"),
   exportCandidates: document.querySelector("#export-candidates"),
+  chronologyRoot: document.querySelector("#chronology-root"),
+  chronologySummary: document.querySelector("#chronology-summary"),
+  chronologySearch: document.querySelector("#chronology-search"),
+  chronologyLaneFilter: document.querySelector("#chronology-lane-filter"),
+  chronologyRoleFilter: document.querySelector("#chronology-role-filter"),
+  chronologyStatusFilter: document.querySelector("#chronology-status-filter"),
+  clearChronologyFilters: document.querySelector("#clear-chronology-filters"),
+  exportChronology: document.querySelector("#export-chronology"),
   rulesRoot: document.querySelector("#rules-root"),
   rulesSummary: document.querySelector("#rules-summary"),
   exportRules: document.querySelector("#export-rules"),
@@ -274,6 +289,14 @@ function searchText(item) {
     item.frusCheck,
     item.frusSearchUrl,
     item.documentType,
+    item.chronologyId,
+    item.episode,
+    item.editorialRole,
+    item.placement,
+    item.sourceCopyStatus,
+    item.duplicateTask,
+    item.relatedPullSheets?.join(" "),
+    item.relatedDocket?.join(" "),
     item.issueType,
     item.links?.map((link) => `${link.label} ${link.url}`).join(" "),
     item.targetTerms?.join(" "),
@@ -299,6 +322,171 @@ function matchesQuery(item, query) {
   return terms.every((term) => haystack.includes(term));
 }
 
+function buildChronologyRows(docs) {
+  return docs
+    .map((item) => {
+      const number = candidateNumber(item.id);
+      return {
+        ...item,
+        sortKey: chronologySortKey(item.id, item.date),
+        displayDate: item.date,
+        episode: chronologyEpisode(number),
+        editorialRole: chronologyRole(item, number),
+        placement: chronologyPlacement(item, number),
+        sourceCopyStatus: chronologySourceCopyStatus(item, number),
+        duplicateTask: "Save exact History.state.gov search, broad topical search, checked date, result count, and duplicate ruling.",
+        relatedPullSheets: relatedPullSheets(number),
+        relatedDocket: relatedDocket(number),
+        nextAction: chronologyNextAction(item, number)
+      };
+    })
+    .sort((a, b) => a.sortKey.localeCompare(b.sortKey) || a.id.localeCompare(b.id))
+    .map((item, index) => ({
+      ...item,
+      chronologyId: `CHR-${String(index + 1).padStart(3, "0")}`
+    }));
+}
+
+function candidateNumber(id) {
+  const match = String(id || "").match(/DOC50-(\d+)/);
+  return Number(match?.[1] || 0);
+}
+
+function chronologySortKey(id, date) {
+  const overrides = {
+    "DOC50-041": "1942-01-01",
+    "DOC50-048": "1942-01-01",
+    "DOC50-043": "1942-06-01",
+    "DOC50-044": "1942-08-01",
+    "DOC50-046": "1942-11-19",
+    "DOC50-042": "1942-12-01",
+    "DOC50-045": "1942-12-01",
+    "DOC50-047": "1943-04-30",
+    "DOC50-019": "1943-05-01",
+    "DOC50-031": "1943-09-01",
+    "DOC50-030": "1943-10-01",
+    "DOC50-050": "1943-12-31",
+    "DOC50-032": "1944-01-01",
+    "DOC50-038": "1944-01-01",
+    "DOC50-039": "1944-01-01",
+    "DOC50-040": "1944-01-01",
+    "DOC50-033": "1944-05-01",
+    "DOC50-036": "1944-06-30",
+    "DOC50-009": "1944-07-10",
+    "DOC50-010": "1944-07-08",
+    "DOC50-011": "1944-07-09",
+    "DOC50-029": "1944-07-01",
+    "DOC50-012": "1944-08-08",
+    "DOC50-013": "1944-08-08",
+    "DOC50-014": "1944-09-02",
+    "DOC50-015": "1944-09-02",
+    "DOC50-016": "1944-09-02",
+    "DOC50-001": "1944-09-09",
+    "DOC50-002": "1944-09-21",
+    "DOC50-003": "1944-09-22",
+    "DOC50-034": "1944-09-01",
+    "DOC50-026": "1944-10-28",
+    "DOC50-004": "1944-10-20",
+    "DOC50-005": "1944-10-20",
+    "DOC50-017": "1944-10-31",
+    "DOC50-028": "1944-11-20",
+    "DOC50-007": "1944-11-20",
+    "DOC50-006": "1944-11-21",
+    "DOC50-022": "1944-12-05",
+    "DOC50-027": "1944-12-06",
+    "DOC50-008": "1944-09-21",
+    "DOC50-018": "1944-12-06",
+    "DOC50-037": "1945-01-12",
+    "DOC50-035": "1945-01-30",
+    "DOC50-025": "1945-02-23",
+    "DOC50-024": "1945-04-12",
+    "DOC50-023": "1945-04-18",
+    "DOC50-020": "1945-04-26",
+    "DOC50-021": "1945-05-29",
+    "DOC50-049": "1945-12-31"
+  };
+  if (overrides[id]) return overrides[id];
+  const year = String(date || "").match(/\b(19\d{2})\b/)?.[1] || "9999";
+  return `${year}-12-31`;
+}
+
+function chronologyEpisode(number) {
+  if (number <= 8) return "CIAA shortwave, films, and hemispheric information service";
+  if (number <= 18) return "OWI overseas reporting and field information work";
+  if (number === 19) return "Poland weekly propaganda directive boundary test";
+  if ((number >= 20 && number <= 28) || number === 35) return "Long-range liberation and postwar information policy";
+  if (number >= 29 && number <= 34) return "Allied and interagency directive coordination";
+  if (number >= 36 && number <= 40) return "War Department propaganda boundary review";
+  if (number >= 41 && number <= 45) return "White House OWI oversight and intelligence surveys";
+  if (number >= 46 && number <= 47) return "Rumor-control boundary review";
+  if (number >= 48 && number <= 50) return "OIAA radio operations and reaction evidence";
+  return "Chronology seed";
+}
+
+function chronologyRole(item, number) {
+  if (number >= 41 && number <= 45) return "White House control";
+  if (number >= 46 && number <= 47) return "Boundary memo";
+  if (item.recordGroup === "RG 59") return "State cable / implementation";
+  if (item.recordGroup === "RG 208" && /OSS|PWE|Moscow|London|Central|Regional/i.test(item.title)) return "Policy coordination";
+  if (item.recordGroup === "RG 208") return "Policy guidance";
+  if (item.recordGroup === "RG 165") return "Boundary directive";
+  if (item.recordGroup === "RG 229") return "Reception / operations evidence";
+  return "Candidate document";
+}
+
+function chronologyPlacement(item, number) {
+  if (number <= 8 || number >= 48) return "Hemisphere radio/OIAA cluster; pair State cable, post evidence, and OIAA radio reaction before promotion.";
+  if (number <= 18) return "OWI overseas cluster; pair Washington guidance with post reporting or foreign-reaction evidence.";
+  if (number === 19 || (number >= 36 && number <= 40)) return "Boundary appendix or hold unless State/OWI diplomatic policy significance is proven.";
+  if ((number >= 20 && number <= 28) || number === 35) return "Core policy-guidance sequence for liberation, occupation, neutral, and postwar information themes.";
+  if (number >= 29 && number <= 34) return "Coordination sequence after core directives; use to explain Allied, OSS, London, and Moscow boundaries.";
+  if (number >= 41 && number <= 45) return "White House control cluster; use before or beside agency records when FDR routing or oversight is visible.";
+  if (number >= 46 && number <= 47) return "Domestic morale boundary check; promote only if foreign-audience or State policy consequence appears.";
+  return "Hold for compiler placement.";
+}
+
+function chronologySourceCopyStatus(item, number) {
+  if (number >= 36 && number <= 40) return "Boundary ruling needed";
+  if (number >= 46 && number <= 47) return "Boundary ruling needed";
+  if (number >= 41 && number <= 45) return "Folder/item source copy needed";
+  if (/Reports and Issuances|Radio Reaction Reports|Resume of Operations/i.test(item.title)) return "Item selection needed";
+  return "Source copy needed";
+}
+
+function relatedPullSheets(number) {
+  if (number <= 8) return ["PULL-002", "PULL-007"];
+  if (number <= 18) return ["PULL-001"];
+  if ((number >= 20 && number <= 28) || number === 35) return ["PULL-003"];
+  if (number >= 29 && number <= 34) return ["PULL-004"];
+  if (number >= 36 && number <= 40) return ["PULL-010"];
+  if (number >= 41 && number <= 45) return ["PULL-008"];
+  if (number >= 46 && number <= 47) return ["PULL-009"];
+  if (number >= 48 && number <= 50) return ["PULL-007"];
+  return [];
+}
+
+function relatedDocket(number) {
+  const universal = ["DKT-001", "DKT-005", "DKT-008"];
+  if (number <= 8) return universal.concat(["DKT-003", "DKT-006"]);
+  if (number <= 18) return universal.concat(["DKT-002", "DKT-006"]);
+  if ((number >= 20 && number <= 35) || number === 19) return universal.concat(["DKT-004"]);
+  if (number >= 36 && number <= 40) return universal.concat(["DKT-004"]);
+  if (number >= 41 && number <= 45) return universal.concat(["DKT-007"]);
+  if (number >= 46 && number <= 47) return universal;
+  if (number >= 48 && number <= 50) return universal.concat(["DKT-003", "DKT-006"]);
+  return universal;
+}
+
+function chronologyNextAction(item, number) {
+  if (item.recordGroup === "RG 59") return "Request the underlying Central Decimal File source copy, then record author/post, recipient, enclosures, routing, and exact FRUS duplicate proof.";
+  if (item.recordGroup === "RG 208") return "Pull directive source copy, extract issuing office and target themes, then pair with implementation or reaction evidence before promotion.";
+  if (item.recordGroup === "RG 165") return "Apply the boundary rule: promote only if the record shows State/OWI coordination, diplomatic controversy, or public-diplomacy policy beyond tactical warfare.";
+  if (item.recordGroup === "RG 229") return "Itemize the file unit and pair radio operation or reaction evidence with RG 59/RG 84 State documentation.";
+  if (/President's Secretary's File/i.test(item.recordGroup)) return "Pull folder-level source copies and identify FDR action, White House routing, or relation to State/OWI decisions.";
+  if (/Philleo Nash/i.test(item.recordGroup)) return "Review the source copy for foreign-audience, overseas information, State policy, or White House public-line control before any promotion.";
+  return "Complete source-copy packet, duplicate check, boundary ruling, and selection rationale before final numbering.";
+}
+
 function setStats() {
   nodes.totalLeads.textContent = leads.length.toString();
   nodes.intakeCount.textContent = documentIntake.length.toString();
@@ -319,6 +507,7 @@ function renderWorkbench() {
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
     metricCard("Candidate docs", candidateDocuments.length, "Potential documents not found in public FRUS exact-title or file-number checks."),
+    metricCard("Chronology seeds", chronologyRows.length, "First-pass FRUS ordering scaffold with proof gates and next actions."),
     metricCard("Docket moves", compilerDocket.length, "Immediate pull and proof-gate actions for the compiler's first archive cycle."),
     metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
     metricCard("State cable leads", stateCableLeads.length, "RG 59 controls and RG 84 post-file targets for State telegrams, despatches, and instructions."),
@@ -766,6 +955,92 @@ function candidateDocumentCard(item) {
 
   card.append(header, locator, value, check, actions, sourceNoteDetails(item));
   return card;
+}
+
+function filteredChronologyRows() {
+  return chronologyRows.filter((item) => {
+    if (!matchesQuery(item, state.chronology.query)) return false;
+    if (state.chronology.lane && item.lane !== state.chronology.lane) return false;
+    if (state.chronology.role && item.editorialRole !== state.chronology.role) return false;
+    if (state.chronology.sourceCopyStatus && item.sourceCopyStatus !== state.chronology.sourceCopyStatus) return false;
+    return true;
+  });
+}
+
+function renderChronologyRows() {
+  const visible = filteredChronologyRows().sort(
+    (a, b) => a.sortKey.localeCompare(b.sortKey) || a.chronologyId.localeCompare(b.chronologyId)
+  );
+  nodes.chronologySummary.textContent = `${plural(visible.length, "row")} visible from ${chronologyRows.length} chronology seeds.`;
+  nodes.chronologyRoot.replaceChildren(...visible.map(chronologyCard));
+  if (!visible.length) nodes.chronologyRoot.innerHTML = '<p class="empty">No chronology seed rows match the current filters.</p>';
+}
+
+function chronologyCard(item) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${item.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(item.chronologyId), textSpan(item.displayDate), textSpan(item.id), textSpan(item.sourceCopyStatus));
+  const title = document.createElement("h4");
+  title.textContent = item.title;
+  titleBlock.append(metaRow, title);
+
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(item.lane), priorityChip(item.priority), chip(item.editorialRole));
+  header.append(titleBlock, chips);
+
+  const episode = document.createElement("p");
+  episode.textContent = item.episode;
+  const placement = document.createElement("p");
+  placement.className = "source-note";
+  placement.textContent = `Placement: ${item.placement}`;
+  const action = document.createElement("p");
+  action.className = "source-note";
+  action.textContent = `Next action: ${item.nextAction}`;
+  const duplicate = document.createElement("p");
+  duplicate.className = "source-note";
+  duplicate.textContent = `Duplicate gate: ${item.duplicateTask}`;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  if (item.catalogUrl) actions.append(linkButton("Catalog", item.catalogUrl));
+  if (item.frusSearchUrl) actions.append(linkButton("FRUS check", item.frusSearchUrl));
+  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+
+  card.append(header, episode, placement, action, duplicate, actions, sourceNoteDetails(item));
+  card.append(termChips(item.relatedPullSheets.concat(item.relatedDocket)));
+  return card;
+}
+
+function chronologyColumns() {
+  return [
+    { label: "Chronology ID", value: (item) => item.chronologyId },
+    { label: "Candidate ID", value: (item) => item.id },
+    { label: "Sort Key", value: (item) => item.sortKey },
+    { label: "Display Date", value: (item) => item.displayDate },
+    { label: "Lane", value: (item) => item.lane },
+    { label: "Episode", value: (item) => item.episode },
+    { label: "Editorial Role", value: (item) => item.editorialRole },
+    { label: "Priority", value: (item) => item.priority },
+    { label: "Proof Status", value: (item) => item.sourceCopyStatus },
+    { label: "Repository", value: (item) => item.repository },
+    { label: "Record Group", value: (item) => item.recordGroup },
+    { label: "Source Locator", value: (item) => item.sourceLocator },
+    { label: "Title", value: (item) => item.title },
+    { label: "Placement Note", value: (item) => item.placement },
+    { label: "Next Action", value: (item) => item.nextAction },
+    { label: "Duplicate Task", value: (item) => item.duplicateTask },
+    { label: "Related Pull Sheets", value: (item) => item.relatedPullSheets.join("; ") },
+    { label: "Related Docket", value: (item) => item.relatedDocket.join("; ") },
+    { label: "Catalog URL", value: (item) => item.catalogUrl },
+    { label: "FRUS Search URL", value: (item) => item.frusSearchUrl },
+    { label: "Source Note", value: (item) => item.sourceNote }
+  ];
 }
 
 function renderSelectionRules() {
@@ -1288,6 +1563,9 @@ function populateFilters() {
   addOptions(nodes.candidateRepositoryFilter, uniqueSorted(candidateDocuments.map((item) => item.repository)), "All repositories");
   addOptions(nodes.candidatePriorityFilter, uniqueSorted(candidateDocuments.map((item) => item.priority)), "All priorities");
   addOptions(nodes.candidateStatusFilter, uniqueSorted(candidateDocuments.map((item) => item.status)), "All statuses");
+  addOptions(nodes.chronologyLaneFilter, uniqueSorted(chronologyRows.map((item) => item.lane)), "All lanes");
+  addOptions(nodes.chronologyRoleFilter, uniqueSorted(chronologyRows.map((item) => item.editorialRole)), "All roles");
+  addOptions(nodes.chronologyStatusFilter, uniqueSorted(chronologyRows.map((item) => item.sourceCopyStatus)), "All proof statuses");
   addOptions(nodes.closureLaneFilter, uniqueSorted(closureTasks.map((task) => task.lane)), "All lanes");
   addOptions(nodes.closureRepositoryFilter, uniqueSorted(closureTasks.map((task) => task.repository)), "All repositories");
   addOptions(nodes.closureStatusFilter, uniqueSorted(closureTasks.map((task) => task.status)), "All statuses");
@@ -1557,6 +1835,37 @@ function setupEvents() {
     );
   });
 
+  nodes.chronologySearch.addEventListener("input", (event) => {
+    state.chronology.query = event.target.value;
+    renderChronologyRows();
+  });
+  nodes.chronologyLaneFilter.addEventListener("change", (event) => {
+    state.chronology.lane = event.target.value;
+    renderChronologyRows();
+  });
+  nodes.chronologyRoleFilter.addEventListener("change", (event) => {
+    state.chronology.role = event.target.value;
+    renderChronologyRows();
+  });
+  nodes.chronologyStatusFilter.addEventListener("change", (event) => {
+    state.chronology.sourceCopyStatus = event.target.value;
+    renderChronologyRows();
+  });
+  nodes.clearChronologyFilters.addEventListener("click", () => {
+    state.chronology = { query: "", lane: "", role: "", sourceCopyStatus: "" };
+    nodes.chronologySearch.value = "";
+    nodes.chronologyLaneFilter.value = "";
+    nodes.chronologyRoleFilter.value = "";
+    nodes.chronologyStatusFilter.value = "";
+    renderChronologyRows();
+  });
+  nodes.exportChronology.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-chronology-seed-register.csv",
+      toCsv(filteredChronologyRows(), chronologyColumns())
+    );
+  });
+
   nodes.exportRules.addEventListener("click", () => {
     downloadCsv(
       "frus-pd-wwii-selection-rules.csv",
@@ -1794,6 +2103,7 @@ function init() {
   renderSourcePools();
   renderDocumentIntake();
   renderCandidateDocuments();
+  renderChronologyRows();
   renderSelectionRules();
   renderCoverageMatrix();
   renderClosureTasks();

@@ -23,6 +23,7 @@
         <a href="compiler-guide.html">Guide</a>
         <a href="#document-intake">Intake</a>
         <a href="#candidate-documents">50 Docs</a>
+        <a href="#chronology">Chronology</a>
         <a href="#pull-sheets">Pull Sheets</a>
         <a href="#selection-rules">Rules</a>
         <a href="#coverage">Coverage</a>
@@ -52,13 +53,14 @@
             selection rules, gap-closure tasks, coverage checks, and boundary controls.
             Evidence packets now bind each gap to policy, implementation, reaction, and
             source-copy proof, with a State cable search layer for RG 59 and RG 84 post files.
-            A 50-document candidate register now flags potential additions not found in
-            public FRUS exact-title or file-number checks.
+            A 50-document candidate register and chronology seed now flag potential additions
+            not found in public FRUS exact-title or file-number checks.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#docket">Open Docket</a>
             <a class="button secondary" href="compiler-guide.html">Open Compiler Guide</a>
             <a class="button secondary" href="#candidate-documents">Review 50 Docs</a>
+            <a class="button secondary" href="#chronology">Build Chronology</a>
           </div>
         </div>
         <aside class="brief visual-brief" aria-label="Archive scope">
@@ -239,6 +241,38 @@
         </div>
         <div id="candidate-root" class="records-root compact-records" aria-live="polite">
           <p class="loading">Loading candidate documents...</p>
+        </div>
+      </section>
+
+      <section class="section records-section" id="chronology" aria-labelledby="chronology-title">
+        <div class="section-heading">
+          <p class="kicker">Chronology Seed Register</p>
+          <h2 id="chronology-title">First-Pass FRUS Ordering Scaffold</h2>
+        </div>
+        <div class="tools candidate-tools" aria-label="Search and filter chronology seed rows">
+          <label class="search-field">
+            <span>Search chronology</span>
+            <input id="chronology-search" type="search" placeholder="Search dates, roles, episodes, proof gates, source locators" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="chronology-lane-filter"></select>
+          </label>
+          <label>
+            <span>Role</span>
+            <select id="chronology-role-filter"></select>
+          </label>
+          <label>
+            <span>Proof status</span>
+            <select id="chronology-status-filter"></select>
+          </label>
+          <button id="clear-chronology-filters" type="button">Reset</button>
+          <button id="export-chronology" type="button">CSV</button>
+          <a class="button secondary" href="templates/chronology-seed-register.csv">Static CSV</a>
+          <p id="chronology-summary" class="summary">Loading chronology seed rows...</p>
+        </div>
+        <div id="chronology-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading chronology seed rows...</p>
         </div>
       </section>
 
