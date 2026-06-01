@@ -12,8 +12,9 @@ rather than a published FRUS document chronology.
 - candidate source chronology with lane, repository, source-type, priority, and text search filters
 - document-intake ledger with selection tests, source-copy tasks, and gap IDs
 - 50-document candidate register for potential additions not found in public FRUS exact-title or file-number checks
+- compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
 - State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
-- CSV export for source leads, document intake, 50-document candidates, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
+- CSV export for source leads, document intake, 50-document candidates, compiler pull sheets, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
 - source-note copy buttons for compiler-ready provenance snippets
 - NARA and FDR Library source-pool queue
 - gap-closure task queue with proof requirements, closure criteria, direct searches, and CSV export
@@ -33,6 +34,7 @@ The committed data currently contains:
 - `16` candidate source leads
 - `18` document-intake rows
 - `50` candidate documents not found in public FRUS exact-title/file-number checks
+- `12` compiler pull sheets
 - `17` State cable leads
 - `12` selection and boundary rules
 - `10` theater/audience coverage rows
