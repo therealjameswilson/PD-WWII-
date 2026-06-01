@@ -24,6 +24,7 @@
         <a href="#document-intake">Intake</a>
         <a href="#candidate-documents">50 Docs</a>
         <a href="#chronology">Chronology</a>
+        <a href="#duplicates">Duplicates</a>
         <a href="#pull-sheets">Pull Sheets</a>
         <a href="#selection-rules">Rules</a>
         <a href="#coverage">Coverage</a>
@@ -53,14 +54,15 @@
             selection rules, gap-closure tasks, coverage checks, and boundary controls.
             Evidence packets now bind each gap to policy, implementation, reaction, and
             source-copy proof, with a State cable search layer for RG 59 and RG 84 post files.
-            A 50-document candidate register and chronology seed now flag potential additions
-            not found in public FRUS exact-title or file-number checks.
+            A 50-document candidate register, chronology seed, and duplicate-gate register now
+            flag potential additions not found in public FRUS exact-title or file-number checks.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#docket">Open Docket</a>
             <a class="button secondary" href="compiler-guide.html">Open Compiler Guide</a>
             <a class="button secondary" href="#candidate-documents">Review 50 Docs</a>
             <a class="button secondary" href="#chronology">Build Chronology</a>
+            <a class="button secondary" href="#duplicates">Run Duplicate Gate</a>
           </div>
         </div>
         <aside class="brief visual-brief" aria-label="Archive scope">
@@ -273,6 +275,38 @@
         </div>
         <div id="chronology-root" class="records-root compact-records" aria-live="polite">
           <p class="loading">Loading chronology seed rows...</p>
+        </div>
+      </section>
+
+      <section class="section records-section" id="duplicates" aria-labelledby="duplicate-title">
+        <div class="section-heading">
+          <p class="kicker">Duplicate Gate Register</p>
+          <h2 id="duplicate-title">Exact and Broad FRUS Search Audit</h2>
+        </div>
+        <div class="tools candidate-tools" aria-label="Search and filter duplicate-gate rows">
+          <label class="search-field">
+            <span>Search duplicate gates</span>
+            <input id="duplicate-search" type="search" placeholder="Search titles, risks, rulings, search URLs, source locators" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="duplicate-lane-filter"></select>
+          </label>
+          <label>
+            <span>Risk</span>
+            <select id="duplicate-risk-filter"></select>
+          </label>
+          <label>
+            <span>Ruling</span>
+            <select id="duplicate-ruling-filter"></select>
+          </label>
+          <button id="clear-duplicate-filters" type="button">Reset</button>
+          <button id="export-duplicates" type="button">CSV</button>
+          <a class="button secondary" href="templates/duplicate-gate-register.csv">Static CSV</a>
+          <p id="duplicate-summary" class="summary">Loading duplicate-gate rows...</p>
+        </div>
+        <div id="duplicate-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading duplicate-gate rows...</p>
         </div>
       </section>
 

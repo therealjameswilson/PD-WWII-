@@ -16,6 +16,7 @@ const coverageMatrix = data.coverageMatrix || [];
 const closureTasks = data.closureTasks || [];
 const evidencePackets = data.evidencePackets || [];
 const chronologyRows = buildChronologyRows(candidateDocuments);
+const duplicateRows = buildDuplicateRows(chronologyRows);
 
 const state = {
   leads: {
@@ -55,6 +56,12 @@ const state = {
     lane: "",
     role: "",
     sourceCopyStatus: ""
+  },
+  duplicates: {
+    query: "",
+    lane: "",
+    risk: "",
+    ruling: ""
   },
   closure: {
     query: "",
@@ -147,6 +154,14 @@ const nodes = {
   chronologyStatusFilter: document.querySelector("#chronology-status-filter"),
   clearChronologyFilters: document.querySelector("#clear-chronology-filters"),
   exportChronology: document.querySelector("#export-chronology"),
+  duplicateRoot: document.querySelector("#duplicate-root"),
+  duplicateSummary: document.querySelector("#duplicate-summary"),
+  duplicateSearch: document.querySelector("#duplicate-search"),
+  duplicateLaneFilter: document.querySelector("#duplicate-lane-filter"),
+  duplicateRiskFilter: document.querySelector("#duplicate-risk-filter"),
+  duplicateRulingFilter: document.querySelector("#duplicate-ruling-filter"),
+  clearDuplicateFilters: document.querySelector("#clear-duplicate-filters"),
+  exportDuplicates: document.querySelector("#export-duplicates"),
   rulesRoot: document.querySelector("#rules-root"),
   rulesSummary: document.querySelector("#rules-summary"),
   exportRules: document.querySelector("#export-rules"),
@@ -297,6 +312,13 @@ function searchText(item) {
     item.duplicateTask,
     item.relatedPullSheets?.join(" "),
     item.relatedDocket?.join(" "),
+    item.duplicateId,
+    item.exactSearchUrl,
+    item.broadSearchQuery,
+    item.broadSearchUrl,
+    item.duplicateRisk,
+    item.recommendedRuling,
+    item.auditTask,
     item.issueType,
     item.links?.map((link) => `${link.label} ${link.url}`).join(" "),
     item.targetTerms?.join(" "),
@@ -487,6 +509,46 @@ function chronologyNextAction(item, number) {
   return "Complete source-copy packet, duplicate check, boundary ruling, and selection rationale before final numbering.";
 }
 
+function buildDuplicateRows(rows) {
+  return rows.map((item, index) => ({
+    ...item,
+    duplicateId: `DUP-${String(index + 1).padStart(3, "0")}`,
+    exactSearchUrl: item.frusSearchUrl,
+    broadSearchQuery: broadSearchQuery(item),
+    broadSearchUrl: `https://history.state.gov/search?q=${encodeURIComponent(broadSearchQuery(item))}`,
+    duplicateRisk: duplicateRisk(item),
+    recommendedRuling: duplicateRuling(item),
+    auditTask:
+      "Save exact-search URL, exact result count, broad-search URL, broad result count, checked date, and final duplicate ruling before promotion."
+  }));
+}
+
+function broadSearchQuery(item) {
+  const agency = item.recordGroup === "RG 59" ? "OWI State" : item.recordGroup === "RG 229" ? "Inter-American Affairs radio" : item.recordGroup === "RG 208" ? "Office of War Information directive" : item.recordGroup === "RG 165" ? "Office of War Information propaganda directive" : "Office of War Information";
+  const dateToken = String(item.displayDate || item.date || "").match(/\b(19\d{2})\b/)?.[1] || "1944";
+  const titleTerms = String(item.title || "")
+    .replace(/[^\w\s-]/g, " ")
+    .split(/\s+/)
+    .filter((term) => term.length > 3 && !/^(office|information|directive|report|reports|file|files|from|with|and|the|for|war)$/i.test(term))
+    .slice(0, 7)
+    .join(" ");
+  return [titleTerms, agency, dateToken].filter(Boolean).join(" ");
+}
+
+function duplicateRisk(item) {
+  if (/Boundary/i.test(item.sourceCopyStatus)) return "Boundary duplicate risk";
+  if (item.priority === "Critical") return "High duplicate risk";
+  if (item.priority === "High") return "Medium duplicate risk";
+  if (item.recordGroup === "RG 59" || item.recordGroup === "RG 208") return "Medium duplicate risk";
+  return "Low duplicate risk";
+}
+
+function duplicateRuling(item) {
+  if (/Boundary/i.test(item.sourceCopyStatus)) return "Hold until boundary and duplicate checks clear";
+  if (/Item selection/i.test(item.sourceCopyStatus)) return "Hold until item-level duplicate check";
+  return "Unchecked - proof required before promotion";
+}
+
 function setStats() {
   nodes.totalLeads.textContent = leads.length.toString();
   nodes.intakeCount.textContent = documentIntake.length.toString();
@@ -508,6 +570,7 @@ function renderWorkbench() {
     metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
     metricCard("Candidate docs", candidateDocuments.length, "Potential documents not found in public FRUS exact-title or file-number checks."),
     metricCard("Chronology seeds", chronologyRows.length, "First-pass FRUS ordering scaffold with proof gates and next actions."),
+    metricCard("Duplicate gates", duplicateRows.length, "Exact and broad History.state.gov searches required before promotion."),
     metricCard("Docket moves", compilerDocket.length, "Immediate pull and proof-gate actions for the compiler's first archive cycle."),
     metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
     metricCard("State cable leads", stateCableLeads.length, "RG 59 controls and RG 84 post-file targets for State telegrams, despatches, and instructions."),
@@ -1043,6 +1106,104 @@ function chronologyColumns() {
   ];
 }
 
+function filteredDuplicateRows() {
+  return duplicateRows.filter((item) => {
+    if (!matchesQuery(item, state.duplicates.query)) return false;
+    if (state.duplicates.lane && item.lane !== state.duplicates.lane) return false;
+    if (state.duplicates.risk && item.duplicateRisk !== state.duplicates.risk) return false;
+    if (state.duplicates.ruling && item.recommendedRuling !== state.duplicates.ruling) return false;
+    return true;
+  });
+}
+
+function renderDuplicateRows() {
+  const visible = filteredDuplicateRows().sort(
+    (a, b) =>
+      duplicateRiskRank(a.duplicateRisk) - duplicateRiskRank(b.duplicateRisk) ||
+      a.sortKey.localeCompare(b.sortKey) ||
+      a.duplicateId.localeCompare(b.duplicateId)
+  );
+  nodes.duplicateSummary.textContent = `${plural(visible.length, "row")} visible from ${duplicateRows.length} duplicate gates.`;
+  nodes.duplicateRoot.replaceChildren(...visible.map(duplicateCard));
+  if (!visible.length) nodes.duplicateRoot.innerHTML = '<p class="empty">No duplicate-gate rows match the current filters.</p>';
+}
+
+function duplicateRiskRank(value) {
+  if (/High/i.test(value)) return 1;
+  if (/Medium/i.test(value)) return 2;
+  if (/Boundary/i.test(value)) return 3;
+  return 4;
+}
+
+function duplicateCard(item) {
+  const card = document.createElement("article");
+  card.className = `record-card priority-${item.priority.toLowerCase()}`;
+
+  const header = document.createElement("header");
+  const titleBlock = document.createElement("div");
+  const metaRow = document.createElement("div");
+  metaRow.className = "record-id";
+  metaRow.append(textSpan(item.duplicateId), textSpan(item.id), textSpan(item.chronologyId), textSpan(item.duplicateRisk));
+  const title = document.createElement("h4");
+  title.textContent = item.title;
+  titleBlock.append(metaRow, title);
+
+  const chips = document.createElement("div");
+  chips.className = "chips";
+  chips.append(chip(item.lane), priorityChip(item.priority), chip(item.recommendedRuling));
+  header.append(titleBlock, chips);
+
+  const exact = document.createElement("p");
+  exact.className = "source-note";
+  exact.textContent = `Exact search: ${item.exactSearchUrl}`;
+  const broad = document.createElement("p");
+  broad.className = "source-note";
+  broad.textContent = `Broad search: ${item.broadSearchQuery}`;
+  const task = document.createElement("p");
+  task.textContent = item.auditTask;
+
+  const actions = document.createElement("div");
+  actions.className = "record-actions";
+  if (item.exactSearchUrl) actions.append(linkButton("Exact search", item.exactSearchUrl));
+  if (item.broadSearchUrl) actions.append(linkButton("Broad search", item.broadSearchUrl));
+  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+
+  card.append(header, task, exact, broad, actions, sourceNoteDetails(item));
+  card.append(termChips(item.relatedPullSheets.concat(item.relatedDocket)));
+  return card;
+}
+
+function duplicateColumns() {
+  return [
+    { label: "Duplicate ID", value: (item) => item.duplicateId },
+    { label: "Candidate ID", value: (item) => item.id },
+    { label: "Chronology ID", value: (item) => item.chronologyId },
+    { label: "Priority", value: (item) => item.priority },
+    { label: "Duplicate Risk", value: (item) => item.duplicateRisk },
+    { label: "Recommended Ruling", value: (item) => item.recommendedRuling },
+    { label: "Lane", value: (item) => item.lane },
+    { label: "Date", value: (item) => item.displayDate },
+    { label: "Title", value: (item) => item.title },
+    { label: "Repository", value: (item) => item.repository },
+    { label: "Record Group", value: (item) => item.recordGroup },
+    { label: "Source Locator", value: (item) => item.sourceLocator },
+    { label: "Exact Search URL", value: (item) => item.exactSearchUrl },
+    { label: "Exact Result Count", value: () => "" },
+    { label: "Broad Search Query", value: (item) => item.broadSearchQuery },
+    { label: "Broad Search URL", value: (item) => item.broadSearchUrl },
+    { label: "Broad Result Count", value: () => "" },
+    { label: "Checked Date", value: () => "" },
+    { label: "Duplicate Status", value: () => "Unchecked" },
+    { label: "Final Ruling", value: () => "" },
+    { label: "Compiler Notes", value: () => "" },
+    { label: "Audit Task", value: (item) => item.auditTask },
+    { label: "Related Pull Sheets", value: (item) => item.relatedPullSheets.join("; ") },
+    { label: "Related Docket", value: (item) => item.relatedDocket.join("; ") },
+    { label: "Catalog URL", value: (item) => item.catalogUrl },
+    { label: "Source Note", value: (item) => item.sourceNote }
+  ];
+}
+
 function renderSelectionRules() {
   nodes.rulesSummary.textContent = `${plural(selectionRules.length, "rule")} define promotion, boundary, and exclusion tests for candidate documents.`;
   nodes.rulesRoot.replaceChildren(...selectionRules.map(ruleCard));
@@ -1566,6 +1727,9 @@ function populateFilters() {
   addOptions(nodes.chronologyLaneFilter, uniqueSorted(chronologyRows.map((item) => item.lane)), "All lanes");
   addOptions(nodes.chronologyRoleFilter, uniqueSorted(chronologyRows.map((item) => item.editorialRole)), "All roles");
   addOptions(nodes.chronologyStatusFilter, uniqueSorted(chronologyRows.map((item) => item.sourceCopyStatus)), "All proof statuses");
+  addOptions(nodes.duplicateLaneFilter, uniqueSorted(duplicateRows.map((item) => item.lane)), "All lanes");
+  addOptions(nodes.duplicateRiskFilter, uniqueSorted(duplicateRows.map((item) => item.duplicateRisk)), "All risks");
+  addOptions(nodes.duplicateRulingFilter, uniqueSorted(duplicateRows.map((item) => item.recommendedRuling)), "All rulings");
   addOptions(nodes.closureLaneFilter, uniqueSorted(closureTasks.map((task) => task.lane)), "All lanes");
   addOptions(nodes.closureRepositoryFilter, uniqueSorted(closureTasks.map((task) => task.repository)), "All repositories");
   addOptions(nodes.closureStatusFilter, uniqueSorted(closureTasks.map((task) => task.status)), "All statuses");
@@ -1866,6 +2030,37 @@ function setupEvents() {
     );
   });
 
+  nodes.duplicateSearch.addEventListener("input", (event) => {
+    state.duplicates.query = event.target.value;
+    renderDuplicateRows();
+  });
+  nodes.duplicateLaneFilter.addEventListener("change", (event) => {
+    state.duplicates.lane = event.target.value;
+    renderDuplicateRows();
+  });
+  nodes.duplicateRiskFilter.addEventListener("change", (event) => {
+    state.duplicates.risk = event.target.value;
+    renderDuplicateRows();
+  });
+  nodes.duplicateRulingFilter.addEventListener("change", (event) => {
+    state.duplicates.ruling = event.target.value;
+    renderDuplicateRows();
+  });
+  nodes.clearDuplicateFilters.addEventListener("click", () => {
+    state.duplicates = { query: "", lane: "", risk: "", ruling: "" };
+    nodes.duplicateSearch.value = "";
+    nodes.duplicateLaneFilter.value = "";
+    nodes.duplicateRiskFilter.value = "";
+    nodes.duplicateRulingFilter.value = "";
+    renderDuplicateRows();
+  });
+  nodes.exportDuplicates.addEventListener("click", () => {
+    downloadCsv(
+      "frus-pd-wwii-duplicate-gate-register.csv",
+      toCsv(filteredDuplicateRows(), duplicateColumns())
+    );
+  });
+
   nodes.exportRules.addEventListener("click", () => {
     downloadCsv(
       "frus-pd-wwii-selection-rules.csv",
@@ -2104,6 +2299,7 @@ function init() {
   renderDocumentIntake();
   renderCandidateDocuments();
   renderChronologyRows();
+  renderDuplicateRows();
   renderSelectionRules();
   renderCoverageMatrix();
   renderClosureTasks();
