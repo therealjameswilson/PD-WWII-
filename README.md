@@ -15,6 +15,7 @@ rather than a published FRUS document chronology.
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
 - reusable source-copy packet and archive-request templates for compiler fieldwork
+- seeded 50-document packet register and 12-pull archive request register for spreadsheet import
 - State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
 - CSV export for source leads, document intake, 50-document candidates, compiler pull sheets, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
 - source-note copy buttons for compiler-ready provenance snippets
