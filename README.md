@@ -18,6 +18,7 @@ rather than a published FRUS document chronology.
 - immediate compiler docket with first-pull actions, proof gates, related IDs, direct links, and CSV export
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
 - reusable source-copy packet and archive-request templates for compiler fieldwork
+- copy-ready archive request email templates for NARA RG 59, RG 84, RG 208, RG 229, RG 165, and FDR Library source-copy requests
 - static immediate-docket CSV for spreadsheet import or archive-trip planning
 - static chronology-seed CSV for drafting the first working FRUS sequence
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
