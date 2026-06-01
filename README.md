@@ -13,6 +13,7 @@ rather than a published FRUS document chronology.
 - document-intake ledger with selection tests, source-copy tasks, and gap IDs
 - 50-document candidate register for potential additions not found in public FRUS exact-title or file-number checks
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
+- print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
 - State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
 - CSV export for source leads, document intake, 50-document candidates, compiler pull sheets, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
 - source-note copy buttons for compiler-ready provenance snippets
