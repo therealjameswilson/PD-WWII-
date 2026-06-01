@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compiler Guide - FRUS Public Diplomacy, World War II Assist</title>
+    <meta
+      name="description"
+      content="Print-friendly compiler guide for the FRUS Public Diplomacy, World War II assist site."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .guide-main {
+        max-width: 1040px;
+      }
+
+      .guide-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .guide-card h3 {
+        min-height: 2.4em;
+      }
+
+      .guide-panel {
+        padding: 20px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(20, 33, 61, 0.08);
+      }
+
+      .guide-list,
+      .guide-checklist {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding-left: 22px;
+        color: #34444a;
+        font-weight: 750;
+        line-height: 1.55;
+      }
+
+      @media (max-width: 760px) {
+        .guide-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .site-header,
+        .print-hide,
+        footer {
+          display: none;
+        }
+
+        main,
+        footer {
+          width: 100%;
+        }
+
+        .section,
+        .document-heading {
+          padding: 18px 0;
+        }
+
+        .file-card,
+        .record-card,
+        .guide-panel {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="FRUS Public Diplomacy World War II Assist home">
+        <span class="brand-mark">PD III</span>
+        <span>WWII Public Diplomacy</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html#workbench">Desk</a>
+        <a href="compiler-guide.html" aria-current="page">Guide</a>
+        <a href="index.html#candidate-documents">50 Docs</a>
+        <a href="index.html#pull-sheets">Pull Sheets</a>
+        <a href="index.html#state-cables">State Cables</a>
+        <a href="persons.html">Persons</a>
+        <a href="index.html#sources">Sources</a>
+      </nav>
+    </header>
+
+    <main class="document-main guide-main" id="top">
+      <section class="document-heading" aria-labelledby="guide-title">
+        <p class="kicker">Compiler Guide</p>
+        <h1 id="guide-title">Week-One Plan for the Retro FRUS Volume</h1>
+        <p class="lede">
+          A practical workflow for turning the current source leads, 50-document
+          candidate register, State cable leads, and compiler pull sheets into
+          source-copy packets that can support final FRUS selection.
+        </p>
+        <div class="hero-actions print-hide" aria-label="Guide actions">
+          <a class="button primary" href="index.html#pull-sheets">Open Pull Sheets</a>
+          <a class="button secondary" href="index.html#candidate-documents">Review 50 Docs</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="first-week-title">
+        <div class="section-heading compact-heading">
+          <p class="kicker">Work Order</p>
+          <h2 id="first-week-title">First Seven Work Blocks</h2>
+        </div>
+        <div class="file-grid guide-grid">
+          <article class="file-card guide-card">
+            <h3>1. Freeze the Candidate Register</h3>
+            <p>
+              Export the 50 Docs CSV, save a dated copy, and assign each row one
+              initial disposition: Promote to source-copy pull, Hold for context,
+              Boundary review, or Exclude.
+            </p>
+          </article>
+          <article class="file-card guide-card">
+            <h3>2. Run the FRUS Duplicate Gate</h3>
+            <p>
+              For every promoted row, save exact-title and exact-file-number
+              History.state.gov searches. Record result count, search URL, and
+              checked date before any document moves forward.
+            </p>
+          </article>
+          <article class="file-card guide-card">
+            <h3>3. Pull RG 59 Source Copies</h3>
+            <p>
+              Start with the 103.9161 and 103.9166 purport-card batches. Request
+              the underlying Central Decimal File documents, not just the card
+              images, and attach any enclosures.
+            </p>
+          </article>
+          <article class="file-card guide-card">
+            <h3>4. Pair with RG 84 Post Files</h3>
+            <p>
+              Use London, neutral Europe, and Latin America post-file searches to
+              find implementation, clearance, and foreign-reaction evidence that
+              explains why a document belongs in a diplomatic volume.
+            </p>
+          </article>
+          <article class="file-card guide-card">
+            <h3>5. Pull OWI Directive Sets</h3>
+            <p>
+              Build the RG 208 directive packet around long-range policy,
+              special guidance, London/Moscow traffic, OWI-OSS relations, and
+              PWE crosswalks.
+            </p>
+          </article>
+          <article class="file-card guide-card">
+            <h3>6. Check FDR and Boundary Material</h3>
+            <p>
+              Pull White House OWI files and review rumor-control or War
+              Department propaganda material only when it proves foreign-policy
+              significance, presidential control, or State/OWI coordination.
+            </p>
+          </article>
+          <article class="file-card guide-card">
+            <h3>7. Build the Packet Ledger</h3>
+            <p>
+              Every promoted document needs a source-copy packet, selection
+              rationale, duplicate proof, boundary ruling, and cross-reference to
+              policy, implementation, or reaction evidence.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="packet-title">
+        <div class="section-heading compact-heading">
+          <p class="kicker">Packet Standard</p>
+          <h2 id="packet-title">No Candidate Advances Without These Fields</h2>
+        </div>
+        <div class="guide-panel">
+          <ul class="guide-checklist">
+            <li>Repository, record group or collection, series, folder, box, NAID, and file number.</li>
+            <li>Document date, author or post, recipient, classification, and routing stamps.</li>
+            <li>Full source copy or image link, including enclosures and marginalia when present.</li>
+            <li>Exact FRUS duplicate search and broader History.state.gov topical search.</li>
+            <li>Selection rationale: policy decision, implementation, reaction, handoff, or boundary value.</li>
+            <li>Boundary ruling for military, intelligence, domestic morale, or non-information OCIAA material.</li>
+            <li>Cross-reference to at least one related policy, post, public-line, or reception record.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="requests-title">
+        <div class="section-heading compact-heading">
+          <p class="kicker">Request Blocks</p>
+          <h2 id="requests-title">Archive Requests to Start With</h2>
+        </div>
+        <div class="records-root compact-records">
+          <article class="record-card priority-critical">
+            <header>
+              <div>
+                <div class="record-id">
+                  <span>RG 59</span><span>Critical</span><span>First pull</span>
+                </div>
+                <h4>OWI and CIAA Central Decimal Files</h4>
+              </div>
+            </header>
+            <p>
+              Request source copies for 103.9161/9-944, 103.9161/9-2144,
+              103.9161/9-2244, 103.9161/10-2044, 103.9161/11-2044,
+              103.9161/11-2144, 103.9161/12-644, 103.9166/7-844,
+              103.9166/7-944, 103.9166/7-1044, 103.9166/8-844,
+              103.9166/9-244, 103.9166/10-3144, and 103.9166/12-644.
+            </p>
+            <p class="source-note">
+              Source lead: RG 59 Purport Lists and Cards, NAID 88176221, M973
+              roll 607, then underlying Central Decimal Files.
+            </p>
+          </article>
+
+          <article class="record-card priority-high">
+            <header>
+              <div>
+                <div class="record-id">
+                  <span>RG 84</span><span>High</span><span>Post files</span>
+                </div>
+                <h4>Post-file Reaction and Implementation Sweep</h4>
+              </div>
+            </header>
+            <p>
+              Search London, Lisbon, Madrid, Stockholm, Bern, Mexico, Brazil,
+              Argentina, Chile, and Cuba files for OWI, USIS, OIAA, CIAA, radio,
+              films, press, propaganda, censorship, WNBI, and shortwave.
+            </p>
+            <p class="source-note">
+              Use post files to prove diplomatic context: clearance, foreign
+              reaction, host-government coordination, and local implementation.
+            </p>
+          </article>
+
+          <article class="record-card priority-high">
+            <header>
+              <div>
+                <div class="record-id">
+                  <span>RG 208</span><span>High</span><span>Directives</span>
+                </div>
+                <h4>OWI Policy Directive Packet</h4>
+              </div>
+            </header>
+            <p>
+              Pull long-range directives for Germany, France, Austria, Poland,
+              Czechoslovakia, Switzerland, Netherlands, and Thailand, plus
+              special guidance for London, Moscow, OWI-OSS, PWE, and central or
+              regional directives.
+            </p>
+            <p class="source-note">
+              Use this packet to establish policy themes before choosing
+              implementation or reaction documents.
+            </p>
+          </article>
+
+          <article class="record-card priority-high">
+            <header>
+              <div>
+                <div class="record-id">
+                  <span>FDR Library</span><span>High</span><span>White House</span>
+                </div>
+                <h4>Presidential and White House Control</h4>
+              </div>
+            </header>
+            <p>
+              Pull President's Secretary's File material for Office of War
+              Information, confidential OWI files, and Survey of Intelligence
+              folders. Extract only documents that show FDR action, White House
+              routing, or connection to State/OWI decisions.
+            </p>
+            <p class="source-note">
+              This is the check against overbuilding the volume from agency files
+              alone.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="decision-title">
+        <div class="section-heading compact-heading">
+          <p class="kicker">Decision Gate</p>
+          <h2 id="decision-title">Promotion Rules</h2>
+        </div>
+        <div class="guide-panel">
+          <ol class="guide-list">
+            <li>Promote policy decisions, presidential control, State-post implementation, foreign reaction, and handoff records.</li>
+            <li>Hold records that are useful context but lack source-copy proof or duplicate checks.</li>
+            <li>Boundary-review domestic morale, OSS, War Department psychological warfare, and non-information OCIAA material.</li>
+            <li>Exclude purely tactical, purely domestic, duplicate, or folder-level records once stronger individual documents are identified.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Compiler guide for Public Diplomacy, World War II. Print this page for archive work sessions.</p>
+    </footer>
+  </body>
+</html>
