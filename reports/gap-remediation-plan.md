@@ -43,6 +43,10 @@ gate for the remaining harvest.
    anchors, boundary notes, and review actions for persons-list, annotation, and
    index cleanup.
 
+9. **Document assembly register.** Fifty candidate rows now have working FRUS
+   slots, chapters, section headings, assembly functions, headnote or annotation
+   tasks, open proof gates, and next manuscript actions before final numbering.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -85,6 +89,10 @@ gate for the remaining harvest.
    preferred person names, office names, aliases, title dates, and agency
    succession before drafting final annotations or persons-list entries.
 
+11. **Assembly review.** Export the document-assembly CSV and use it as the
+   first manuscript spine: working slot, chapter, section, assembly function,
+   proof gates, headnote task, and next action for each candidate.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -98,6 +106,8 @@ gate for the remaining harvest.
 - Final source-note status and missing citation fields
 - Preferred person or office form, aliases, authority status, and title-date
   evidence
+- Working chapter, section, document slot, assembly function, and headnote or
+  annotation task
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

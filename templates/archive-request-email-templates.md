@@ -8,6 +8,8 @@ Attach `source-note-citation-register.csv` rows when the request needs final
 box, folder, item, image, or page-range confirmation for FRUS source notes.
 Attach `authority-control-register.csv` rows when the request also needs to
 confirm a person title, office name, alias, or agency succession.
+Attach `frus-document-assembly-register.csv` rows when the request needs to
+show the working chapter, section, document slot, or manuscript proof gate.
 
 Official request/contact anchors:
 
@@ -210,6 +212,8 @@ Attach or paste only the rows needed for the request.
   fields, evidence coverage, request path, and next citation action
 - `authority-control-register.csv`: preferred person or office form, aliases,
   provisional date status, source anchor, and authority review action
+- `frus-document-assembly-register.csv`: working FRUS slot, chapter, section,
+  assembly function, open gates, headnote task, and next manuscript action
 
 Before sending, fill in:
 

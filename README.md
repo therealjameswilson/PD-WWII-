@@ -13,6 +13,7 @@ rather than a published FRUS document chronology.
 - document-intake ledger with selection tests, source-copy tasks, and gap IDs
 - 50-document candidate register for potential additions not found in public FRUS exact-title or file-number checks
 - chronology seed register that orders the 50 candidates by date with editorial role, proof status, related pull sheets, docket gates, and next action
+- document assembly register that assigns working FRUS slots, chapters, sections, assembly functions, headnote tasks, and open proof gates
 - duplicate-gate register for exact and broad History.state.gov searches, result counts, checked dates, duplicate status, and final rulings
 - seeded selection-decision register that ties packet, chronology, duplicate, boundary, evidence, source-note, reviewer, and final FRUS-number fields together
 - source-note/citation register that flags missing final FRUS citation fields, source-copy needs, duplicate rulings, evidence coverage, and next citation actions
@@ -24,6 +25,7 @@ rather than a published FRUS document chronology.
 - copy-ready archive request email templates for NARA RG 59, RG 84, RG 208, RG 229, RG 165, and FDR Library source-copy requests
 - static immediate-docket CSV for spreadsheet import or archive-trip planning
 - static chronology-seed CSV for drafting the first working FRUS sequence
+- static document-assembly CSV for building the manuscript spine before final numbering
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
 - static selection-decision CSV for promotion, hold, boundary, exclusion, and final numbering decisions
 - static source-note/citation CSV for converting candidate leads into final FRUS source-note work
@@ -51,6 +53,7 @@ The committed data currently contains:
 - `18` document-intake rows
 - `50` candidate documents not found in public FRUS exact-title/file-number checks
 - `50` chronology seed rows for first-pass FRUS ordering
+- `50` document-assembly rows for working FRUS slots, chapters, sections, and proof gates
 - `50` duplicate-gate rows for exact and broad FRUS search proof
 - `50` selection-decision rows for final editorial rulings
 - `50` source-note/citation rows for final FRUS citation control
