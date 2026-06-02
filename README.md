@@ -24,6 +24,7 @@ rather than a published FRUS document chronology.
 - authority-control register for preferred person and organization forms, aliases, office/title date checks, source anchors, and normalization actions
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
 - archive trip pull-plan register that turns pull sheets into work blocks, capture checklists, citation fields, episode evidence needs, access checks, and exit criteria
+- archive request send queue that ranks the 12 request/desk-gate batches and provides copy-ready subject lines, request paragraphs, attachment rows, and post-response register updates
 - source-copy receipt/QA register for page-order, image completeness, enclosures, routing marks, OCR, transcripts, citation gaps, authority checks, duplicate proof, and promotion readiness
 - immediate compiler docket with first-pull actions, proof gates, related IDs, direct links, and CSV export
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
@@ -36,6 +37,7 @@ rather than a published FRUS document chronology.
 - static annotation-drafting CSV for moving from receipt QA into final FRUS headnotes and annotations
 - static compiler-readiness scorecard CSV for triaging what to pull, prove, or draft next
 - static compiler-register map in Markdown and CSV for navigating the register workflow
+- static archive-request send queue in Markdown and CSV for sending or running the next request batch
 - static archive-trip pull-plan CSV for repository-by-repository source-copy execution
 - static source-copy receipt/QA CSV for intake review after archive copies arrive
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
@@ -69,13 +71,14 @@ The committed data currently contains:
 - `12` episode-evidence rows covering all `50` candidate IDs
 - `50` annotation-drafting rows for headnotes, document annotations, authority checks, citation dependencies, and final-text gates
 - `50` compiler-readiness scorecard rows for work priority, final-readiness score, open gates, main blocker, and next task
-- `16` compiler-register map rows explaining CSV purpose, dependencies, handoffs, primary IDs, and key columns
+- `17` compiler-register map rows explaining CSV purpose, dependencies, handoffs, primary IDs, and key columns
 - `50` duplicate-gate rows for exact and broad FRUS search proof
 - `50` selection-decision rows for final editorial rulings
 - `50` source-note/citation rows for final FRUS citation control
 - `40` authority-control rows for persons, offices, organizations, aliases, and title-date checks
 - `12` compiler pull sheets
 - `12` archive-trip pull-plan rows for repository execution, capture checklists, and exit criteria
+- `12` archive-request send queue rows with ranked request blocks, subjects, tier mixes, attachments, and response updates
 - `50` source-copy receipt/QA rows for image, transcript, citation, duplicate, authority, evidence, and promotion checks
 - `8` immediate compiler docket moves
 - `17` State cable leads

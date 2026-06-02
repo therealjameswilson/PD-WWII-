@@ -73,9 +73,14 @@ gate for the remaining harvest.
    gates, main blocker, next 30-minute task, next archive task, next desk task,
    request work blocks, and cross-references to episodes and source-copy pulls.
 
-15. **Compiler register map/data dictionary.** Sixteen register rows now explain
+15. **Compiler register map/data dictionary.** Seventeen register rows now explain
    each CSV's purpose, row and column counts, primary IDs, use case, proof value,
    dependencies, handoff targets, owner, public link, and key columns.
+
+16. **Archive request send queue.** Twelve request rows now rank source-copy and
+   desk-gate batches by readiness score, tier mix, candidate count, request
+   channel, subject line, copy-ready request paragraph, attachment rows, next
+   archive action, next desk action, and registers to update after response.
 
 ## Harvest Order
 
@@ -150,6 +155,11 @@ gate for the remaining harvest.
    candidate, request, source copy, citation, selection ruling, or annotation so
    the row enters the correct downstream registers without losing provenance.
 
+18. **Request-send review.** Open the archive request send queue before contacting
+   NARA or FDR Library; use the ranked subject/body block, attach the named CSV
+   rows, record the sent date, and update receipt-QA and citation rows when the
+   response arrives.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -177,6 +187,8 @@ gate for the remaining harvest.
   final-text blockers
 - Readiness-scorecard status with queue rank, work-priority score,
   final-readiness score, open gates, main blocker, and next 30-minute task
+- Request-send status with send rank, request channel, subject, attachments,
+  sent date, response date, and post-response register updates
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable
