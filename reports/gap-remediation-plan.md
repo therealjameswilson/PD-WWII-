@@ -51,6 +51,11 @@ gate for the remaining harvest.
    candidate IDs and group them into policy, implementation, reaction,
    public-line, boundary, missing-evidence, promotion-test, and next-pull fields.
 
+11. **Archive trip pull plan.** Twelve pull-plan rows now turn pull sheets into
+   repository work blocks with facility paths, capture checklists, citation
+   fields to resolve, episode evidence needs, access checks, copy format,
+   suggested folder names, and exit criteria.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -101,6 +106,10 @@ gate for the remaining harvest.
    each chapter episode only after its policy, implementation, reaction,
    public-line, boundary, citation, authority, and source-copy gaps are visible.
 
+13. **Pull-plan review.** Export the archive-trip pull-plan CSV before sending
+   requests or visiting repositories; each row should leave the compiler with a
+   source-copy folder, missing citation fields, evidence need, and exit status.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -118,6 +127,8 @@ gate for the remaining harvest.
   annotation task
 - Episode-level policy, implementation, reaction, public-line, boundary, and
   missing-evidence packet
+- Repository pull-plan work block, capture checklist, access/restriction check,
+  copy format, source-copy destination, and exit criteria
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

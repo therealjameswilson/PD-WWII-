@@ -12,6 +12,8 @@ Attach `frus-document-assembly-register.csv` rows when the request needs to
 show the working chapter, section, document slot, or manuscript proof gate.
 Attach `episode-evidence-crosswalk.csv` rows when the request needs to explain
 how the document fits a policy, implementation, reaction, or public-line episode.
+Attach `archive-trip-pull-plan.csv` rows when the request needs a capture
+checklist, citation-field checklist, access check, copy format, or exit criteria.
 
 Official request/contact anchors:
 
@@ -218,6 +220,8 @@ Attach or paste only the rows needed for the request.
   assembly function, open gates, headnote task, and next manuscript action
 - `episode-evidence-crosswalk.csv`: episode title, candidate buckets, public-line
   references, missing evidence, promotion test, and next compiler move
+- `archive-trip-pull-plan.csv`: work block, facility path, capture checklist,
+  citation fields, access check, copy format, folder name, and exit criteria
 
 Before sending, fill in:
 
