@@ -62,6 +62,12 @@ gate for the remaining harvest.
    citation fields, duplicate proof, authority checks, evidence role, and
    promotion readiness.
 
+13. **Annotation-drafting register.** Fifty candidate rows now carry the
+   narrative question, annotation type, context to establish, policy or
+   implementation link, episode cross-references, authority forms, source-note
+   dependency, duplicate proof dependency, draft annotation stub, draft headnote
+   stub, final-text blockers, and next drafting action.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -121,6 +127,11 @@ gate for the remaining harvest.
    image completeness, enclosures, routing marks, citation gaps, duplicate
    proof, authority checks, and evidence role are recorded.
 
+15. **Annotation-drafting review.** Export the annotation-drafting CSV after
+   receipt QA; use it to convert each candidate into a headnote or annotation
+   brief only after citation, duplicate, authority, episode, boundary, and
+   selection blockers are visible.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -143,6 +154,9 @@ gate for the remaining harvest.
 - Receipt-QA status for page order, image completeness, enclosures, routing
   marks, OCR/transcript status, duplicate proof, authority checks, and promotion
   readiness
+- Annotation-drafting status with narrative question, annotation type, episode
+  cross-references, authority forms, citation dependency, draft stubs, and
+  final-text blockers
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

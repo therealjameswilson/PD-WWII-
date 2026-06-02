@@ -15,6 +15,7 @@ rather than a published FRUS document chronology.
 - chronology seed register that orders the 50 candidates by date with editorial role, proof status, related pull sheets, docket gates, and next action
 - document assembly register that assigns working FRUS slots, chapters, sections, assembly functions, headnote tasks, and open proof gates
 - episode evidence crosswalk that groups all 50 candidates into policy, implementation, reaction, public-line, boundary, and missing-evidence packets
+- annotation-drafting register that turns the 50-candidate spine into per-document headnote, annotation, authority, citation, episode, and final-text tasks
 - duplicate-gate register for exact and broad History.state.gov searches, result counts, checked dates, duplicate status, and final rulings
 - seeded selection-decision register that ties packet, chronology, duplicate, boundary, evidence, source-note, reviewer, and final FRUS-number fields together
 - source-note/citation register that flags missing final FRUS citation fields, source-copy needs, duplicate rulings, evidence coverage, and next citation actions
@@ -30,6 +31,7 @@ rather than a published FRUS document chronology.
 - static chronology-seed CSV for drafting the first working FRUS sequence
 - static document-assembly CSV for building the manuscript spine before final numbering
 - static episode-evidence CSV for drafting policy/implementation/reaction episode packets
+- static annotation-drafting CSV for moving from receipt QA into final FRUS headnotes and annotations
 - static archive-trip pull-plan CSV for repository-by-repository source-copy execution
 - static source-copy receipt/QA CSV for intake review after archive copies arrive
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
@@ -61,6 +63,7 @@ The committed data currently contains:
 - `50` chronology seed rows for first-pass FRUS ordering
 - `50` document-assembly rows for working FRUS slots, chapters, sections, and proof gates
 - `12` episode-evidence rows covering all `50` candidate IDs
+- `50` annotation-drafting rows for headnotes, document annotations, authority checks, citation dependencies, and final-text gates
 - `50` duplicate-gate rows for exact and broad FRUS search proof
 - `50` selection-decision rows for final editorial rulings
 - `50` source-note/citation rows for final FRUS citation control
