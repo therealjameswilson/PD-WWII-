@@ -68,6 +68,11 @@ gate for the remaining harvest.
    dependency, duplicate proof dependency, draft annotation stub, draft headnote
    stub, final-text blockers, and next drafting action.
 
+14. **Compiler readiness scorecard.** Fifty candidate rows now rank the working
+   queue by work-priority score, final-readiness score, readiness tier, open
+   gates, main blocker, next 30-minute task, next archive task, next desk task,
+   request work blocks, and cross-references to episodes and source-copy pulls.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -132,6 +137,11 @@ gate for the remaining harvest.
    brief only after citation, duplicate, authority, episode, boundary, and
    selection blockers are visible.
 
+16. **Readiness-scorecard review.** Export the compiler readiness scorecard at
+   the start of each work session; use the queue rank and readiness tier to
+   decide whether the next action is an archive request, duplicate proof,
+   citation cleanup, boundary ruling, or annotation draft.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -157,6 +167,8 @@ gate for the remaining harvest.
 - Annotation-drafting status with narrative question, annotation type, episode
   cross-references, authority forms, citation dependency, draft stubs, and
   final-text blockers
+- Readiness-scorecard status with queue rank, work-priority score,
+  final-readiness score, open gates, main blocker, and next 30-minute task
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable
