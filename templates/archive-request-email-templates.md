@@ -10,6 +10,8 @@ Attach `authority-control-register.csv` rows when the request also needs to
 confirm a person title, office name, alias, or agency succession.
 Attach `frus-document-assembly-register.csv` rows when the request needs to
 show the working chapter, section, document slot, or manuscript proof gate.
+Attach `episode-evidence-crosswalk.csv` rows when the request needs to explain
+how the document fits a policy, implementation, reaction, or public-line episode.
 
 Official request/contact anchors:
 
@@ -214,6 +216,8 @@ Attach or paste only the rows needed for the request.
   provisional date status, source anchor, and authority review action
 - `frus-document-assembly-register.csv`: working FRUS slot, chapter, section,
   assembly function, open gates, headnote task, and next manuscript action
+- `episode-evidence-crosswalk.csv`: episode title, candidate buckets, public-line
+  references, missing evidence, promotion test, and next compiler move
 
 Before sending, fill in:
 

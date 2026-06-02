@@ -14,6 +14,7 @@ rather than a published FRUS document chronology.
 - 50-document candidate register for potential additions not found in public FRUS exact-title or file-number checks
 - chronology seed register that orders the 50 candidates by date with editorial role, proof status, related pull sheets, docket gates, and next action
 - document assembly register that assigns working FRUS slots, chapters, sections, assembly functions, headnote tasks, and open proof gates
+- episode evidence crosswalk that groups all 50 candidates into policy, implementation, reaction, public-line, boundary, and missing-evidence packets
 - duplicate-gate register for exact and broad History.state.gov searches, result counts, checked dates, duplicate status, and final rulings
 - seeded selection-decision register that ties packet, chronology, duplicate, boundary, evidence, source-note, reviewer, and final FRUS-number fields together
 - source-note/citation register that flags missing final FRUS citation fields, source-copy needs, duplicate rulings, evidence coverage, and next citation actions
@@ -26,6 +27,7 @@ rather than a published FRUS document chronology.
 - static immediate-docket CSV for spreadsheet import or archive-trip planning
 - static chronology-seed CSV for drafting the first working FRUS sequence
 - static document-assembly CSV for building the manuscript spine before final numbering
+- static episode-evidence CSV for drafting policy/implementation/reaction episode packets
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
 - static selection-decision CSV for promotion, hold, boundary, exclusion, and final numbering decisions
 - static source-note/citation CSV for converting candidate leads into final FRUS source-note work
@@ -54,6 +56,7 @@ The committed data currently contains:
 - `50` candidate documents not found in public FRUS exact-title/file-number checks
 - `50` chronology seed rows for first-pass FRUS ordering
 - `50` document-assembly rows for working FRUS slots, chapters, sections, and proof gates
+- `12` episode-evidence rows covering all `50` candidate IDs
 - `50` duplicate-gate rows for exact and broad FRUS search proof
 - `50` selection-decision rows for final editorial rulings
 - `50` source-note/citation rows for final FRUS citation control

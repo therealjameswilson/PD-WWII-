@@ -47,6 +47,10 @@ gate for the remaining harvest.
    slots, chapters, section headings, assembly functions, headnote or annotation
    tasks, open proof gates, and next manuscript actions before final numbering.
 
+10. **Episode evidence crosswalk.** Twelve draft episode rows now cover all 50
+   candidate IDs and group them into policy, implementation, reaction,
+   public-line, boundary, missing-evidence, promotion-test, and next-pull fields.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -93,6 +97,10 @@ gate for the remaining harvest.
    first manuscript spine: working slot, chapter, section, assembly function,
    proof gates, headnote task, and next action for each candidate.
 
+12. **Episode review.** Export the episode-evidence CSV and use it to draft
+   each chapter episode only after its policy, implementation, reaction,
+   public-line, boundary, citation, authority, and source-copy gaps are visible.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -108,6 +116,8 @@ gate for the remaining harvest.
   evidence
 - Working chapter, section, document slot, assembly function, and headnote or
   annotation task
+- Episode-level policy, implementation, reaction, public-line, boundary, and
+  missing-evidence packet
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable
