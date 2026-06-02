@@ -52,19 +52,20 @@
       repository: "NARA",
       title: "RG 208 long-range policy directive batch",
       objective:
-        "Recover the directive texts that define U.S. public-diplomacy themes for Germany, France, Austria, Poland, Czechoslovakia, Switzerland, and Thailand.",
+        "Recover the directive texts that define U.S. public-diplomacy themes for Poland, Germany, France, Austria, Czechoslovakia, Switzerland, Netherlands, and Thailand.",
       requestText:
-        "Request RG 208 Record Set of Policy Directives source copies for NAIDs 4732380, 4732379, 4732381, 4732378, 4732367, 4732395, 4732375, 4732402, 4732392, and 4732400.",
+        "Request RG 208 Record Set of Policy Directives source copies for NAIDs 6851138, 4732380, 4732379, 4732381, 4732378, 4732367, 4732395, 4732375, 4732402, 4732392, and 4732400.",
       pullList:
-        "DOC50-020 through DOC50-028 and DOC50-035; place Germany 1944/1945, France, Austria, Poland, Czechoslovakia, Switzerland, Netherlands, and Thailand directives in one comparison packet.",
+        "DOC50-019 through DOC50-028 and DOC50-035; place Poland 1943/1945, Germany 1944/1945, France, Austria, Czechoslovakia, Switzerland, Netherlands, and Thailand directives in one comparison packet.",
       deliverable:
         "Directive transcript packet with issue date, target country, themes, approving office, successor/handoff implications, and FRUS duplicate check.",
       links: [
         { label: "Record Set of Policy Directives", url: "https://catalog.archives.gov/id/648565" },
+        { label: "Poland directive", url: "https://catalog.archives.gov/id/6851138" },
         { label: "Germany directive", url: "https://catalog.archives.gov/id/4732380" }
       ],
       sourceNote:
-        "First pull sheet generated from RG 208 Record Set of Policy Directives and candidate documents DOC50-020 through DOC50-028 and DOC50-035."
+        "First pull sheet generated from RG 208 Record Set of Policy Directives and candidate documents DOC50-019 through DOC50-028 and DOC50-035."
     },
     {
       id: "PULL-004",

@@ -2009,15 +2009,16 @@ window.VOLUME_DATA = {
       objective:
         "Anchor the wartime and liberation chronology in policy guidance before choosing implementation and reaction documents.",
       action:
-        "Request RG 208 Record Set of Policy Directives source copies for Germany, France, Austria, Poland, Czechoslovakia, Switzerland, Netherlands, and Thailand directive candidates.",
+        "Request RG 208 Record Set of Policy Directives source copies for Poland, Germany, France, Austria, Czechoslovakia, Switzerland, Netherlands, and Thailand directive candidates.",
       proof:
         "Directive packet records issue date, target country, themes, approving office, relation to State/handoff, and duplicate-check result.",
       links: [
         { label: "Pull sheet", url: "#pull-sheets" },
         { label: "Record Set of Policy Directives", url: "https://catalog.archives.gov/id/648565" },
+        { label: "Poland directive", url: "https://catalog.archives.gov/id/6851138" },
         { label: "Germany directive", url: "https://catalog.archives.gov/id/4732380" }
       ],
-      relatedIds: ["PULL-003", "DOC50-020-DOC50-028", "DOC50-035"],
+      relatedIds: ["PULL-003", "DOC50-019-DOC50-028", "DOC50-035"],
       sourceNote:
         "Directive docket item generated from RG 208 Record Set of Policy Directives candidate records."
     },

@@ -56,6 +56,12 @@ gate for the remaining harvest.
    fields to resolve, episode evidence needs, access checks, copy format,
    suggested folder names, and exit criteria.
 
+12. **Source-copy receipt/QA register.** Fifty candidate rows now track
+   receipt status, source-copy location, page and image completeness, reverse
+   sides, enclosures, routing marks, legibility, OCR, transcript status,
+   citation fields, duplicate proof, authority checks, evidence role, and
+   promotion readiness.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -110,6 +116,11 @@ gate for the remaining harvest.
    requests or visiting repositories; each row should leave the compiler with a
    source-copy folder, missing citation fields, evidence need, and exit status.
 
+14. **Receipt-QA review.** Export the source-copy receipt/QA CSV as copies
+   arrive; no candidate should move to final selection until page order,
+   image completeness, enclosures, routing marks, citation gaps, duplicate
+   proof, authority checks, and evidence role are recorded.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -129,6 +140,9 @@ gate for the remaining harvest.
   missing-evidence packet
 - Repository pull-plan work block, capture checklist, access/restriction check,
   copy format, source-copy destination, and exit criteria
+- Receipt-QA status for page order, image completeness, enclosures, routing
+  marks, OCR/transcript status, duplicate proof, authority checks, and promotion
+  readiness
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

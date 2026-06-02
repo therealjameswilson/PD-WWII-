@@ -14,6 +14,9 @@ Attach `episode-evidence-crosswalk.csv` rows when the request needs to explain
 how the document fits a policy, implementation, reaction, or public-line episode.
 Attach `archive-trip-pull-plan.csv` rows when the request needs a capture
 checklist, citation-field checklist, access check, copy format, or exit criteria.
+Attach `source-copy-receipt-qa-register.csv` rows after copies arrive to track
+page order, image completeness, enclosures, routing marks, OCR, transcript, and
+promotion-readiness checks.
 
 Official request/contact anchors:
 
@@ -222,6 +225,9 @@ Attach or paste only the rows needed for the request.
   references, missing evidence, promotion test, and next compiler move
 - `archive-trip-pull-plan.csv`: work block, facility path, capture checklist,
   citation fields, access check, copy format, folder name, and exit criteria
+- `source-copy-receipt-qa-register.csv`: receipt status, source-copy location,
+  page/image checks, enclosures, routing marks, OCR/transcript status, citation
+  gaps, duplicate proof, authority check, and promotion readiness
 
 Before sending, fill in:
 

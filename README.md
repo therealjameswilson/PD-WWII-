@@ -21,6 +21,7 @@ rather than a published FRUS document chronology.
 - authority-control register for preferred person and organization forms, aliases, office/title date checks, source anchors, and normalization actions
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
 - archive trip pull-plan register that turns pull sheets into work blocks, capture checklists, citation fields, episode evidence needs, access checks, and exit criteria
+- source-copy receipt/QA register for page-order, image completeness, enclosures, routing marks, OCR, transcripts, citation gaps, authority checks, duplicate proof, and promotion readiness
 - immediate compiler docket with first-pull actions, proof gates, related IDs, direct links, and CSV export
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
 - reusable source-copy packet and archive-request templates for compiler fieldwork
@@ -30,6 +31,7 @@ rather than a published FRUS document chronology.
 - static document-assembly CSV for building the manuscript spine before final numbering
 - static episode-evidence CSV for drafting policy/implementation/reaction episode packets
 - static archive-trip pull-plan CSV for repository-by-repository source-copy execution
+- static source-copy receipt/QA CSV for intake review after archive copies arrive
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
 - static selection-decision CSV for promotion, hold, boundary, exclusion, and final numbering decisions
 - static source-note/citation CSV for converting candidate leads into final FRUS source-note work
@@ -65,6 +67,7 @@ The committed data currently contains:
 - `40` authority-control rows for persons, offices, organizations, aliases, and title-date checks
 - `12` compiler pull sheets
 - `12` archive-trip pull-plan rows for repository execution, capture checklists, and exit criteria
+- `50` source-copy receipt/QA rows for image, transcript, citation, duplicate, authority, evidence, and promotion checks
 - `8` immediate compiler docket moves
 - `17` State cable leads
 - `12` selection and boundary rules
