@@ -73,6 +73,10 @@ gate for the remaining harvest.
    gates, main blocker, next 30-minute task, next archive task, next desk task,
    request work blocks, and cross-references to episodes and source-copy pulls.
 
+15. **Compiler register map/data dictionary.** Sixteen register rows now explain
+   each CSV's purpose, row and column counts, primary IDs, use case, proof value,
+   dependencies, handoff targets, owner, public link, and key columns.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -141,6 +145,10 @@ gate for the remaining harvest.
    the start of each work session; use the queue rank and readiness tier to
    decide whether the next action is an archive request, duplicate proof,
    citation cleanup, boundary ruling, or annotation draft.
+
+17. **Register-map review.** Open the compiler register map whenever adding a new
+   candidate, request, source copy, citation, selection ruling, or annotation so
+   the row enters the correct downstream registers without losing provenance.
 
 ## Proof Needed Before Any Final FRUS Selection
 

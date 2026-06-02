@@ -17,6 +17,7 @@ rather than a published FRUS document chronology.
 - episode evidence crosswalk that groups all 50 candidates into policy, implementation, reaction, public-line, boundary, and missing-evidence packets
 - annotation-drafting register that turns the 50-candidate spine into per-document headnote, annotation, authority, citation, episode, and final-text tasks
 - compiler readiness scorecard that ranks all 50 candidates by work priority, final-readiness score, open gates, main blocker, source-copy tier, and next 30-minute task
+- compiler register map/data dictionary that explains what each CSV proves, when to use it, dependencies, handoffs, primary IDs, and key columns
 - duplicate-gate register for exact and broad History.state.gov searches, result counts, checked dates, duplicate status, and final rulings
 - seeded selection-decision register that ties packet, chronology, duplicate, boundary, evidence, source-note, reviewer, and final FRUS-number fields together
 - source-note/citation register that flags missing final FRUS citation fields, source-copy needs, duplicate rulings, evidence coverage, and next citation actions
@@ -34,6 +35,7 @@ rather than a published FRUS document chronology.
 - static episode-evidence CSV for drafting policy/implementation/reaction episode packets
 - static annotation-drafting CSV for moving from receipt QA into final FRUS headnotes and annotations
 - static compiler-readiness scorecard CSV for triaging what to pull, prove, or draft next
+- static compiler-register map in Markdown and CSV for navigating the register workflow
 - static archive-trip pull-plan CSV for repository-by-repository source-copy execution
 - static source-copy receipt/QA CSV for intake review after archive copies arrive
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
@@ -67,6 +69,7 @@ The committed data currently contains:
 - `12` episode-evidence rows covering all `50` candidate IDs
 - `50` annotation-drafting rows for headnotes, document annotations, authority checks, citation dependencies, and final-text gates
 - `50` compiler-readiness scorecard rows for work priority, final-readiness score, open gates, main blocker, and next task
+- `16` compiler-register map rows explaining CSV purpose, dependencies, handoffs, primary IDs, and key columns
 - `50` duplicate-gate rows for exact and broad FRUS search proof
 - `50` selection-decision rows for final editorial rulings
 - `50` source-note/citation rows for final FRUS citation control
