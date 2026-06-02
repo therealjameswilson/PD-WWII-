@@ -38,6 +38,11 @@ gate for the remaining harvest.
    duplicate, selection-rationale, and evidence-cross-reference fields before
    final FRUS citation.
 
+8. **Authority-control register.** Forty person and organization rows now track
+   preferred forms, aliases, title-date checks, office succession, source
+   anchors, boundary notes, and review actions for persons-list, annotation, and
+   index cleanup.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -76,6 +81,10 @@ gate for the remaining harvest.
    replace provisional NAID, purport-card, and file-unit notes with final
    FRUS-ready source notes after source copies arrive.
 
+10. **Authority review.** Export the authority-control CSV and use it to verify
+   preferred person names, office names, aliases, title dates, and agency
+   succession before drafting final annotations or persons-list entries.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -87,6 +96,8 @@ gate for the remaining harvest.
 - Box/file, folder, catalog identifier, or finding-aid locator
 - Source-copy status
 - Final source-note status and missing citation fields
+- Preferred person or office form, aliases, authority status, and title-date
+  evidence
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

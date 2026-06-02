@@ -16,6 +16,7 @@ rather than a published FRUS document chronology.
 - duplicate-gate register for exact and broad History.state.gov searches, result counts, checked dates, duplicate status, and final rulings
 - seeded selection-decision register that ties packet, chronology, duplicate, boundary, evidence, source-note, reviewer, and final FRUS-number fields together
 - source-note/citation register that flags missing final FRUS citation fields, source-copy needs, duplicate rulings, evidence coverage, and next citation actions
+- authority-control register for preferred person and organization forms, aliases, office/title date checks, source anchors, and normalization actions
 - compiler pull sheets with copyable archival request text, related candidate IDs, expected deliverables, and source-copy gates
 - immediate compiler docket with first-pull actions, proof gates, related IDs, direct links, and CSV export
 - print-friendly compiler guide with a week-one pull plan, packet checklist, request blocks, and promotion rules
@@ -26,6 +27,7 @@ rather than a published FRUS document chronology.
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
 - static selection-decision CSV for promotion, hold, boundary, exclusion, and final numbering decisions
 - static source-note/citation CSV for converting candidate leads into final FRUS source-note work
+- static authority-control CSV for persons-list, organization, office-succession, and annotation cleanup
 - seeded 50-document packet register and 12-pull archive request register for spreadsheet import
 - State cable search workbench for RG 59 central files and RG 84 Foreign Service post files
 - CSV export for source leads, document intake, 50-document candidates, compiler pull sheets, State cable leads, selection rules, coverage matrix, evidence packets, gap tracker, source pools, public-line references, and persons
@@ -52,6 +54,7 @@ The committed data currently contains:
 - `50` duplicate-gate rows for exact and broad FRUS search proof
 - `50` selection-decision rows for final editorial rulings
 - `50` source-note/citation rows for final FRUS citation control
+- `40` authority-control rows for persons, offices, organizations, aliases, and title-date checks
 - `12` compiler pull sheets
 - `8` immediate compiler docket moves
 - `17` State cable leads

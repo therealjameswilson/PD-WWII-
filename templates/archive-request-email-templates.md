@@ -6,6 +6,8 @@ filling the bracketed fields. Attach or paste rows from
 and `duplicate-gate-register.csv` when asking for source copies.
 Attach `source-note-citation-register.csv` rows when the request needs final
 box, folder, item, image, or page-range confirmation for FRUS source notes.
+Attach `authority-control-register.csv` rows when the request also needs to
+confirm a person title, office name, alias, or agency succession.
 
 Official request/contact anchors:
 
@@ -206,6 +208,8 @@ Attach or paste only the rows needed for the request.
   exclusion, reviewer, and proposed FRUS-number fields
 - `source-note-citation-register.csv`: draft source note, missing citation
   fields, evidence coverage, request path, and next citation action
+- `authority-control-register.csv`: preferred person or office form, aliases,
+  provisional date status, source anchor, and authority review action
 
 Before sending, fill in:
 
