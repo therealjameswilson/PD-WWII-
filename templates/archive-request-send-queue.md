@@ -1,6 +1,6 @@
 # Archive Request Send Queue
 
-Use this queue to decide which request batch to send or run next. It is generated from the readiness scorecard, seeded archive request register, archive-trip pull plan, and receipt-QA register.
+Use this queue to decide which request batch to send or run next. It is generated from the readiness scorecard, seeded archive request register, archive-trip pull plan, and receipt-QA register. After sending, log the ticket, fee, delivery, missing-material, and follow-up data in `archive-response-tracker.csv`.
 
 ## Send Order
 

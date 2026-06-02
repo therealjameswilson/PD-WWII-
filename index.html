@@ -56,7 +56,8 @@
             source-copy proof, with a State cable search layer for RG 59 and RG 84 post files.
             A 50-document candidate register, chronology seed, document-assembly spine,
             and duplicate-gate register now flag potential additions not found in public
-            FRUS exact-title or file-number checks.
+            FRUS exact-title or file-number checks, with a static candidate index for
+            compiler review.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button primary" href="#docket">Open Docket</a>
@@ -175,6 +176,7 @@
           <button id="export-docket" type="button">CSV</button>
           <a class="button secondary" href="templates/compiler-register-map.md">Register Map</a>
           <a class="button secondary" href="templates/archive-request-send-queue.md">Send Queue</a>
+          <a class="button secondary" href="templates/archive-response-tracker.md">Responses</a>
           <a class="button secondary" href="templates/immediate-compiler-docket.csv">Static CSV</a>
           <a class="button secondary" href="templates/compiler-readiness-scorecard.csv">Readiness CSV</a>
           <p id="docket-summary" class="summary">Loading compiler docket...</p>
@@ -243,6 +245,8 @@
           </label>
           <button id="clear-candidate-filters" type="button">Reset</button>
           <button id="export-candidates" type="button">CSV</button>
+          <a class="button secondary" href="templates/potential-frus-document-candidates.md">Static Register</a>
+          <a class="button secondary" href="templates/potential-frus-document-candidates.csv">Static CSV</a>
           <p id="candidate-summary" class="summary">Loading candidate documents...</p>
         </div>
         <div id="candidate-root" class="records-root compact-records" aria-live="polite">

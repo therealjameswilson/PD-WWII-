@@ -4,34 +4,38 @@ Use this map to decide which register to open, what each register proves, and wh
 
 ## Fast Path
 
-1. Start with `compiler-readiness-scorecard.csv` to choose the next candidate or pull batch.
-2. Use `archive-request-send-queue.csv` or `archive-request-send-queue.md` to send the next NARA/FDR request or run the internal desk gate.
-3. Open the linked pull/request/citation/duplicate/QA row named in the scorecard or send queue.
-4. After source copies arrive, update `source-copy-receipt-qa-register.csv` and `source-note-citation-register.csv`.
-5. Record the editorial ruling in `selection-decision-register.csv`.
-6. Draft final headnote or annotation language from `frus-annotation-drafting-register.csv` and place the document through `frus-document-assembly-register.csv`.
+1. Open `potential-frus-document-candidates.csv` or `potential-frus-document-candidates.md` to review the 50 found candidate documents and their exact public FRUS screens.
+2. Start each work session with `compiler-readiness-scorecard.csv` to choose the next candidate or pull batch.
+3. Use `archive-request-send-queue.csv` or `archive-request-send-queue.md` to send the next NARA/FDR request or run the internal desk gate.
+4. Track acknowledgment, fees, delivery, and missing material in `archive-response-tracker.csv` or `archive-response-tracker.md`.
+5. Open the linked pull/request/citation/duplicate/QA row named in the candidate register, scorecard, send queue, or response tracker.
+6. After source copies arrive, update `source-copy-receipt-qa-register.csv` and `source-note-citation-register.csv`.
+7. Record the editorial ruling in `selection-decision-register.csv`.
+8. Draft final headnote or annotation language from `frus-annotation-drafting-register.csv` and place the document through `frus-document-assembly-register.csv`.
 
 ## Registers
 
 | ID | Register | Rows | Columns | Primary IDs | Use When | Hands Off To |
 | --- | --- | ---: | ---: | --- | --- | --- |
-| REG-001 | [Compiler readiness scorecard](compiler-readiness-scorecard.csv) | 50 | 47 | Scorecard ID; Candidate ID | Start every work session here to decide what to pull, prove, or draft next. | Open the listed pull sheet, duplicate gate, citation row, receipt-QA row, annotation row, or request-send queue. |
-| REG-002 | [Archive request send queue](archive-request-send-queue.csv) | 12 | 39 | Queue ID; Send Rank; Request ID | Choose which NARA/FDR request batch to send next and copy the subject/body language into the current repository request channel. | Repository request channel, archive request email templates, receipt-QA register, citation register, and readiness scorecard. |
-| REG-003 | [Immediate compiler docket](immediate-compiler-docket.csv) | 8 | 13 | Docket ID | Plan first-pull work blocks and proof gates for the week. | Archive request send queue, archive request register, pull sheets, and readiness scorecard. |
-| REG-004 | [Chronology seed register](chronology-seed-register.csv) | 50 | 21 | Chronology ID; Candidate ID | Draft or re-sort the first working FRUS chronology by date and editorial role. | Document assembly register, selection decision register, citation register, and readiness scorecard. |
-| REG-005 | [50-document source-copy packet register](seeded-source-copy-packet-register.csv) | 50 | 18 | Packet ID; Candidate ID | Create one packet per candidate before requesting or receiving source copies. | Archive request register, receipt-QA register, selection decision register. |
-| REG-006 | [Seeded archive request register](seeded-archive-request-register.csv) | 12 | 18 | Request ID | Prepare copy-ready NARA or FDR Library source-copy requests by pull batch. | Archive request send queue, archive-trip pull plan, request email templates, receipt-QA register. |
-| REG-007 | [Archive trip pull plan](archive-trip-pull-plan.csv) | 12 | 33 | Pull Plan ID; Request ID | Execute repository work blocks and reproduction requests. | Archive request send queue, source-copy receipt-QA register, and source-note/citation register. |
-| REG-008 | [Source-copy receipt/QA register](source-copy-receipt-qa-register.csv) | 50 | 42 | QA ID; Candidate ID | Review source copies after archive images or PDFs arrive. | Selection decision register, source-note/citation register, annotation drafting register, readiness scorecard. |
-| REG-009 | [Duplicate gate register](duplicate-gate-register.csv) | 50 | 26 | Duplicate ID; Candidate ID | Prove a candidate is not already published in public FRUS before promotion. | Selection decision register, citation register, readiness scorecard. |
-| REG-010 | [Selection decision register](selection-decision-register.csv) | 50 | 30 | Decision ID; Candidate ID | Record promote, hold, boundary, duplicate, or exclude decisions. | Document assembly register, annotation drafting register, final manuscript numbering. |
-| REG-011 | [Source-note/citation register](source-note-citation-register.csv) | 50 | 28 | Citation ID; Candidate ID | Convert provisional catalog/purport notes into FRUS-ready source notes. | Annotation drafting register, selection decision register, final manuscript source notes. |
-| REG-012 | [Authority-control register](authority-control-register.csv) | 40 | 21 | Authority ID | Normalize names, offices, organizations, aliases, and title-date evidence before annotations or persons list work. | Annotation drafting register, persons page, index/persons list. |
-| REG-013 | [FRUS document assembly register](frus-document-assembly-register.csv) | 50 | 41 | Assembly ID; Working Document Slot; Candidate ID | Build the manuscript spine before final numbering. | Annotation drafting register, readiness scorecard, final manuscript outline. |
-| REG-014 | [Episode evidence crosswalk](episode-evidence-crosswalk.csv) | 12 | 35 | Episode ID | Group candidates into policy, implementation, reaction, public-line, and boundary episodes. | Annotation drafting register, document assembly register, readiness scorecard. |
-| REG-015 | [FRUS annotation drafting register](frus-annotation-drafting-register.csv) | 50 | 46 | Annotation ID; Candidate ID | Draft headnotes and annotations after receipt QA exposes all remaining blockers. | Final annotation/headnote prose, selection decision update, final manuscript source notes. |
-| REG-016 | [Blank source-copy packet template](source-copy-packet-template.csv) | 1 | 31 | Packet ID | Create a new manually filled packet for an added candidate outside the seeded 50. | Seeded packet register pattern, selection decision register, source-note/citation register. |
-| REG-017 | [Blank archive request batch template](archive-request-batch-template.csv) | 1 | 18 | Request ID | Create a new archive/reproduction request batch outside the seeded 12 pulls. | Archive request send queue, archive-trip pull plan, and request email templates. |
+| REG-001 | [Compiler readiness scorecard](compiler-readiness-scorecard.csv) | 50 | 47 | Scorecard ID; Candidate ID | Start every work session here to decide what to pull, prove, or draft next. | Open the listed pull sheet, duplicate gate, citation row, receipt-QA row, annotation row, request-send queue, or response tracker. |
+| REG-002 | [Archive request send queue](archive-request-send-queue.csv) | 12 | 39 | Queue ID; Send Rank; Request ID | Choose which NARA/FDR request batch to send next and copy the subject/body language into the current repository request channel. | Archive response tracker, repository request channel, archive request email templates, receipt-QA register, citation register, and readiness scorecard. |
+| REG-003 | [Archive response tracker](archive-response-tracker.csv) | 12 | 44 | Response ID; Request ID; Send Queue ID | Log repository acknowledgments, ticket numbers, fees, response dates, delivery files, missing materials, and follow-up actions after requests are sent. | Source-copy receipt-QA register, source-note/citation register, selection decision register, duplicate gate, annotation drafting register, and readiness scorecard. |
+| REG-004 | [Immediate compiler docket](immediate-compiler-docket.csv) | 8 | 13 | Docket ID | Plan first-pull work blocks and proof gates for the week. | Archive request send queue, archive response tracker, archive request register, pull sheets, and readiness scorecard. |
+| REG-005 | [Chronology seed register](chronology-seed-register.csv) | 50 | 21 | Chronology ID; Candidate ID | Draft or re-sort the first working FRUS chronology by date and editorial role. | Document assembly register, selection decision register, citation register, and readiness scorecard. |
+| REG-006 | [50-document source-copy packet register](seeded-source-copy-packet-register.csv) | 50 | 18 | Packet ID; Candidate ID | Create one packet per candidate before requesting or receiving source copies. | Archive request register, receipt-QA register, selection decision register. |
+| REG-007 | [Seeded archive request register](seeded-archive-request-register.csv) | 12 | 18 | Request ID | Prepare copy-ready NARA or FDR Library source-copy requests by pull batch. | Archive request send queue, archive response tracker, archive-trip pull plan, request email templates, receipt-QA register. |
+| REG-008 | [Archive trip pull plan](archive-trip-pull-plan.csv) | 12 | 33 | Pull Plan ID; Request ID | Execute repository work blocks and reproduction requests. | Archive request send queue, archive response tracker, source-copy receipt-QA register, and source-note/citation register. |
+| REG-009 | [Source-copy receipt/QA register](source-copy-receipt-qa-register.csv) | 50 | 42 | QA ID; Candidate ID | Review source copies after archive images or PDFs arrive. | Selection decision register, source-note/citation register, annotation drafting register, readiness scorecard. |
+| REG-010 | [Duplicate gate register](duplicate-gate-register.csv) | 50 | 26 | Duplicate ID; Candidate ID | Prove a candidate is not already published in public FRUS before promotion. | Selection decision register, citation register, readiness scorecard. |
+| REG-011 | [Selection decision register](selection-decision-register.csv) | 50 | 30 | Decision ID; Candidate ID | Record promote, hold, boundary, duplicate, or exclude decisions. | Document assembly register, annotation drafting register, final manuscript numbering. |
+| REG-012 | [Source-note/citation register](source-note-citation-register.csv) | 50 | 28 | Citation ID; Candidate ID | Convert provisional catalog/purport notes into FRUS-ready source notes. | Annotation drafting register, selection decision register, final manuscript source notes. |
+| REG-013 | [Authority-control register](authority-control-register.csv) | 40 | 21 | Authority ID | Normalize names, offices, organizations, aliases, and title-date evidence before annotations or persons list work. | Annotation drafting register, persons page, index/persons list. |
+| REG-014 | [FRUS document assembly register](frus-document-assembly-register.csv) | 50 | 41 | Assembly ID; Working Document Slot; Candidate ID | Build the manuscript spine before final numbering. | Annotation drafting register, readiness scorecard, final manuscript outline. |
+| REG-015 | [Episode evidence crosswalk](episode-evidence-crosswalk.csv) | 12 | 35 | Episode ID | Group candidates into policy, implementation, reaction, public-line, and boundary episodes. | Annotation drafting register, document assembly register, readiness scorecard. |
+| REG-016 | [FRUS annotation drafting register](frus-annotation-drafting-register.csv) | 50 | 46 | Annotation ID; Candidate ID | Draft headnotes and annotations after receipt QA exposes all remaining blockers. | Final annotation/headnote prose, selection decision update, final manuscript source notes. |
+| REG-017 | [Blank source-copy packet template](source-copy-packet-template.csv) | 1 | 31 | Packet ID | Create a new manually filled packet for an added candidate outside the seeded 50. | Seeded packet register pattern, selection decision register, source-note/citation register. |
+| REG-018 | [Blank archive request batch template](archive-request-batch-template.csv) | 1 | 18 | Request ID | Create a new archive/reproduction request batch outside the seeded 12 pulls. | Archive request send queue, archive response tracker, archive-trip pull plan, and request email templates. |
+| REG-019 | [50 potential document candidates](potential-frus-document-candidates.csv) | 50 | 24 | Candidate ID | Review the 50 found candidate documents before opening packet or source-copy rows. | Seeded packet register, duplicate gate, source-note/citation register, readiness scorecard, and archive request send queue. |
 
 ## Column-Level Map
 
@@ -43,7 +47,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Use when: Start every work session here to decide what to pull, prove, or draft next.
 - Proves: Queue rank, work-priority score, final-readiness score, tier, open gates, main blocker, and next tasks.
 - Depends on: Assembly, selection, citation, duplicate, receipt-QA, annotation, episode, and pull-plan registers.
-- Hands off to: Open the listed pull sheet, duplicate gate, citation row, receipt-QA row, annotation row, or request-send queue.
+- Hands off to: Open the listed pull sheet, duplicate gate, citation row, receipt-QA row, annotation row, request-send queue, or response tracker.
 - Owner: Compiler desk triage
 - Key columns: Scorecard ID; Candidate ID; Working Document Slot; Chapter Number; Chapter Title; Chapter Slot; Date; Title; Lane; Editorial Role; Priority; Work Priority Score
 
@@ -55,11 +59,23 @@ Use this map to decide which register to open, what each register proves, and wh
 - Use when: Choose which NARA/FDR request batch to send next and copy the subject/body language into the current repository request channel.
 - Proves: Send rank, request channel, candidate tier mix, subject line, request paragraph, attachment rows, next archive action, and post-response register updates.
 - Depends on: Readiness scorecard, archive request register, archive-trip pull plan, and receipt-QA register.
-- Hands off to: Repository request channel, archive request email templates, receipt-QA register, citation register, and readiness scorecard.
+- Hands off to: Archive response tracker, repository request channel, archive request email templates, receipt-QA register, citation register, and readiness scorecard.
 - Owner: Archive request lead
 - Key columns: Queue ID; Send Rank; Request ID; Pull Plan ID; Send Channel; Repository; Contact Or Service Path; Work Block; Work Block Title; Request Priority; Queue Priority Score; Request Title
 
-### REG-003 - Immediate compiler docket
+### REG-003 - Archive response tracker
+
+- File: `templates/archive-response-tracker.csv`
+- Rows/columns: `12` rows, `44` columns
+- Primary IDs: Response ID; Request ID; Send Queue ID
+- Use when: Log repository acknowledgments, ticket numbers, fees, response dates, delivery files, missing materials, and follow-up actions after requests are sent.
+- Proves: Request status, ticket/case number, fee/payment status, response type, delivery URL, source-copy destination, files received, candidates covered/missing, page/image issues, and downstream rows to update.
+- Depends on: Archive request send queue, receipt-QA register, citation register, selection register, duplicate register, annotation register, and readiness scorecard.
+- Hands off to: Source-copy receipt-QA register, source-note/citation register, selection decision register, duplicate gate, annotation drafting register, and readiness scorecard.
+- Owner: Archive response lead
+- Key columns: Response ID; Request ID; Send Queue ID; Send Rank; Repository; Send Channel; Request Title; Response Tracker Status; Date Sent; Repository Ticket Or Case Number; Contact Or Service Path; Acknowledgment Date
+
+### REG-004 - Immediate compiler docket
 
 - File: `templates/immediate-compiler-docket.csv`
 - Rows/columns: `8` rows, `13` columns
@@ -67,11 +83,11 @@ Use this map to decide which register to open, what each register proves, and wh
 - Use when: Plan first-pull work blocks and proof gates for the week.
 - Proves: First actions, proof requirements, related IDs, links, and docket source notes.
 - Depends on: Candidate register, packet register, pull sheets, and gap analysis.
-- Hands off to: Archive request send queue, archive request register, pull sheets, and readiness scorecard.
+- Hands off to: Archive request send queue, archive response tracker, archive request register, pull sheets, and readiness scorecard.
 - Owner: Compiler desk triage
 - Key columns: Docket ID; Priority; Phase; Gate; Lane; Repository; Title; Objective; Action; Proof Gate; Links; Related IDs
 
-### REG-004 - Chronology seed register
+### REG-005 - Chronology seed register
 
 - File: `templates/chronology-seed-register.csv`
 - Rows/columns: `50` rows, `21` columns
@@ -83,7 +99,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Chronology editor
 - Key columns: Chronology ID; Candidate ID; Sort Key; Display Date; Lane; Episode; Editorial Role; Priority; Proof Status; Repository; Record Group; Source Locator
 
-### REG-005 - 50-document source-copy packet register
+### REG-006 - 50-document source-copy packet register
 
 - File: `templates/seeded-source-copy-packet-register.csv`
 - Rows/columns: `50` rows, `18` columns
@@ -95,7 +111,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Source-copy packet editor
 - Key columns: Packet ID; Candidate ID; Disposition; Priority; Lane; Date; Title; Repository; Record Group; Source Locator; Catalog URL; FRUS Search URL
 
-### REG-006 - Seeded archive request register
+### REG-007 - Seeded archive request register
 
 - File: `templates/seeded-archive-request-register.csv`
 - Rows/columns: `12` rows, `18` columns
@@ -103,11 +119,11 @@ Use this map to decide which register to open, what each register proves, and wh
 - Use when: Prepare copy-ready NARA or FDR Library source-copy requests by pull batch.
 - Proves: Request text, pull list, candidate IDs, deliverable, links, source note, and follow-up fields.
 - Depends on: Pull sheets and source-copy packet register.
-- Hands off to: Archive request send queue, archive-trip pull plan, request email templates, receipt-QA register.
+- Hands off to: Archive request send queue, archive response tracker, archive-trip pull plan, request email templates, receipt-QA register.
 - Owner: Archive request lead
 - Key columns: Request ID; Priority; Request Status; Lane; Repository; Title; Objective; Candidate IDs; Request Text; Pull List; Deliverable; Links
 
-### REG-007 - Archive trip pull plan
+### REG-008 - Archive trip pull plan
 
 - File: `templates/archive-trip-pull-plan.csv`
 - Rows/columns: `12` rows, `33` columns
@@ -115,23 +131,23 @@ Use this map to decide which register to open, what each register proves, and wh
 - Use when: Execute repository work blocks and reproduction requests.
 - Proves: Facility path, capture checklist, citation fields, episode evidence need, access check, copy format, folder name, and exit criteria.
 - Depends on: Archive request register, pull sheets, assembly and episode registers.
-- Hands off to: Archive request send queue, source-copy receipt-QA register, and source-note/citation register.
+- Hands off to: Archive request send queue, archive response tracker, source-copy receipt-QA register, and source-note/citation register.
 - Owner: Archive trip/reproduction lead
 - Key columns: Pull Plan ID; Request ID; Work Block; Work Block Title; Priority; Repository; Facility Or Service Path; Request Title; Request Status; Candidate IDs; Candidate Count; Related Episode IDs
 
-### REG-008 - Source-copy receipt/QA register
+### REG-009 - Source-copy receipt/QA register
 
 - File: `templates/source-copy-receipt-qa-register.csv`
 - Rows/columns: `50` rows, `42` columns
 - Primary IDs: QA ID; Candidate ID
 - Use when: Review source copies after archive images or PDFs arrive.
 - Proves: Receipt status, file location, page order, image completeness, reverse sides, enclosures, routing marks, OCR/transcript status, citation gaps, authority checks, duplicate proof, and promotion readiness.
-- Depends on: Archive-trip pull plan, packet register, citation register, duplicate register, authority register.
+- Depends on: Archive response tracker, archive-trip pull plan, packet register, citation register, duplicate register, authority register.
 - Hands off to: Selection decision register, source-note/citation register, annotation drafting register, readiness scorecard.
 - Owner: Source-copy QA editor
 - Key columns: QA ID; Candidate ID; Packet ID; Assembly ID; Working Document Slot; Chronology ID; Decision ID; Citation ID; Episode IDs; Evidence Role; Source Pull Plan IDs; Request IDs
 
-### REG-009 - Duplicate gate register
+### REG-010 - Duplicate gate register
 
 - File: `templates/duplicate-gate-register.csv`
 - Rows/columns: `50` rows, `26` columns
@@ -143,7 +159,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Duplicate-proof editor
 - Key columns: Duplicate ID; Candidate ID; Chronology ID; Priority; Duplicate Risk; Recommended Ruling; Lane; Date; Title; Repository; Record Group; Source Locator
 
-### REG-010 - Selection decision register
+### REG-011 - Selection decision register
 
 - File: `templates/selection-decision-register.csv`
 - Rows/columns: `50` rows, `30` columns
@@ -155,19 +171,19 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Selection editor
 - Key columns: Decision ID; Candidate ID; Packet ID; Chronology ID; Duplicate ID; Proposed FRUS Number; Decision Status; Promotion Recommendation; Date; Title; Lane; Editorial Role
 
-### REG-011 - Source-note/citation register
+### REG-012 - Source-note/citation register
 
 - File: `templates/source-note-citation-register.csv`
 - Rows/columns: `50` rows, `28` columns
 - Primary IDs: Citation ID; Candidate ID
 - Use when: Convert provisional catalog/purport notes into FRUS-ready source notes.
 - Proves: Repository, record group, locator, catalog URL, base source note, draft FRUS source note, missing citation fields, source-copy status, duplicate status, evidence coverage, checked date, and next citation action.
-- Depends on: Source-copy packet, receipt-QA, duplicate, selection, and archive-trip registers.
+- Depends on: Source-copy packet, receipt-QA, duplicate, selection, archive response tracker, and archive-trip registers.
 - Hands off to: Annotation drafting register, selection decision register, final manuscript source notes.
 - Owner: Citation editor
 - Key columns: Citation ID; Candidate ID; Chronology ID; Decision ID; Proposed FRUS Number; Date; Title; Repository; Record Group Or Collection; Source Locator; Catalog URL; FRUS Search URL
 
-### REG-012 - Authority-control register
+### REG-013 - Authority-control register
 
 - File: `templates/authority-control-register.csv`
 - Rows/columns: `40` rows, `21` columns
@@ -179,7 +195,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Authority/persons editor
 - Key columns: Authority ID; Authority Type; Preferred Form; Display Form; Sort Key; Variant Forms; Office Or Role; Date Span; Date Evidence Status; Source Family; Source Anchor; Scopes
 
-### REG-013 - FRUS document assembly register
+### REG-014 - FRUS document assembly register
 
 - File: `templates/frus-document-assembly-register.csv`
 - Rows/columns: `50` rows, `41` columns
@@ -191,7 +207,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Manuscript assembly editor
 - Key columns: Assembly ID; Working Document Slot; Final FRUS Number; Chapter Number; Chapter Title; Chapter Slot; Section Heading; Candidate ID; Chronology ID; Decision ID; Packet ID; Duplicate ID
 
-### REG-014 - Episode evidence crosswalk
+### REG-015 - Episode evidence crosswalk
 
 - File: `templates/episode-evidence-crosswalk.csv`
 - Rows/columns: `12` rows, `35` columns
@@ -203,7 +219,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Chapter/episode editor
 - Key columns: Episode ID; Working Episode Title; Chapter Number; Chapter Title; Date Range; Narrative Question; Policy Candidate IDs; Implementation Candidate IDs; Reaction Candidate IDs; Public-Line Reference IDs; Boundary Or Context Candidate IDs; All Candidate IDs
 
-### REG-015 - FRUS annotation drafting register
+### REG-016 - FRUS annotation drafting register
 
 - File: `templates/frus-annotation-drafting-register.csv`
 - Rows/columns: `50` rows, `46` columns
@@ -215,7 +231,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Annotation editor
 - Key columns: Annotation ID; Candidate ID; Assembly ID; Working Document Slot; Proposed FRUS Number; Chapter Number; Chapter Title; Chapter Slot; Section Heading; Date; Title; Lane
 
-### REG-016 - Blank source-copy packet template
+### REG-017 - Blank source-copy packet template
 
 - File: `templates/source-copy-packet-template.csv`
 - Rows/columns: `1` rows, `31` columns
@@ -227,7 +243,7 @@ Use this map to decide which register to open, what each register proves, and wh
 - Owner: Source-copy packet editor
 - Key columns: packet_id; candidate_id; disposition; priority; lane; date; title; repository; record_group_or_collection; series_or_file_unit; box_file_naid; folder_or_file_number
 
-### REG-017 - Blank archive request batch template
+### REG-018 - Blank archive request batch template
 
 - File: `templates/archive-request-batch-template.csv`
 - Rows/columns: `1` rows, `18` columns
@@ -235,7 +251,18 @@ Use this map to decide which register to open, what each register proves, and wh
 - Use when: Create a new archive/reproduction request batch outside the seeded 12 pulls.
 - Proves: Required request fields for repository, objective, candidate IDs, request text, pull list, deliverable, links, and follow-up.
 - Depends on: New source-copy packet or pull-sheet need.
-- Hands off to: Archive request send queue, archive-trip pull plan, and request email templates.
+- Hands off to: Archive request send queue, archive response tracker, archive-trip pull plan, and request email templates.
 - Owner: Archive request lead
 - Key columns: request_id; repository; record_group_or_collection; series_or_file_unit; naid_or_box_file; date_span; file_numbers_or_folders; search_terms; candidate_ids; pull_sheet_ids; request_text; delivery_format
 
+### REG-019 - 50 potential document candidates
+
+- File: `templates/potential-frus-document-candidates.csv`
+- Rows/columns: `50` rows, `24` columns
+- Primary IDs: Candidate ID
+- Use when: Review the 50 found candidate documents before opening packet or source-copy rows.
+- Proves: Potential document/file-unit targets, source locators, exact public History.state.gov no-result screen, catalog links, and downstream register IDs.
+- Depends on: NARA/FDR catalog locators, RG 59 purport-card searches, and public History.state.gov exact screens.
+- Hands off to: Seeded packet register, duplicate gate, source-note/citation register, readiness scorecard, and archive request send queue.
+- Owner: Compiler candidate editor
+- Key columns: Candidate ID; Priority; Candidate Status; Lane; Date; Repository; Record Group Or Collection; Source Locator; Title; Document Type; Existing FRUS Exact Screen; History.state.gov Check URL

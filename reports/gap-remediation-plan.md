@@ -73,14 +73,25 @@ gate for the remaining harvest.
    gates, main blocker, next 30-minute task, next archive task, next desk task,
    request work blocks, and cross-references to episodes and source-copy pulls.
 
-15. **Compiler register map/data dictionary.** Seventeen register rows now explain
+15. **Potential document candidate register.** Fifty rows now list the found
+   candidate documents and file-unit targets with NARA/FDR locators, exact
+   public History.state.gov screens verified on June 2, 2026, and downstream
+   packet, duplicate, citation, and readiness IDs.
+
+16. **Compiler register map/data dictionary.** Nineteen register rows now explain
    each CSV's purpose, row and column counts, primary IDs, use case, proof value,
    dependencies, handoff targets, owner, public link, and key columns.
 
-16. **Archive request send queue.** Twelve request rows now rank source-copy and
+17. **Archive request send queue.** Twelve request rows now rank source-copy and
    desk-gate batches by readiness score, tier mix, candidate count, request
    channel, subject line, copy-ready request paragraph, attachment rows, next
    archive action, next desk action, and registers to update after response.
+
+18. **Archive response tracker.** Twelve response rows now track request status,
+   repository ticket or case number, acknowledgment date, estimated response
+   date, fee or invoice status, payment status, delivery URL or archive note,
+   files received, covered/missing candidates, page/image issues, restrictions,
+   follow-up due date, and downstream register updates.
 
 ## Harvest Order
 
@@ -151,14 +162,23 @@ gate for the remaining harvest.
    decide whether the next action is an archive request, duplicate proof,
    citation cleanup, boundary ruling, or annotation draft.
 
-17. **Register-map review.** Open the compiler register map whenever adding a new
+17. **Potential-candidate review.** Open the 50 potential document candidate
+   register before opening packet rows; confirm the source locator, exact public
+   FRUS screen, downstream IDs, and next compiler action.
+
+18. **Register-map review.** Open the compiler register map whenever adding a new
    candidate, request, source copy, citation, selection ruling, or annotation so
    the row enters the correct downstream registers without losing provenance.
 
-18. **Request-send review.** Open the archive request send queue before contacting
+19. **Request-send review.** Open the archive request send queue before contacting
    NARA or FDR Library; use the ranked subject/body block, attach the named CSV
    rows, record the sent date, and update receipt-QA and citation rows when the
    response arrives.
+
+20. **Response-tracker review.** Open the archive response tracker after every
+   acknowledgment, invoice, reproduction guidance note, delivery, or nonresponse;
+   record ticket, fee, delivery, missing-material, and follow-up data before
+   marking any source-copy or citation gate complete.
 
 ## Proof Needed Before Any Final FRUS Selection
 
@@ -175,6 +195,9 @@ gate for the remaining harvest.
   evidence
 - Working chapter, section, document slot, assembly function, and headnote or
   annotation task
+- Potential-candidate status with exact public History.state.gov screen,
+  verification date, source locator, downstream register IDs, and next compiler
+  action
 - Episode-level policy, implementation, reaction, public-line, boundary, and
   missing-evidence packet
 - Repository pull-plan work block, capture checklist, access/restriction check,
@@ -189,6 +212,9 @@ gate for the remaining harvest.
   final-readiness score, open gates, main blocker, and next 30-minute task
 - Request-send status with send rank, request channel, subject, attachments,
   sent date, response date, and post-response register updates
+- Response-tracker status with repository ticket/case number, fee/payment
+  status, delivery location, files received, covered/missing candidates,
+  restrictions, follow-up due date, and downstream row updates
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

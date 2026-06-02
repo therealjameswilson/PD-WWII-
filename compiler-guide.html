@@ -108,8 +108,8 @@
           FRUS selection, annotation, persons-list normalization, and manuscript
           assembly into evidence-backed episodes, executable archive pulls, and
           source-copy receipt QA, final headnote and annotation drafting, and
-          queue-level readiness triage, with a request send queue and register
-          map for navigating the full CSV workflow.
+          queue-level readiness triage, with a request send queue, response
+          tracker, and register map for navigating the full CSV workflow.
         </p>
         <div class="hero-actions print-hide" aria-label="Guide actions">
           <a class="button primary" href="index.html#docket">Open Docket</a>
@@ -123,15 +123,16 @@
       <section class="section" aria-labelledby="first-week-title">
         <div class="section-heading compact-heading">
           <p class="kicker">Work Order</p>
-          <h2 id="first-week-title">First Nineteen Work Blocks</h2>
+          <h2 id="first-week-title">First Twenty Work Blocks</h2>
         </div>
         <div class="file-grid guide-grid">
           <article class="file-card guide-card">
             <h3>1. Freeze the Candidate Register</h3>
             <p>
-              Export the 50 Docs CSV, save a dated copy, and assign each row one
-              initial disposition: Promote to source-copy pull, Hold for context,
-              Boundary review, or Exclude.
+              Open the static 50-candidate register, preserve the exact public
+              FRUS screen for each row, and assign one initial disposition:
+              Promote to source-copy pull, Hold for context, Boundary review,
+              or Exclude.
             </p>
           </article>
           <article class="file-card guide-card">
@@ -280,6 +281,15 @@
               response dates before updating receipt QA and citations.
             </p>
           </article>
+          <article class="file-card guide-card">
+            <h3>20. Track Responses</h3>
+            <p>
+              Use the archive response tracker to record ticket numbers, fee
+              status, delivery links, files received, missing candidates,
+              follow-up dates, and every QA, citation, duplicate, selection,
+              annotation, and readiness row that needs an update.
+            </p>
+          </article>
         </div>
       </section>
 
@@ -293,6 +303,7 @@
             <li>Repository, record group or collection, series, folder, box, NAID, and file number.</li>
             <li>Document date, author or post, recipient, classification, and routing stamps.</li>
             <li>Full source copy or image link, including enclosures and marginalia when present.</li>
+            <li>Potential-candidate register row with exact public FRUS screen, source locator, downstream IDs, and next compiler action.</li>
             <li>Exact FRUS duplicate search and broader History.state.gov topical search.</li>
             <li>Selection rationale: policy decision, implementation, reaction, handoff, or boundary value.</li>
             <li>Boundary ruling for military, intelligence, domestic morale, or non-information OCIAA material.</li>
@@ -305,6 +316,7 @@
             <li>Annotation-drafting row with narrative question, headnote task, authority forms, citation dependency, episode cross-references, and final-text blockers.</li>
             <li>Readiness-scorecard row with work-priority score, final-readiness score, open gates, main blocker, source-copy tier, and next task.</li>
             <li>Request-send row with send rank, subject line, request channel, tier mix, attachment rows, next archive action, and registers to update after response.</li>
+            <li>Response-tracker row with ticket/case number, fee/payment status, delivery URL, file count, covered/missing candidates, page/image issues, and follow-up date.</li>
           </ul>
         </div>
       </section>
@@ -355,17 +367,21 @@
         <div class="guide-panel">
           <p>
             Import these CSVs when you want the current 50-document candidate
-            register and 12 pull-sheet batches already crosswalked into working
-            packet, request, decision, citation-control, authority-control,
+            register, exact public FRUS screens, and 12 pull-sheet batches
+            already crosswalked into working packet, request, decision, citation-control, authority-control,
             manuscript-assembly, episode-evidence, annotation-drafting,
-            readiness-scorecard, request-send, archive-pull, receipt-QA, and
-            register-map rows.
+            readiness-scorecard, request-send, response-tracker, archive-pull,
+            receipt-QA, and register-map rows.
           </p>
           <div class="record-actions">
             <a href="templates/compiler-register-map.md">Register Map</a>
             <a href="templates/compiler-register-map.csv">Register Map CSV</a>
+            <a href="templates/potential-frus-document-candidates.md">50-Candidate Register</a>
+            <a href="templates/potential-frus-document-candidates.csv">50-Candidate CSV</a>
             <a href="templates/archive-request-send-queue.md">Request Send Queue</a>
             <a href="templates/archive-request-send-queue.csv">Request Send Queue CSV</a>
+            <a href="templates/archive-response-tracker.md">Response Tracker</a>
+            <a href="templates/archive-response-tracker.csv">Response Tracker CSV</a>
             <a href="templates/immediate-compiler-docket.csv">Immediate Docket CSV</a>
             <a href="templates/compiler-readiness-scorecard.csv">Readiness Scorecard CSV</a>
             <a href="templates/archive-trip-pull-plan.csv">Archive Pull Plan CSV</a>

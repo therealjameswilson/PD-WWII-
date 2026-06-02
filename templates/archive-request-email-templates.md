@@ -17,6 +17,8 @@ checklist, citation-field checklist, access check, copy format, or exit criteria
 Use `archive-request-send-queue.md` or `archive-request-send-queue.csv` to pick
 the next ranked request block and copy its subject line, request text, attachment
 list, and post-response update checklist.
+After sending, log acknowledgments, ticket numbers, fees, delivery links, missing
+items, and follow-up dates in `archive-response-tracker.csv`.
 Attach `source-copy-receipt-qa-register.csv` rows after copies arrive to track
 page order, image completeness, enclosures, routing marks, OCR, transcript, and
 promotion-readiness checks.
@@ -231,6 +233,9 @@ Attach or paste only the rows needed for the request.
 - `archive-request-send-queue.csv`: send rank, request channel, subject line,
   request paragraph, attachment rows, next archive action, next desk action, and
   post-response update checklist
+- `archive-response-tracker.csv`: sent date, ticket/case number, fee/payment
+  status, delivery link, files received, covered or missing candidates, follow-up
+  due date, and downstream register rows to update
 - `source-copy-receipt-qa-register.csv`: receipt status, source-copy location,
   page/image checks, enclosures, routing marks, OCR/transcript status, citation
   gaps, duplicate proof, authority check, and promotion readiness
