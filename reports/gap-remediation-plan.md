@@ -33,6 +33,11 @@ gate for the remaining harvest.
    policy, implementation, reaction, and source-copy test before a candidate can
    become part of the retro FRUS chronology.
 
+7. **Source-note/citation register.** Fifty candidate rows now preserve draft
+   source-note language while flagging missing box, folder, item, page/image,
+   duplicate, selection-rationale, and evidence-cross-reference fields before
+   final FRUS citation.
+
 ## Harvest Order
 
 1. **RG 59 first.** Locate State Department clearance, objections,
@@ -67,6 +72,10 @@ gate for the remaining harvest.
    for assigning each source-copy request to RG 59, RG 84, RG 208, RG 229, RG
    216, RG 287, War Department boundary files, or the FDR Library.
 
+9. **Citation review.** Export the source-note/citation CSV and use it to
+   replace provisional NAID, purport-card, and file-unit notes with final
+   FRUS-ready source notes after source copies arrive.
+
 ## Proof Needed Before Any Final FRUS Selection
 
 - Date
@@ -77,6 +86,7 @@ gate for the remaining harvest.
 - Record group or collection
 - Box/file, folder, catalog identifier, or finding-aid locator
 - Source-copy status
+- Final source-note status and missing citation fields
 - Selection rationale
 - Linked public-line, policy, implementation, and reaction evidence where
   applicable

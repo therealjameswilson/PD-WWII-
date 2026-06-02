@@ -4,6 +4,8 @@ Copy these blocks into the current NARA or FDR Library request channel after
 filling the bracketed fields. Attach or paste rows from
 `seeded-archive-request-register.csv`, `seeded-source-copy-packet-register.csv`,
 and `duplicate-gate-register.csv` when asking for source copies.
+Attach `source-note-citation-register.csv` rows when the request needs final
+box, folder, item, image, or page-range confirmation for FRUS source notes.
 
 Official request/contact anchors:
 
@@ -202,6 +204,8 @@ Attach or paste only the rows needed for the request.
   status and ruling fields
 - `selection-decision-register.csv`: final promotion, hold, boundary, duplicate,
   exclusion, reviewer, and proposed FRUS-number fields
+- `source-note-citation-register.csv`: draft source note, missing citation
+  fields, evidence coverage, request path, and next citation action
 
 Before sending, fill in:
 
