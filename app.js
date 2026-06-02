@@ -356,7 +356,8 @@ function buildChronologyRows(docs) {
         editorialRole: chronologyRole(item, number),
         placement: chronologyPlacement(item, number),
         sourceCopyStatus: chronologySourceCopyStatus(item, number),
-        duplicateTask: "Save exact History.state.gov search, broad topical search, checked date, result count, and duplicate ruling.",
+        duplicateTask:
+          "Exact public FRUS screen is logged with result count 0 and checked date 2026-06-02; save broad topical search count and final duplicate ruling.",
         relatedPullSheets: relatedPullSheets(number),
         relatedDocket: relatedDocket(number),
         nextAction: chronologyNextAction(item, number)
@@ -514,12 +515,19 @@ function buildDuplicateRows(rows) {
     ...item,
     duplicateId: `DUP-${String(index + 1).padStart(3, "0")}`,
     exactSearchUrl: item.frusSearchUrl,
+    exactResultCount: "0",
     broadSearchQuery: broadSearchQuery(item),
     broadSearchUrl: `https://history.state.gov/search?q=${encodeURIComponent(broadSearchQuery(item))}`,
+    broadResultCount: "",
+    checkedDate: "2026-06-02",
+    duplicateStatus: "Exact public FRUS screen checked; broad search and final ruling still open",
+    finalRuling: "",
+    compilerNotes:
+      "Exact History.state.gov title/file-number screen returned no public result on 2026-06-02. Do not promote until broad search count, source-copy review, and final duplicate ruling are complete.",
     duplicateRisk: duplicateRisk(item),
     recommendedRuling: duplicateRuling(item),
     auditTask:
-      "Save exact-search URL, exact result count, broad-search URL, broad result count, checked date, and final duplicate ruling before promotion."
+      "Exact public FRUS screen is logged with result count 0 and checked date 2026-06-02; save broad topical search result count and final duplicate ruling before promotion."
   }));
 }
 
@@ -1155,10 +1163,13 @@ function duplicateCard(item) {
 
   const exact = document.createElement("p");
   exact.className = "source-note";
-  exact.textContent = `Exact search: ${item.exactSearchUrl}`;
+  exact.textContent = `Exact search: ${item.exactSearchUrl} (${item.exactResultCount} public exact results on ${item.checkedDate})`;
   const broad = document.createElement("p");
   broad.className = "source-note";
   broad.textContent = `Broad search: ${item.broadSearchQuery}`;
+  const status = document.createElement("p");
+  status.className = "source-note";
+  status.textContent = `Duplicate status: ${item.duplicateStatus}`;
   const task = document.createElement("p");
   task.textContent = item.auditTask;
 
@@ -1168,7 +1179,7 @@ function duplicateCard(item) {
   if (item.broadSearchUrl) actions.append(linkButton("Broad search", item.broadSearchUrl));
   if (item.sourceNote) actions.append(copyButton(item.sourceNote));
 
-  card.append(header, task, exact, broad, actions, sourceNoteDetails(item));
+  card.append(header, status, task, exact, broad, actions, sourceNoteDetails(item));
   card.append(termChips(item.relatedPullSheets.concat(item.relatedDocket)));
   return card;
 }
@@ -1188,14 +1199,14 @@ function duplicateColumns() {
     { label: "Record Group", value: (item) => item.recordGroup },
     { label: "Source Locator", value: (item) => item.sourceLocator },
     { label: "Exact Search URL", value: (item) => item.exactSearchUrl },
-    { label: "Exact Result Count", value: () => "" },
+    { label: "Exact Result Count", value: (item) => item.exactResultCount },
     { label: "Broad Search Query", value: (item) => item.broadSearchQuery },
     { label: "Broad Search URL", value: (item) => item.broadSearchUrl },
-    { label: "Broad Result Count", value: () => "" },
-    { label: "Checked Date", value: () => "" },
-    { label: "Duplicate Status", value: () => "Unchecked" },
-    { label: "Final Ruling", value: () => "" },
-    { label: "Compiler Notes", value: () => "" },
+    { label: "Broad Result Count", value: (item) => item.broadResultCount },
+    { label: "Checked Date", value: (item) => item.checkedDate },
+    { label: "Duplicate Status", value: (item) => item.duplicateStatus },
+    { label: "Final Ruling", value: (item) => item.finalRuling },
+    { label: "Compiler Notes", value: (item) => item.compilerNotes },
     { label: "Audit Task", value: (item) => item.auditTask },
     { label: "Related Pull Sheets", value: (item) => item.relatedPullSheets.join("; ") },
     { label: "Related Docket", value: (item) => item.relatedDocket.join("; ") },

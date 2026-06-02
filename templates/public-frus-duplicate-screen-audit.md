@@ -1,0 +1,78 @@
+# Public FRUS Duplicate Screen Audit
+
+This audit records the exact public History.state.gov screens for the 50 potential World War II public diplomacy candidate documents. It is an exact-title/file-number screen, not a final duplicate ruling. Every promoted document still needs broad topical search counts, source-copy review, and final editor approval before being treated as not already published in FRUS.
+
+- Checked date: 2026-06-02
+- Exact public result count: 0 for all 50 candidate rows
+- Remaining gate: broad topical History.state.gov search count plus final duplicate ruling
+- Register source: [duplicate-gate-register.csv](duplicate-gate-register.csv)
+- Candidate source: [potential-frus-document-candidates.csv](potential-frus-document-candidates.csv)
+
+## Summary by Lane
+
+| Lane | Rows | Exact Result Count | Remaining Work |
+| --- | ---: | --- | --- |
+| Creating War Information | 6 | 0 each | Broad search counts and final duplicate rulings. |
+| Hemisphere and Cultural Exchange | 11 | 0 each | Broad search counts and final duplicate rulings. |
+| OWI Overseas and VOA | 26 | 0 each | Broad search counts and final duplicate rulings. |
+| Peace Aims and Handoff | 5 | 0 each | Broad search counts and final duplicate rulings. |
+| Prewar Information Policy | 2 | 0 each | Broad search counts and final duplicate rulings. |
+
+## Exact-Screen Rows
+
+| Candidate | Duplicate ID | Date | Title | Exact Count | Checked | Exact Screen | Remaining Gate |
+| --- | --- | --- | --- | ---: | --- | --- | --- |
+| DOC50-041 | DUP-001 | 1942-1944 | Office of War Information, 1942-1944 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Office%20of%20War%20Information%2C%201942-1944%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-048 | DUP-002 | 1942 | Radio Reaction Reports | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Radio%20Reaction%20Reports%22%20%22Inter-American%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-043 | DUP-003 | June 1942 | Office of War Information - Survey of Intelligence, June 1942 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Office%20of%20War%20Information%20-%20Survey%20of%20Intelligence%2C%20June%201942%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-044 | DUP-004 | August 1942 | Office of War Information - Survey of Intelligence, August 1942 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Office%20of%20War%20Information%20-%20Survey%20of%20Intelligence%2C%20August%201942%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-046 | DUP-005 | November 19, 1942 | Memorandum to Philleo Nash from Leo C. Rosten, with attachment | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Memorandum%20to%20Philleo%20Nash%20from%20Leo%20C.%20Rosten%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-042 | DUP-006 | 1942-1945 | Office of War Information confidential file | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Office%20of%20War%20Information%20confidential%20file%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-045 | DUP-007 | December 1942 | Office of War Information - Survey of Intelligence, December 1942 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Office%20of%20War%20Information%20-%20Survey%20of%20Intelligence%2C%20December%201942%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-047 | DUP-008 | October 1942-April 1943 | Letter to Warren B. Walsh from Leo C. Rosten, with attachments | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Letter%20to%20Warren%20B.%20Walsh%20from%20Leo%20C.%20Rosten%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-019 | DUP-009 | May 1943 | Weekly Propaganda Directive: Poland | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%3A%20Poland%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-031 | DUP-010 | September 1943-June 1944 | OWI-OSS Relations | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22OWI-OSS%20Relations%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-030 | DUP-011 | October 1943-September 1945 | Special Guidances-Moscow Cables on Directives | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Special%20Guidances-Moscow%20Cables%20on%20Directives%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-050 | DUP-012 | 1941-1943 | Radio Division Reports and Issuances | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Radio%20Division%20Reports%20and%20Issuances%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-032 | DUP-013 | January-December 1944 | Political Warfare Executive Central Directives | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Political%20Warfare%20Executive%20Central%20Directives%22%20%221944%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-038 | DUP-014 | 1944-1945 | Weekly Propaganda Directive Office of War Information Sweden | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Sweden%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-039 | DUP-015 | 1944-1945 | Weekly Propaganda Directive Office of War Information Iberia | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Iberia%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-040 | DUP-016 | 1944-1945 | Weekly Propaganda Directive Office of War Information Norway, Netherlands, Middle East | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Norway%20Netherlands%20Middle%20East%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-033 | DUP-017 | May-June 1944 | Central Directives-May-June 1944 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Central%20Directives-May-June%201944%22%20OWI) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-036 | DUP-018 | June 30, 1944 | Weekly Propaganda Directive Office of War Information Germany | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Germany%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-029 | DUP-019 | July 1944-February 1945 | Special Guidances-London Policy Directives | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Special%20Guidances-London%20Policy%20Directives%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-010 | DUP-020 | July 8, 1944 | The Iceland Outpost: Analysis of an Informational Operation | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22The%20Iceland%20Outpost%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-011 | DUP-021 | July 9, 1944 | Switzerland telegram carrying OWI message on prewar Bern-Rome communications | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Bern-Rome%20communications%22%20OWI) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-009 | DUP-022 | July 10, 1944 | Dakar telegram to Motion Picture Radio Division advising United Newsreel 108 arrived | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22United%20Newsreel%20108%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-012 | DUP-023 | August 8, 1944 | Manchester dispatch enclosing notices on the OWI Information Center Unit | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Information%20Center%20Unit%22%20Manchester%20OWI) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-013 | DUP-024 | August 8, 1944 | Manchester Press Attache report for the week ending August 5, 1944 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Manchester%20Press%20Attache%22%20%22August%205%2C%201944%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-034 | DUP-025 | September 1944 | Regional Directives-September 1944 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Regional%20Directives-September%201944%22%20OWI) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-014 | DUP-026 | September 2, 1944 | Naples telegram on the present state of OWI thinking with regard to Balkan affairs | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22OWI%27s%20thinking%22%20%22Balkan%20affairs%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-015 | DUP-027 | September 2, 1944 | Switzerland telegram submitting suggestions for Allied propaganda for Italy | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22suggestions%20for%20allied%20propaganda%20for%20Italy%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-016 | DUP-028 | September 2, 1944 | Suva telegram summarizing a Central Directive from OWI | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Summary%20of%20Central%20Directive%20from%20OWI%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-001 | DUP-029 | September 9-11, 1944 | CIAA circular announcing morning and noon Spanish-language shortwave service | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22103.9161%2F9-944%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-002 | DUP-030 | September 21, 1944 | Dominican Republic report that WNBI broadcasts were excellent but reception varied by date | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22103.9161%2F9-2144%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-008 | DUP-031 | September 21, 1944 | Costa Rica telegram enclosing Nelson Rockefeller message for Teodoro Picado | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Teodoro%20Picado%22%20%22Rockefeller%22%20%221944%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-003 | DUP-032 | September 22, 1944 | Circular to diplomatic officers requesting replies to a motion-picture questionnaire | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22103.9161%2F9-2244%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-004 | DUP-033 | October 20, 1944 | Colombia telegram listing latest CIAA program numbers and expiration dates | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22103.9161%2F10-2044%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-005 | DUP-034 | October 20, 1944 | Chile telegram reporting that no CIAA transcriptions were then in use | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22103.9161%2F10-2044%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-026 | DUP-035 | October 28, 1944 | Long-Range Directive for Czechoslovakia | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long-Range%20Directive%20for%20Czechoslovakia%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-017 | DUP-036 | October 31, 1944 | Las Palmas report on Legation activities for OWI and American programs broadcast in September | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22American%20programs%20broadcast%22%20%22Las%20Palmas%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-007 | DUP-037 | November 20, 1944 | Brazil telegram on proposed Hemisphere information service through CIAA | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Hemisphere%20information%20service%22%20CIAA) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-028 | DUP-038 | November 20, 1944 | Netherlands Long Range Directive | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Netherlands%20Long%20Range%20Directive%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-006 | DUP-039 | November 21, 1944 | Circular transmitting changes in the English shortwave schedule | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22English%20short%20wave%20schedule%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-022 | DUP-040 | December 5, 1944 | Long Range Directive for Germany | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long%20Range%20Directive%20for%20Germany%22%20%221944%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-018 | DUP-041 | December 6, 1944 | New Zealand report on informational activities on behalf of OWI, September-October 1944 | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22informational%20activities%22%20%22Office%20of%20War%20Information%22%20%22New%20Zealand%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-027 | DUP-042 | December 6, 1944 | Long-Range Guidance-Switzerland | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long-Range%20Guidance-Switzerland%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-037 | DUP-043 | January 12, 1945 | Weekly Propaganda Directive Office of War Information Czechoslovakia | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Weekly%20Propaganda%20Directive%20Office%20of%20War%20Information%20Czechoslovakia%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-035 | DUP-044 | January 30, 1945 | Long-Range Policy Directive for Thailand | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long-Range%20Policy%20Directive%20for%20Thailand%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-025 | DUP-045 | February 23, 1945 | Long-Range Policy Guidance-Poland | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long-Range%20Policy%20Guidance-Poland%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-024 | DUP-046 | April 12, 1945 | Long-Range Policy Directive-Austria | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long-Range%20Policy%20Directive-Austria%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-023 | DUP-047 | April 18, 1945 | Long-Range Directive-France | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Long-Range%20Directive-France%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-020 | DUP-048 | April 26, 1945 | Basic Policy Directive for Information in Germany | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Basic%20Policy%20Directive%20for%20Information%20in%20Germany%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-021 | DUP-049 | May 29, 1945 | Directive on Basic Themes for Output to Germany | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Directive%20on%20Basic%20Themes%20for%20Output%20to%20Germany%22) | Broad count; source-copy review; final duplicate ruling. |
+| DOC50-049 | DUP-050 | 1945 | Radio Division Resume of Operations | 0 | 2026-06-02 | [Open](https://history.state.gov/search?q=%22Radio%20Division%20Resume%20of%20Operations%22) | Broad count; source-copy review; final duplicate ruling. |
+
+## Compiler Rule
+
+An exact screen with zero public results reduces duplicate risk but does not clear the duplicate gate. A candidate may move to final promotion only after the duplicate-gate row has broad-search result counts, a final ruling, source-copy citation proof, and a selection decision.

@@ -44,6 +44,7 @@ rather than a published FRUS document chronology.
 - static archive-trip pull-plan CSV for repository-by-repository source-copy execution
 - static source-copy receipt/QA CSV for intake review after archive copies arrive
 - static duplicate-gate CSV for preserving the FRUS duplicate audit trail
+- static public FRUS duplicate-screen audit that records exact result count `0` for all 50 candidates while leaving broad/final rulings open
 - static selection-decision CSV for promotion, hold, boundary, exclusion, and final numbering decisions
 - static source-note/citation CSV for converting candidate leads into final FRUS source-note work
 - static authority-control CSV for persons-list, organization, office-succession, and annotation cleanup
