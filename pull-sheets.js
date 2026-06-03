@@ -368,12 +368,12 @@
     actions.className = "record-actions";
     for (const link of sheet.links || []) actions.append(linkButton(link.label, link.url));
     actions.append(copyButton(sheet.requestText, "Copy request"));
-    actions.append(copyButton(sheet.sourceNote, "Copy note"));
+    actions.append(copyButton(sheet.sourceNote, "Copy provenance"));
 
     const sourceDetails = document.createElement("details");
     sourceDetails.className = "source-details";
     const sourceSummary = document.createElement("summary");
-    sourceSummary.textContent = "Source note";
+    sourceSummary.textContent = "Provenance note";
     sourceDetails.append(sourceSummary, paragraph(sheet.sourceNote));
 
     article.append(header, objective, pullList, deliverable, request, actions, sourceDetails);
@@ -429,7 +429,7 @@
           ["Pull List", (sheet) => sheet.pullList],
           ["Deliverable", (sheet) => sheet.deliverable],
           ["Links", (sheet) => (sheet.links || []).map((link) => `${link.label}: ${link.url}`).join("; ")],
-          ["Source Note", (sheet) => sheet.sourceNote]
+          ["Provenance Note", (sheet) => sheet.sourceNote]
         ])
       );
     });

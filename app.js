@@ -649,7 +649,7 @@ function docketCard(item) {
   actions.className = "record-actions";
   for (const link of item.links || []) actions.append(linkButton(link.label, link.url));
   if (item.action) actions.append(copyButton(item.action, "Copy action"));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, objective, action, proof, actions, sourceNoteDetails(item));
   if (item.relatedIds?.length) card.append(termChips(item.relatedIds));
@@ -760,7 +760,7 @@ function leadCard(lead) {
   if (lead.naraUrl) actions.append(linkButton("NARA", lead.naraUrl));
   if (lead.fdrUrl) actions.append(linkButton("FDR Library", lead.fdrUrl));
   if (lead.catalogUrl) actions.append(linkButton(lead.catalogUrl.includes("fdrlibrary") ? "FDR / FRANKLIN" : "Catalog", lead.catalogUrl));
-  if (lead.sourceNote) actions.append(copyButton(lead.sourceNote));
+  if (lead.sourceNote) actions.append(sourceNoteCopyButton(lead));
 
   card.append(header, material, actions);
   card.append(sourceNoteDetails(lead));
@@ -956,7 +956,7 @@ function documentCard(item) {
   const actions = document.createElement("div");
   actions.className = "record-actions";
   if (item.url) actions.append(linkButton("Open source", item.url));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, offices, selection, task, actions, sourceNoteDetails(item));
   if (item.gapIds?.length) card.append(termChips(item.gapIds));
@@ -1022,7 +1022,7 @@ function candidateDocumentCard(item) {
   actions.className = "record-actions";
   if (item.catalogUrl) actions.append(linkButton("Catalog", item.catalogUrl));
   if (item.frusSearchUrl) actions.append(linkButton("FRUS check", item.frusSearchUrl));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, locator, value, check, actions, sourceNoteDetails(item));
   return card;
@@ -1081,7 +1081,7 @@ function chronologyCard(item) {
   actions.className = "record-actions";
   if (item.catalogUrl) actions.append(linkButton("Catalog", item.catalogUrl));
   if (item.frusSearchUrl) actions.append(linkButton("FRUS check", item.frusSearchUrl));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, episode, placement, action, duplicate, actions, sourceNoteDetails(item));
   card.append(termChips(item.relatedPullSheets.concat(item.relatedDocket)));
@@ -1177,7 +1177,7 @@ function duplicateCard(item) {
   actions.className = "record-actions";
   if (item.exactSearchUrl) actions.append(linkButton("Exact search", item.exactSearchUrl));
   if (item.broadSearchUrl) actions.append(linkButton("Broad search", item.broadSearchUrl));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, status, task, exact, broad, actions, sourceNoteDetails(item));
   card.append(termChips(item.relatedPullSheets.concat(item.relatedDocket)));
@@ -1343,7 +1343,7 @@ function closureCard(task) {
   const actions = document.createElement("div");
   actions.className = "record-actions";
   if (task.queryUrl) actions.append(linkButton("Open search", task.queryUrl));
-  if (task.sourceNote) actions.append(copyButton(task.sourceNote));
+  if (task.sourceNote) actions.append(sourceNoteCopyButton(task));
 
   card.append(header, objective, proof, criteria, next, actions, sourceNoteDetails(task));
   if (task.gapIds?.length) card.append(termChips(task.gapIds));
@@ -1415,7 +1415,7 @@ function evidencePacketCard(packet) {
   const actions = document.createElement("div");
   actions.className = "record-actions";
   for (const link of packet.links || []) actions.append(linkButton(link.label, link.url));
-  if (packet.sourceNote) actions.append(copyButton(packet.sourceNote));
+  if (packet.sourceNote) actions.append(sourceNoteCopyButton(packet));
 
   card.append(header, repositories, policy, implementation, reaction, sourceGate, nextAction, actions, sourceNoteDetails(packet));
   if (packet.gapIds?.length) card.append(termChips(packet.gapIds));
@@ -1486,7 +1486,7 @@ function stateCableCard(lead) {
   if (lead.catalogUrl) actions.append(linkButton("Catalog", lead.catalogUrl));
   if (lead.searchUrl) actions.append(linkButton("Search", lead.searchUrl));
   for (const link of lead.links || []) actions.append(linkButton(link.label, link.url));
-  if (lead.sourceNote) actions.append(copyButton(lead.sourceNote));
+  if (lead.sourceNote) actions.append(sourceNoteCopyButton(lead));
 
   card.append(header, series, material, use, next, actions, sourceNoteDetails(lead));
   if (lead.targetTerms?.length) card.append(termChips(lead.targetTerms));
@@ -1522,7 +1522,7 @@ function ledgerCard(item) {
   const actions = document.createElement("div");
   actions.className = "record-actions";
   if (item.url) actions.append(linkButton("Open source", item.url));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, action, actions, sourceNoteDetails(item));
   return card;
@@ -1565,7 +1565,7 @@ function publicCard(item) {
   const actions = document.createElement("div");
   actions.className = "file-actions";
   if (item.url) actions.append(linkButton("Open reference", item.url));
-  if (item.sourceNote) actions.append(copyButton(item.sourceNote));
+  if (item.sourceNote) actions.append(sourceNoteCopyButton(item));
 
   card.append(header, chips, sourceNoteDetails(item), actions);
   return card;
@@ -1607,7 +1607,7 @@ function boundaryCard(record) {
   const actions = document.createElement("div");
   actions.className = "record-actions";
   if (record.url) actions.append(linkButton("Open source", record.url));
-  if (record.sourceNote) actions.append(copyButton(record.sourceNote));
+  if (record.sourceNote) actions.append(sourceNoteCopyButton(record));
 
   card.append(header, reason, actions, sourceNoteDetails(record));
   if (record.targetTerms?.length) card.append(termChips(record.targetTerms));
@@ -1655,30 +1655,87 @@ function linkButton(label, href) {
   return link;
 }
 
-function copyButton(value) {
+function copyButton(value, label = "Copy note") {
   const button = document.createElement("button");
   button.className = "copy-note";
   button.type = "button";
-  button.textContent = "Copy note";
+  button.textContent = label;
   button.addEventListener("click", async () => {
     await navigator.clipboard.writeText(value || "");
     button.textContent = "Copied";
     setTimeout(() => {
-      button.textContent = "Copy note";
+      button.textContent = label;
     }, 1200);
   });
   return button;
 }
 
+function sourceNoteCopyButton(item) {
+  const kind = sourceNoteKind(item.sourceNote);
+  const label = kind === "source" ? "Copy note" : "Copy provenance";
+  return copyButton(sourceNoteText(item), label);
+}
+
 function sourceNoteDetails(item) {
   const details = document.createElement("details");
   const summary = document.createElement("summary");
-  summary.textContent = "Source note";
+  summary.textContent = sourceNoteKind(item.sourceNote) === "source" ? "Source note" : "Provenance note";
   const note = document.createElement("p");
   note.className = "source-note";
-  note.textContent = item.sourceNote || "Source note pending.";
+  note.textContent = sourceNoteText(item) || "Source note pending.";
   details.append(summary, note);
   return details;
+}
+
+function sourceNoteKind(value) {
+  const note = String(value || "").trim();
+  if (!note) return "source";
+  return /^(Source:|National Archives|NARA\b|FDR Library|Franklin D\. Roosevelt|Office of the Historian)/i.test(note)
+    ? "source"
+    : "provenance";
+}
+
+function sourceNoteText(item) {
+  return sourceNoteKind(item.sourceNote) === "source"
+    ? publishedSourceNote(item.sourceNote, item)
+    : String(item.sourceNote || "").trim();
+}
+
+function publishedSourceNote(value, item = {}) {
+  let note = String(value || "").trim();
+  if (!note) return "";
+  note = note
+    .replace(/\s*Source copy, exact folder, item\/page image, classification, and routing still to be verified before final FRUS source note\.?$/i, "")
+    .replace(/\s+/g, " ")
+    .replace(/\.+$/, "");
+
+  const locator = String(item.sourceLocator || "");
+  if (String(item.recordGroup || item.recordGroupOrCollection || "").trim() === "RG 59") {
+    const fileNumber = locator.split(";")[0]?.trim();
+    if (/^\d{3}\.\d+\/\d{1,2}-\d{3,4}$/.test(fileNumber)) {
+      return `Source: National Archives, RG 59, Central Decimal File 1940-1944, ${fileNumber}.`;
+    }
+  }
+
+  if (/^Source:\s*/i.test(note)) return `${note.replace(/^Source:\s*/i, "Source: ")}.`;
+
+  note = note
+    .replace(/^NARA RG 208,\s*(?:Records of the Office of War Information,\s*)?/i, "National Archives, RG 208, Records of the Office of War Information, ")
+    .replace(/^NARA RG 229,\s*Office of the Coordinator of Inter-American Affairs,\s*/i, "National Archives, RG 229, Records of the Office of the Coordinator of Inter-American Affairs, ")
+    .replace(/^NARA RG 229,\s*Office of Inter-American Affairs,\s*/i, "National Archives, RG 229, Records of the Office of Inter-American Affairs, ")
+    .replace(/^NARA RG 165,\s*(?:Records of the War Department General and Special Staffs,\s*)?/i, "National Archives, RG 165, Records of the War Department General and Special Staffs, ")
+    .replace(/^NARA RG 59,\s*/i, "National Archives, RG 59, ")
+    .replace(/^NARA,\s*/i, "National Archives, ")
+    .replace(/^FDR Library via NARA Catalog,\s*/i, "Franklin D. Roosevelt Library, ")
+    .replace(/^FDR Library,\s*/i, "Franklin D. Roosevelt Library, ")
+    .replace(/^Franklin D\. Roosevelt Presidential Library,\s*/i, "Franklin D. Roosevelt Library, ");
+
+  note = note.replace(
+    /^National Archives, Records of ([^,;]+), Record Group (\d+);?\s*/i,
+    "National Archives, RG $2, Records of $1, "
+  );
+
+  return `Source: ${note}.`;
 }
 
 function groupBy(items, getter) {
@@ -1700,8 +1757,12 @@ function slug(value) {
 
 function toCsv(items, columns) {
   const escape = (value) => `"${String(value ?? "").replaceAll('"', '""')}"`;
+  const columnValue = (column, item) => {
+    const value = column.value(item);
+    return column.label === "Source Note" ? sourceNoteText({ ...item, sourceNote: value }) : value;
+  };
   return [columns.map((column) => escape(column.label)).join(",")]
-    .concat(items.map((item) => columns.map((column) => escape(column.value(item))).join(",")))
+    .concat(items.map((item) => columns.map((column) => escape(columnValue(column, item))).join(",")))
     .join("\n");
 }
 
