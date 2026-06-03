@@ -30,6 +30,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
+  padding-bottom: 56px;
   color: var(--ink);
   background:
     linear-gradient(90deg, rgba(47, 111, 159, 0.07) 0 1px, transparent 1px 100%),
@@ -161,6 +162,67 @@ h3 {
   color: #39484e;
   font-size: clamp(1.12rem, 1.9vw, 1.34rem);
   line-height: 1.62;
+}
+
+.compiler-onboarding {
+  max-width: 820px;
+  margin-top: 24px;
+  padding: 20px;
+  color: #26353b;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--rust);
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(20, 33, 61, 0.1);
+}
+
+.guide-onboarding {
+  margin-bottom: 24px;
+}
+
+.onboarding-title {
+  margin-bottom: 10px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.onboarding-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+  padding-left: 22px;
+  color: #34444a;
+  font-weight: 760;
+  line-height: 1.5;
+}
+
+.reassurance-line {
+  margin-bottom: 12px;
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.reassurance-line.compact {
+  margin: 12px 0 0;
+}
+
+.persistent-reassurance {
+  position: fixed;
+  right: clamp(12px, 2.4vw, 28px);
+  bottom: 12px;
+  z-index: 30;
+  max-width: min(420px, calc(100% - 24px));
+  margin: 0;
+  padding: 10px 12px;
+  color: #fff;
+  background: rgba(23, 34, 59, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 7px;
+  box-shadow: 0 14px 30px rgba(20, 33, 61, 0.22);
+  font-size: 0.84rem;
+  font-weight: 900;
+  line-height: 1.25;
 }
 
 .hero-actions {
@@ -999,6 +1061,16 @@ footer {
 
   .lede {
     font-size: 1.02rem;
+  }
+
+  .compiler-onboarding {
+    padding: 16px;
+  }
+
+  .persistent-reassurance {
+    right: 12px;
+    bottom: 10px;
+    max-width: calc(100% - 24px);
   }
 
   .brief {
