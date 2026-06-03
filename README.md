@@ -1,11 +1,15 @@
-# FRUS Public Diplomacy, World War II Assist
+# FRUS Public Diplomacy, World War II Compiler Workbench
 
-GitHub Pages research assistant for *Foreign Relations of the United States,
+GitHub Pages compiler workbench for *Foreign Relations of the United States,
 1917-1972, Volume III, Public Diplomacy, World War II*.
 
 The official History.state.gov volume page currently lists the volume as
 **Being Researched**, so this site presents a candidate source-lead workbench
 rather than a published FRUS document chronology.
+
+The site is intentionally evidentiary rather than predictive: candidates remain
+provisional until source copies, duplicate checks, citation fields, and reviewer
+rulings are recorded in visible registers.
 
 ## Features
 
