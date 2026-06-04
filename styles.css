@@ -196,6 +196,29 @@ h3 {
   line-height: 1.5;
 }
 
+.starter-prompts {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.starter-prompts p {
+  margin: 0;
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.starter-prompts span {
+  display: block;
+  padding: 10px 12px;
+  color: #26353b;
+  background: rgba(237, 244, 241, 0.84);
+  border: 1px solid rgba(203, 215, 209, 0.95);
+  border-radius: 7px;
+  font-weight: 820;
+  line-height: 1.35;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
