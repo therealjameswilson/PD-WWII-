@@ -558,12 +558,16 @@ function duplicateRuling(item) {
 }
 
 function setStats() {
-  nodes.totalLeads.textContent = leads.length.toString();
-  nodes.intakeCount.textContent = documentIntake.length.toString();
-  nodes.naraCount.textContent = leads.filter((lead) => lead.repository === "NARA").length.toString();
-  nodes.fdrCount.textContent = leads.filter((lead) => lead.repository === "FDR Library").length.toString();
-  nodes.poolCount.textContent = sourcePools.length.toString();
-  nodes.gapCount.textContent = gaps.length.toString();
+  const highPriorityDocs = candidateDocuments.filter((item) => ["Critical", "High"].includes(item.priority));
+  const naraDocs = candidateDocuments.filter((item) => item.repository === "NARA");
+  const catalogDocs = candidateDocuments.filter((item) => item.repository !== "NARA");
+  const recordGroups = new Set(candidateDocuments.map((item) => item.recordGroup).filter(Boolean));
+  nodes.totalLeads.textContent = candidateDocuments.length.toString();
+  nodes.intakeCount.textContent = highPriorityDocs.length.toString();
+  nodes.naraCount.textContent = naraDocs.length.toString();
+  nodes.fdrCount.textContent = catalogDocs.length.toString();
+  nodes.poolCount.textContent = recordGroups.size.toString();
+  nodes.gapCount.textContent = "4";
 }
 
 function renderWorkbench() {
@@ -574,17 +578,16 @@ function renderWorkbench() {
   const officialStatus = meta.status || "Unknown";
 
   nodes.workbenchRoot.replaceChildren(
+    metricCard("Document candidates", candidateDocuments.length, "Start here: possible declassified inclusions not found in public FRUS exact-title or file-number checks."),
+    metricCard("High/Critical rows", candidateDocuments.filter((item) => ["Critical", "High"].includes(item.priority)).length, "Review these first for source-copy requests and promotion decisions."),
+    metricCard("Duplicate gates", duplicateRows.length, "Save exact and broad History.state.gov searches before any row is promoted."),
+    metricCard("Pull sheets", compilerDocket.length, "Use these only to recover source copies and supporting provenance for candidate documents."),
+    metricCard("Chronology seeds", chronologyRows.length, "Order candidate documents after source-copy and duplicate proof is attached."),
     metricCard("Official status", officialStatus, "History.state.gov lists this volume as being researched."),
-    metricCard("Intake rows", documentIntake.length, "Document-level candidate rows now route the archival harvest."),
-    metricCard("Candidate docs", candidateDocuments.length, "Potential documents not found in public FRUS exact-title or file-number checks."),
-    metricCard("Chronology seeds", chronologyRows.length, "First-pass FRUS ordering scaffold with proof gates and next actions."),
-    metricCard("Duplicate gates", duplicateRows.length, "Exact and broad History.state.gov searches required before promotion."),
-    metricCard("Docket moves", compilerDocket.length, "Immediate pull and proof-gate actions for the compiler's first archive cycle."),
-    metricCard("Evidence packets", evidencePackets.length, "Policy, implementation, reaction, and source-copy gates now fix the gap structure."),
-    metricCard("State cable leads", stateCableLeads.length, "RG 59 controls and RG 84 post-file targets for State telegrams, despatches, and instructions."),
-    metricCard("Closure tasks", closureTasks.length, "Proof tasks that convert packeted gaps into source-copy work."),
-    metricCard("Source pools", naraPools.length + fdrPools.length, "NARA and FDR Library lanes for first-pass harvesting."),
-    metricCard("Unfixed gaps", unfixedGaps.length, `${plural(boundaryCount, "boundary row")} keep the harvest honest.`)
+    metricCard("Source pools", naraPools.length + fdrPools.length, "Supporting NARA and FDR Library lanes for finding source copies."),
+    metricCard("Evidence packets", evidencePackets.length, "Use packets to prove policy, implementation, reaction, and source-copy value."),
+    metricCard("State cable leads", stateCableLeads.length, "RG 59 and RG 84 leads that can corroborate candidate documents."),
+    metricCard("Unfixed gaps", unfixedGaps.length, `${plural(boundaryCount, "boundary row")} keep weak inclusions out.`)
   );
 }
 
@@ -613,9 +616,9 @@ function renderCompilerDocket() {
       (priorityOrder.get(a.priority) || 99) - (priorityOrder.get(b.priority) || 99) ||
       a.id.localeCompare(b.id)
   );
-  nodes.docketSummary.textContent = `${plural(visible.length, "docket move")} ready for the first archive cycle.`;
+  nodes.docketSummary.textContent = `${plural(visible.length, "source-copy action")} ready for the first archive cycle.`;
   nodes.docketRoot.replaceChildren(...visible.map(docketCard));
-  if (!visible.length) nodes.docketRoot.innerHTML = '<p class="empty">No compiler docket rows were generated.</p>';
+  if (!visible.length) nodes.docketRoot.innerHTML = '<p class="empty">No source-copy actions were generated.</p>';
 }
 
 function docketCard(item) {
@@ -987,7 +990,7 @@ function renderCandidateDocuments() {
       chapterNumber(a.lane) - chapterNumber(b.lane) ||
       a.id.localeCompare(b.id)
   );
-  nodes.candidateSummary.textContent = `${plural(visible.length, "candidate")} visible from ${candidateDocuments.length} potential documents not found in public FRUS exact-title/file-number checks.`;
+  nodes.candidateSummary.textContent = `${plural(visible.length, "candidate")} visible from ${candidateDocuments.length} declassified-document candidates to review for inclusion.`;
   nodes.candidateRoot.replaceChildren(...visible.map(candidateDocumentCard));
   if (!visible.length) nodes.candidateRoot.innerHTML = '<p class="empty">No candidate documents match the current filters.</p>';
 }
@@ -1013,10 +1016,10 @@ function candidateDocumentCard(item) {
   locator.className = "source-note";
   locator.textContent = `Locator: ${item.sourceLocator}`;
   const value = document.createElement("p");
-  value.textContent = item.candidateValue;
+  value.textContent = `Inclusion value: ${item.candidateValue}`;
   const check = document.createElement("p");
   check.className = "source-note";
-  check.textContent = `FRUS check: ${item.frusCheck}`;
+  check.textContent = `Duplicate gate: ${item.frusCheck}`;
 
   const actions = document.createElement("div");
   actions.className = "record-actions";

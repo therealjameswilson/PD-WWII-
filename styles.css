@@ -30,7 +30,6 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  padding-bottom: 56px;
   color: var(--ink);
   background:
     linear-gradient(90deg, rgba(47, 111, 159, 0.07) 0 1px, transparent 1px 100%),
@@ -164,7 +163,7 @@ h3 {
   line-height: 1.62;
 }
 
-.compiler-onboarding {
+.document-focus-panel {
   max-width: 820px;
   margin-top: 24px;
   padding: 20px;
@@ -195,34 +194,6 @@ h3 {
   color: #34444a;
   font-weight: 760;
   line-height: 1.5;
-}
-
-.reassurance-line {
-  margin-bottom: 12px;
-  color: var(--navy);
-  font-weight: 900;
-}
-
-.reassurance-line.compact {
-  margin: 12px 0 0;
-}
-
-.persistent-reassurance {
-  position: fixed;
-  right: clamp(12px, 2.4vw, 28px);
-  bottom: 12px;
-  z-index: 30;
-  max-width: min(420px, calc(100% - 24px));
-  margin: 0;
-  padding: 10px 12px;
-  color: #fff;
-  background: rgba(23, 34, 59, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 7px;
-  box-shadow: 0 14px 30px rgba(20, 33, 61, 0.22);
-  font-size: 0.84rem;
-  font-weight: 900;
-  line-height: 1.25;
 }
 
 .hero-actions {
@@ -326,7 +297,7 @@ dd {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
-  margin-bottom: 70px;
+  margin-bottom: 42px;
 }
 
 .stats div {
@@ -372,6 +343,11 @@ dd {
 
 .section {
   padding: 34px 0 76px;
+}
+
+.primary-documents {
+  padding-top: 28px;
+  border-top: 1px solid rgba(203, 215, 209, 0.9);
 }
 
 .section-heading {
@@ -1063,14 +1039,8 @@ footer {
     font-size: 1.02rem;
   }
 
-  .compiler-onboarding {
+  .document-focus-panel {
     padding: 16px;
-  }
-
-  .persistent-reassurance {
-    right: 12px;
-    bottom: 10px;
-    max-width: calc(100% - 24px);
   }
 
   .brief {

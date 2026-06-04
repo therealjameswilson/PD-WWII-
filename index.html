@@ -3,86 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FRUS Public Diplomacy, World War II Compiler Workbench</title>
+    <title>FRUS Public Diplomacy, World War II Document Candidates</title>
     <meta
       name="description"
-      content="A compiler-led FRUS workbench for Foreign Relations of the United States, 1917-1972, Volume III, Public Diplomacy, World War II."
+      content="A simplified FRUS Public Diplomacy, World War II page focused on declassified document candidates to include in the retro volume."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="FRUS Public Diplomacy World War II compiler workbench home">
+      <a class="brand" href="#top" aria-label="FRUS Public Diplomacy World War II document candidates home">
         <span class="brand-mark">PD III</span>
         <span>WWII Public Diplomacy</span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#leads">Source Leads</a>
-        <a href="#workbench">Desk</a>
-        <a href="#docket">Docket</a>
-        <a href="compiler-guide.html">Guide</a>
-        <a href="#document-intake">Intake</a>
         <a href="#candidate-documents">50 Docs</a>
-        <a href="#chronology">Chronology</a>
         <a href="#duplicates">Duplicates</a>
         <a href="#pull-sheets">Pull Sheets</a>
+        <a href="#chronology">Chronology</a>
+        <a href="#document-intake">Intake</a>
+        <a href="#leads">Source Leads</a>
+        <a href="compiler-guide.html">Guide</a>
         <a href="#selection-rules">Rules</a>
-        <a href="#coverage">Coverage</a>
-        <a href="#closure">Closure</a>
-        <a href="#evidence-packets">Packets</a>
-        <a href="#state-cables">State Cables</a>
-        <a href="#gap-tracker">Gaps</a>
-        <a href="#source-pools">Source Pools</a>
-        <a href="#ledger">Source Ledger</a>
-        <a href="persons.html">Persons</a>
-        <a href="#lanes">Lanes</a>
-        <a href="#public-line">Public Line</a>
-        <a href="#boundary">Boundaries</a>
         <a href="#sources">Sources</a>
       </nav>
     </header>
-    <p class="persistent-reassurance print-hide">Charles, all will be fine. I am here to help. Command me!!</p>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="kicker">FRUS 1917-1972, Public Diplomacy, Volume III</p>
-          <h1 id="hero-title">World War II Public Diplomacy</h1>
+          <h1 id="hero-title">Declassified Documents To Include</h1>
           <p class="lede">
-            A compiler-facing workbench for the unpublished World War II public
-            diplomacy volume: OWI, OGR, USIS, VOA, OCIAA, FDR public-line checks,
-            NARA source pools, FDR Library anchors, document-intake rows,
-            selection rules, gap-closure tasks, coverage checks, and boundary controls.
-            Evidence packets now bind each gap to policy, implementation, reaction, and
-            source-copy proof, with a State cable search layer for RG 59 and RG 84 post files.
-            A 50-document candidate register, chronology seed, document-assembly spine,
-            and duplicate-gate register now flag potential additions not found in public
-            FRUS exact-title or file-number checks, with a static candidate index for
-            compiler review. Every row remains provisional until a reviewer can inspect the
-            source copy, duplicate screen, citation fields, and promotion rationale.
+            Start with the 50 declassified-document candidates for the retro
+            World War II public diplomacy volume. Each row is a possible FRUS
+            inclusion, not a final selection: promote it only after source-copy
+            review, public FRUS duplicate screening, a published-style source
+            note, and a clear reason it belongs in the volume.
           </p>
-          <div class="compiler-onboarding" aria-label="Orientation for Charles">
-            <p class="reassurance-line">Charles, all will be fine. I am here to help. Command me!!</p>
-            <h2 class="onboarding-title">Start here if you inherited this volume</h2>
+          <div class="document-focus-panel" aria-label="Document-inclusion workflow">
+            <h2 class="onboarding-title">Use this page as the inclusion queue</h2>
             <p>
-              You do not need to master AI before making progress. Use this page
-              as a patient research clerk: ask it to separate what the four
-              earlier compilers left behind into finished evidence, usable leads,
-              doubtful boundary material, and missing source-copy work.
+              The site is now organized around the documents themselves. Work
+              from the candidate register first, then use the supporting sections
+              only when a row needs proof.
             </p>
             <ul class="onboarding-list">
-              <li>Ask for the next 30-minute task; the docket, readiness scorecard, and pull sheets turn the inherited backlog into a ranked work order.</li>
-              <li>Ask whether a document belongs in the volume; the duplicate, boundary, citation, and selection registers show what still has to be proved.</li>
-              <li>Ask where to pull next; the RG 59, RG 84, NARA, and FDR Library links point to source-copy requests and post-file corroboration.</li>
-              <li>Ask what can be ignored for now; the workbench marks domestic morale, intelligence, War Department, and folder-level material as boundary or context until the source evidence earns promotion.</li>
+              <li>Review the 50 candidate documents by priority, date, repository, and record group.</li>
+              <li>Pull the source copy before treating any row as selected.</li>
+              <li>Save the duplicate screen showing the item is not already in published FRUS.</li>
+              <li>Promote only documents with foreign-policy value, public-diplomacy substance, and usable provenance.</li>
             </ul>
-            <p class="reassurance-line compact">Charles, all will be fine. I am here to help. Command me!!</p>
           </div>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#docket">Open Docket</a>
-            <a class="button secondary" href="compiler-guide.html">Open Compiler Guide</a>
-            <a class="button secondary" href="#candidate-documents">Review 50 Docs</a>
-            <a class="button secondary" href="#chronology">Build Chronology</a>
+            <a class="button primary" href="#candidate-documents">Review 50 Documents</a>
+            <a class="button secondary" href="templates/potential-frus-document-candidates.csv">Download Candidate CSV</a>
+            <a class="button secondary" href="#pull-sheets">Open Pull Sheets</a>
             <a class="button secondary" href="#duplicates">Run Duplicate Gate</a>
           </div>
         </div>
@@ -92,26 +68,90 @@
             src="assets/public-diplomacy-source-map.svg"
             alt="Research map linking History.state.gov, NARA, and FDR Library source lanes"
           />
-          <p class="brief-label">Compiler Scope</p>
+          <p class="brief-label">Document Focus</p>
           <dl>
             <div>
-              <dt>Volume</dt>
-              <dd>Public Diplomacy III</dd>
+              <dt>Queue</dt>
+              <dd>50 candidates</dd>
             </div>
             <div>
-              <dt>Status</dt>
-              <dd>Being Researched</dd>
+              <dt>Top priority</dt>
+              <dd>Source copies</dd>
             </div>
             <div>
-              <dt>NARA Base</dt>
-              <dd>RG 59 / 84 / 208 / 44 / 229 / 216</dd>
+              <dt>NARA base</dt>
+              <dd>RG 59 / 208 / 229 / 165</dd>
             </div>
             <div>
-              <dt>FDR Base</dt>
-              <dd>FRANKLIN / Day by Day</dd>
+              <dt>White House</dt>
+              <dd>FDR Library / NARA Catalog</dd>
             </div>
           </dl>
         </aside>
+      </section>
+
+      <section class="stats" aria-label="Document candidate summary">
+        <div>
+          <span id="total-leads">0</span>
+          <p>document candidates</p>
+        </div>
+        <div>
+          <span id="intake-count">0</span>
+          <p>high or critical</p>
+        </div>
+        <div>
+          <span id="nara-count">0</span>
+          <p>NARA candidates</p>
+        </div>
+        <div>
+          <span id="fdr-count">0</span>
+          <p>FDR/catalog candidates</p>
+        </div>
+        <div>
+          <span id="pool-count">0</span>
+          <p>record groups</p>
+        </div>
+        <div>
+          <span id="gap-count">0</span>
+          <p>proof gates</p>
+        </div>
+      </section>
+
+      <section class="section records-section primary-documents" id="candidate-documents" aria-labelledby="candidate-title">
+        <div class="section-heading">
+          <p class="kicker">Declassified Candidate Register</p>
+          <h2 id="candidate-title">50 Documents To Review For Inclusion</h2>
+        </div>
+        <div class="tools candidate-tools" aria-label="Search and filter candidate documents">
+          <label class="search-field">
+            <span>Search candidates</span>
+            <input id="candidate-search" type="search" placeholder="Search titles, file numbers, repositories, FRUS checks, source notes" />
+          </label>
+          <label>
+            <span>Lane</span>
+            <select id="candidate-lane-filter"></select>
+          </label>
+          <label>
+            <span>Repository</span>
+            <select id="candidate-repository-filter"></select>
+          </label>
+          <label>
+            <span>Priority</span>
+            <select id="candidate-priority-filter"></select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select id="candidate-status-filter"></select>
+          </label>
+          <button id="clear-candidate-filters" type="button">Reset</button>
+          <button id="export-candidates" type="button">CSV</button>
+          <a class="button secondary" href="templates/potential-frus-document-candidates.md">Static Register</a>
+          <a class="button secondary" href="templates/potential-frus-document-candidates.csv">Static CSV</a>
+          <p id="candidate-summary" class="summary">Loading candidate documents...</p>
+        </div>
+        <div id="candidate-root" class="records-root compact-records" aria-live="polite">
+          <p class="loading">Loading candidate documents...</p>
+        </div>
       </section>
 
       <section class="section records-section" id="leads" aria-labelledby="leads-title">
@@ -149,47 +189,20 @@
         </div>
       </section>
 
-      <section class="stats" aria-label="Volume summary">
-        <div>
-          <span id="total-leads">0</span>
-          <p>candidate leads</p>
-        </div>
-        <div>
-          <span id="intake-count">0</span>
-          <p>intake rows</p>
-        </div>
-        <div>
-          <span id="nara-count">0</span>
-          <p>NARA rows</p>
-        </div>
-        <div>
-          <span id="fdr-count">0</span>
-          <p>FDR rows</p>
-        </div>
-        <div>
-          <span id="pool-count">0</span>
-          <p>source pools</p>
-        </div>
-        <div>
-          <span id="gap-count">0</span>
-          <p>tracked gaps</p>
-        </div>
-      </section>
-
       <section class="section compiler-section" id="workbench" aria-labelledby="workbench-title">
         <div class="section-heading">
-          <p class="kicker">Compiler Desk</p>
-          <h2 id="workbench-title">Selection and Boundary Desk</h2>
+          <p class="kicker">Proof Desk</p>
+          <h2 id="workbench-title">What Each Candidate Still Needs</h2>
         </div>
         <div id="workbench-root" class="workbench-root" aria-live="polite">
-          <p class="loading">Loading compiler desk...</p>
+          <p class="loading">Loading proof desk...</p>
         </div>
       </section>
 
       <section class="section docket-section" id="docket" aria-labelledby="docket-title">
         <div class="section-heading">
-          <p class="kicker">Immediate Compiler Docket</p>
-          <h2 id="docket-title">First Pulls and Proof Gates</h2>
+          <p class="kicker">Source-Copy Queue</p>
+          <h2 id="docket-title">First Pulls and Inclusion Gates</h2>
         </div>
         <div class="section-actions">
           <button id="export-docket" type="button">CSV</button>
@@ -198,10 +211,10 @@
           <a class="button secondary" href="templates/archive-response-tracker.md">Responses</a>
           <a class="button secondary" href="templates/immediate-compiler-docket.csv">Static CSV</a>
           <a class="button secondary" href="templates/compiler-readiness-scorecard.csv">Readiness CSV</a>
-          <p id="docket-summary" class="summary">Loading compiler docket...</p>
+          <p id="docket-summary" class="summary">Loading source-copy queue...</p>
         </div>
         <div id="docket-root" class="records-root compact-records" aria-live="polite">
-          <p class="loading">Loading compiler docket...</p>
+          <p class="loading">Loading source-copy queue...</p>
         </div>
       </section>
 
@@ -233,43 +246,6 @@
         </div>
         <div id="document-root" class="records-root compact-records" aria-live="polite">
           <p class="loading">Loading document-intake rows...</p>
-        </div>
-      </section>
-
-      <section class="section records-section" id="candidate-documents" aria-labelledby="candidate-title">
-        <div class="section-heading">
-          <p class="kicker">Candidate Document Register</p>
-          <h2 id="candidate-title">50 Potential Documents Not Found In Existing FRUS</h2>
-        </div>
-        <div class="tools candidate-tools" aria-label="Search and filter candidate documents">
-          <label class="search-field">
-            <span>Search candidates</span>
-            <input id="candidate-search" type="search" placeholder="Search titles, file numbers, repositories, FRUS checks, source notes" />
-          </label>
-          <label>
-            <span>Lane</span>
-            <select id="candidate-lane-filter"></select>
-          </label>
-          <label>
-            <span>Repository</span>
-            <select id="candidate-repository-filter"></select>
-          </label>
-          <label>
-            <span>Priority</span>
-            <select id="candidate-priority-filter"></select>
-          </label>
-          <label>
-            <span>Status</span>
-            <select id="candidate-status-filter"></select>
-          </label>
-          <button id="clear-candidate-filters" type="button">Reset</button>
-          <button id="export-candidates" type="button">CSV</button>
-          <a class="button secondary" href="templates/potential-frus-document-candidates.md">Static Register</a>
-          <a class="button secondary" href="templates/potential-frus-document-candidates.csv">Static CSV</a>
-          <p id="candidate-summary" class="summary">Loading candidate documents...</p>
-        </div>
-        <div id="candidate-root" class="records-root compact-records" aria-live="polite">
-          <p class="loading">Loading candidate documents...</p>
         </div>
       </section>
 
@@ -365,10 +341,10 @@
           <button id="clear-pull-filters" type="button">Reset</button>
           <button id="export-pulls" type="button">CSV</button>
           <a class="button secondary" href="templates/archive-trip-pull-plan.csv">Pull Plan CSV</a>
-          <p id="pull-summary" class="summary">Loading compiler pull sheets...</p>
+          <p id="pull-summary" class="summary">Loading source-copy pull sheets...</p>
         </div>
         <div id="pull-root" class="records-root compact-records" aria-live="polite">
-          <p class="loading">Loading compiler pull sheets...</p>
+          <p class="loading">Loading source-copy pull sheets...</p>
         </div>
       </section>
 
@@ -689,7 +665,7 @@
     </main>
 
     <footer>
-      <p>Compiler workbench for Public Diplomacy, World War II. Candidate data is drawn from public source records and official archive guides.</p>
+      <p>Declassified document-candidate page for Public Diplomacy, World War II. Candidate data is drawn from public source records and official archive guides.</p>
     </footer>
 
     <script src="data/volume-data.js"></script>
